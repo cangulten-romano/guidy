@@ -205,13 +205,14 @@ footer b{color:#fff}
       </ol>
     </div>
     <div>
-      <form id="f" novalidate>
+      <form id="f" action="https://formspree.io/f/mrpqpazq" method="POST" novalidate>
+        <input type="hidden" name="_subject" value="Yeni Guidy elçi başvurusu">
         <div class="row">
           <label for="ad">Ad soyad<input id="ad" name="ad" autocomplete="name" required></label>
           <label for="sehir">Şehir<input id="sehir" name="sehir" autocomplete="address-level2" required></label>
         </div>
         <div class="row">
-          <label for="eposta">E-posta<input id="eposta" name="eposta" type="email" autocomplete="email" required></label>
+          <label for="eposta">E-posta<input id="eposta" name="email" type="email" autocomplete="email" required></label>
           <label for="tel">Telefon<input id="tel" name="tel" type="tel" autocomplete="tel" required></label>
         </div>
         <label for="deneyim">Seyahat ve satış deneyiminiz
@@ -223,14 +224,13 @@ footer b{color:#fff}
           </select>
         </label>
         <label for="neden">Neden Guidy elçisi olmak istiyorsunuz?<textarea id="neden" name="neden" placeholder="Hangi bölgeleri iyi biliyorsunuz, kimlere seyahat planlamak istersiniz?"></textarea></label>
-        <label class="chk" for="kvkk"><input id="kvkk" type="checkbox" required><span>Kişisel verilerimin başvurumun değerlendirilmesi amacıyla işlenmesini kabul ediyorum.</span></label>
+        <label class="chk" for="kvkk"><input id="kvkk" name="kvkk_onay" value="evet" type="checkbox" required><span>Kişisel verilerimin başvurumun değerlendirilmesi amacıyla işlenmesini kabul ediyorum.</span></label>
         <p class="err" id="err" role="alert"></p>
         <button class="btn" type="submit">Başvurumu gönder</button>
       </form>
       <div class="ok" id="ok" role="status">
-        <h3>Teşekkürler, başvurunuz hazır</h3>
+        <h3>Teşekkürler, başvurunuz bize ulaştı</h3>
         <p style="margin-top:8px;color:var(--soft)" id="okmsg"></p>
-        <p class="note">Bu bir önizleme sayfasıdır; form henüz bir e-posta ya da form servisine bağlı değil.</p>
         <button class="btn ghost" type="button" id="again" style="margin-top:14px">Yeni başvuru</button>
       </div>
     </div>
@@ -291,8 +291,13 @@ footer b{color:#fff}
     if(!/^\S+@\S+\.\S+$/.test(mail)){err.textContent='E-posta adresini kontrol edin.';document.getElementById('eposta').focus();return}
     if(!document.getElementById('kvkk').checked){err.textContent='Devam etmek için kişisel veri onayını işaretleyin.';return}
     err.textContent='';
-    document.getElementById('okmsg').textContent=`${document.getElementById('ad').value.trim()}, bilgileriniz alındı. ${document.getElementById('sehir').value.trim()} bölgesindeki elçi ekibimiz sizinle iletişime geçecek.`;
-    f.style.display='none';ok.classList.add('show');
+    const btn=f.querySelector('button[type=submit]');btn.disabled=true;btn.textContent='Gönderiliyor…';
+    fetch(f.action,{method:'POST',body:new FormData(f),headers:{Accept:'application/json'}})
+      .then(r=>{if(!r.ok)throw new Error('x');
+        document.getElementById('okmsg').textContent=`${document.getElementById('ad').value.trim()}, bilgileriniz alındı. En kısa sürede tanışma görüşmesi için sizinle iletişime geçeceğiz.`;
+        f.style.display='none';ok.classList.add('show');})
+      .catch(()=>{err.textContent='Başvuru şu an gönderilemedi. Lütfen birazdan tekrar deneyin.';})
+      .finally(()=>{btn.disabled=false;btn.textContent='Başvurumu gönder';});
   });
   document.getElementById('again').addEventListener('click',()=>{f.reset();ok.classList.remove('show');f.style.display='grid'});
 }
