@@ -3,210 +3,253 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Guidy Seyahat Elçileri</title>
+<title>Guidy — Seyahatin modern hali</title>
+<meta name="description" content="Guidy, Türkiye'nin seyahat elçileri ağı. Rotanızı sizi tanıyan bir elçi tasarlar; ya da seyahat tutkunuzu kendi işinize dönüştürün.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://images.unsplash.com">
 <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-/* VOICE occasion: zarif bir seyahat markası, sakin ve davetkâr
-   IDEA İznik çinisiyle bezeli eski bir vapur/seyahat afişi: kobalt, turkuaz, beyaz
-   PICTURE katmanlı Ege kıyısı sahnesi: tepeler, beyaz evler, yelkenli, güneş, kapadokya balonu
-   COLOUR beyaz zemin, kobalt #1b3f8f baskın, turkuaz #17a2a0 destek, nar kırmızısı #d6453d vurgu
-   TYPE Marcellus başlık + Inter metin
-   LAYOUT laptop: üstte başlık şeridi, altında tam genişlik sahne; telefon: başlık, sahne, butonlar */
-:root{color-scheme:light dark;--bg:light-dark(#ffffff,#0b1426);--ink:light-dark(#101a33,#eef2fa);--soft:light-dark(#4a5677,#aab6d3);--cob:light-dark(#1b3f8f,#6f95ea);--cobd:#14306f;--tq:#17a2a0;--red:#d6453d;--pan:light-dark(#eef3fc,#131f38);--line:light-dark(#d9e1f2,#24345a)}
-:root[data-theme=light]{color-scheme:light}
-:root[data-theme=dark]{color-scheme:dark}
+:root{--bg:#ffffff;--ink:#101a33;--soft:#4a5677;--cob:#1b3f8f;--cobd:#14306f;--tq:#17a2a0;--red:#d6453d;--pan:#f3f6fc;--sand:#faf6ef;--line:#dde4f2}
 *{box-sizing:border-box;min-width:0}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Inter,system-ui,sans-serif;overflow-x:clip}
 a{color:inherit}
+img{display:block;max-width:100%}
 h1,h2,h3{font-family:Marcellus,Georgia,serif;font-weight:400;line-height:1.08;letter-spacing:-.01em;text-wrap:balance;margin:0}
-h1{font-size:clamp(34px,5vw,54px)}
-h2{font-size:clamp(28px,3.6vw,40px)}
-h3{font-size:21px}
+h1{font-size:clamp(38px,5.6vw,68px)}
+h2{font-size:clamp(30px,3.8vw,46px)}
+h3{font-size:22px}
 p{margin:0}
 .wrap{max-width:1240px;margin:0 auto}
-.band{padding-block:clamp(36px,5vw,72px);padding-inline:max(5vw,16px)}
-nav{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 24px;padding:16px max(5vw,16px);border-bottom:1px solid var(--line)}
-.logo{display:flex;align-items:center;gap:10px;font-family:Marcellus,serif;font-size:26px;text-decoration:none;color:var(--cob)}
-nav ul{display:flex;flex-wrap:wrap;gap:6px 22px;list-style:none;margin:0;padding:0;font-size:15px}
-nav ul a{text-decoration:none;color:var(--soft)}
-nav ul a:hover{color:var(--ink)}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 22px;border-radius:999px;font:600 15px Inter,sans-serif;text-decoration:none;border:2px solid var(--cob);background:var(--cob);color:#fff;cursor:pointer}
+.band{padding-block:clamp(48px,7vw,96px);padding-inline:max(5vw,16px)}
+.kicker{font:600 13px Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--tq)}
+.lead{font-size:18px;color:var(--soft);margin-top:14px;max-width:38em}
+.center{text-align:center}.center .lead{margin-inline:auto}
+
+nav{position:absolute;inset:0 0 auto;z-index:5;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 24px;padding:18px max(5vw,16px);color:#fff}
+.logo{display:flex;align-items:center;gap:10px;font-family:Marcellus,serif;font-size:28px;text-decoration:none}
+nav ul{display:flex;flex-wrap:wrap;gap:6px 26px;list-style:none;margin:0;padding:0;font-size:15px}
+nav ul a{text-decoration:none;opacity:.88}
+nav ul a:hover{opacity:1}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 24px;border-radius:999px;font:600 15px Inter,sans-serif;text-decoration:none;border:2px solid var(--cob);background:var(--cob);color:#fff;cursor:pointer;transition:transform .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn.light{background:#fff;border-color:#fff;color:var(--cobd)}
+.btn.line{background:transparent;border-color:#fff;color:#fff}
 .btn.ghost{background:transparent;color:var(--cob)}
-.btn:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid var(--tq);outline-offset:2px}
-.hero{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:24px 48px;align-items:end;padding-top:clamp(28px,4vw,56px);padding-bottom:28px}
-.hero p{font-size:18px;color:var(--soft);max-width:34em}
-.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
-.scene{display:block;width:100%;height:clamp(240px,38vw,440px);background:linear-gradient(#f9d9a8,#f3b98a 55%,#e99a7a)}
-:root[data-theme=dark] .scene{background:linear-gradient(#1a2347,#3a2f5c 60%,#6b3f5e)}
-@media(prefers-color-scheme:dark){:root:not([data-theme=light]) .scene{background:linear-gradient(#1a2347,#3a2f5c 60%,#6b3f5e)}}
-.tile{height:22px;background:repeating-linear-gradient(90deg,var(--cobd) 0 22px,var(--tq) 22px 26px,#fff 26px 30px,var(--tq) 30px 34px)}
-.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px 56px}
-.lead{font-size:18px;color:var(--soft);margin-top:12px;max-width:38em}
-.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;margin-top:32px;padding:0;list-style:none;counter-reset:s}
-.steps li{background:var(--pan);border:1px solid var(--line);border-radius:14px;padding:20px;counter-increment:s}
-.steps li::before{content:counter(s);display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--tq);color:#fff;font-weight:700;margin-bottom:12px}
-.steps p,.perk p{color:var(--soft);font-size:15px;margin-top:6px}
+.btn:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible,.seg input:focus-visible+span{outline:3px solid var(--tq);outline-offset:2px}
+
+.hero{position:relative;min-height:min(92vh,820px);display:grid;align-items:end;color:#fff;padding:140px max(5vw,16px) clamp(48px,7vw,88px);background:#14306f url("https://images.unsplash.com/photo-1641128324972-af3212f0f6bd?auto=format&fit=crop&w=2000&q=70") center/cover}
+.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,22,52,.55) 0%,rgba(10,22,52,.15) 35%,rgba(10,22,52,.72) 100%)}
+.hero .wrap{position:relative;width:100%}
+.hero p{font-size:clamp(17px,1.6vw,20px);max-width:34em;margin-top:18px;color:#eef2fa}
+.hero .kicker{color:#9fe3e1}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.tile{height:14px;background:repeating-linear-gradient(90deg,var(--cobd) 0 22px,var(--tq) 22px 26px,#fff 26px 30px,var(--tq) 30px 34px)}
+
+.eq{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:40px}
+.eq article{background:var(--pan);border-radius:18px;padding:28px}
+.eq .tag{display:inline-block;font:600 13px Inter,sans-serif;color:var(--cob);background:#fff;border:1px solid var(--line);border-radius:999px;padding:4px 12px;margin-bottom:14px}
+.eq p{color:var(--soft);margin-top:8px}
+
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px 64px;align-items:center}
+.photo{border-radius:22px;overflow:hidden;aspect-ratio:4/5;background:var(--pan)}
+.photo img{width:100%;height:100%;object-fit:cover}
+.trio{display:grid;gap:26px;margin-top:30px}
+.trio>div{display:grid;grid-template-columns:44px minmax(0,1fr);gap:16px}
+.trio i{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--tq);color:#fff;font:700 16px Inter,sans-serif;font-style:normal}
+.trio p{color:var(--soft);margin-top:4px}
+
+.routes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:40px}
+.route{position:relative;border-radius:20px;overflow:hidden;aspect-ratio:4/5;color:#fff;background:var(--cobd)}
+.route img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.route:hover img{transform:scale(1.04)}
+.route::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,22,52,0) 40%,rgba(10,22,52,.85))}
+.route div{position:absolute;inset:auto 0 0;z-index:1;padding:22px}
+.route .meta{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:14px;color:#dbe4f7;margin-top:8px}
+.note{font-size:13px;color:var(--soft);margin-top:18px}
+
 .cobband{background:var(--cobd);color:#fff}
-.cobband .lead,.cobband .perk p{color:#c9d6f5}
-.perks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:32px}
-.perk{border-top:3px solid var(--tq);padding-top:16px}
-.ico{width:44px;height:44px;margin-bottom:10px}
-.routes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:28px}
-.route{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--bg)}
-.route svg{display:block;width:100%;height:150px}
-.route div{padding:16px 18px 20px}
-.route .meta{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:14px;color:var(--soft);margin-top:6px}
-.route .meta b{color:var(--ink);font-weight:600;white-space:nowrap}
-.note{font-size:13px;color:var(--soft);margin-top:14px}
-.cobband .note{color:#c9d6f5}
-form{display:grid;gap:16px;background:var(--pan);border:1px solid var(--line);border-radius:18px;padding:clamp(18px,3vw,32px)}
+.cobband .lead,.cobband .trio p,.cobband .perk p,.cobband .note{color:#c9d6f5}
+.cobband .kicker{color:#9fe3e1}
+.perks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px 32px;margin-top:48px}
+.perk{border-top:2px solid var(--tq);padding-top:16px}
+.perk p{margin-top:6px;font-size:15px}
+
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:40px}
+.stats div{border-left:3px solid var(--tq);padding-left:18px}
+.stats b{display:block;font:400 clamp(26px,2.6vw,34px)/1.1 Marcellus,serif;color:var(--cob)}
+.stats span{color:var(--soft);font-size:15px}
+
+form{display:grid;gap:16px;background:#fff;border:1px solid var(--line);border-radius:20px;padding:clamp(20px,3vw,34px);box-shadow:0 20px 50px -30px rgba(20,48,111,.35)}
+.seg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;border:0;padding:0;margin:0}
+.seg legend{font-size:14px;font-weight:600;margin-bottom:8px}
+.seg label{display:block;cursor:pointer}
+.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg span{display:block;text-align:center;padding:12px;border:1.5px solid var(--line);border-radius:12px;font-weight:600;font-size:14px;color:var(--soft)}
+.seg input:checked+span{border-color:var(--cob);background:var(--pan);color:var(--cob)}
 .row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
 label{display:grid;gap:6px;font-size:14px;font-weight:600}
-input,select,textarea{font:16px Inter,sans-serif;padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);width:100%}
+input,select,textarea{font:16px Inter,sans-serif;padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);width:100%}
 textarea{min-height:110px;resize:vertical}
 .chk{display:flex;gap:10px;align-items:flex-start;font-weight:400;font-size:14px}
 .chk input{width:20px;height:20px;margin-top:2px;flex:none}
 .err{color:var(--red);font-size:14px;min-height:20px}
-.ok{display:none;background:var(--pan);border:1px solid var(--tq);border-radius:18px;padding:28px}
+.ok{display:none;background:#fff;border:1px solid var(--tq);border-radius:20px;padding:30px}
 .ok.show{display:block}
-details{border-bottom:1px solid var(--line);padding:16px 0}
+[hidden]{display:none!important}
+.steps{margin:28px 0 0;padding:0;list-style:none;display:grid;gap:14px;counter-reset:s}
+.steps li{display:grid;grid-template-columns:34px minmax(0,1fr);gap:14px;color:var(--soft);counter-increment:s}
+.steps li::before{content:counter(s);display:grid;place-items:center;width:34px;height:34px;border-radius:50%;border:2px solid var(--tq);color:var(--tq);font-weight:700}
+.steps b{color:var(--ink)}
+
+details{border-bottom:1px solid var(--line);padding:18px 0}
 summary{cursor:pointer;font-weight:600;font-size:17px;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::-webkit-details-marker{display:none}
 summary::after{content:"+";color:var(--tq);font-size:22px;line-height:1}
 details[open] summary::after{content:"–"}
 details p{color:var(--soft);margin-top:10px}
-footer{background:var(--cobd);color:#c9d6f5;font-size:15px}
-footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
+footer{background:#0f2556;color:#c9d6f5;font-size:15px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px}
 footer b{color:#fff}
-@keyframes sail{from{transform:translateX(0)}to{transform:translateX(-60px)}}
-@keyframes rise{from{transform:translateY(0)}to{transform:translateY(-14px)}}
-.boat{animation:sail 9s ease-in-out infinite alternate}
-.balloon{animation:rise 6s ease-in-out infinite alternate}
-@media(prefers-reduced-motion:reduce){.boat,.balloon{animation:none}}
-@media(max-width:900px){.steps{grid-template-columns:repeat(2,minmax(0,1fr))}.perks,.routes{grid-template-columns:minmax(0,1fr)}.hero{grid-template-columns:minmax(0,1fr)}}
-@media(max-width:600px){.two,.row{grid-template-columns:minmax(0,1fr)}.steps{grid-template-columns:minmax(0,1fr)}nav ul{display:none}}
+footer a{color:#fff}
+
+@media(max-width:900px){.eq,.routes,.perks,.stats{grid-template-columns:minmax(0,1fr)}.split{grid-template-columns:minmax(0,1fr)}.photo{aspect-ratio:16/10}.route{aspect-ratio:16/11}}
+@media(max-width:600px){.row{grid-template-columns:minmax(0,1fr)}nav ul{display:none}.hero{min-height:88vh}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
 </style>
 </head>
 <body>
 <nav>
   <a class="logo" href="#top" aria-label="Guidy ana sayfa">
-    <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="16" fill="#1b3f8f"/><path d="M17 5l3.2 8.8L29 17l-8.8 3.2L17 29l-3.2-8.8L5 17l8.8-3.2z" fill="#17a2a0"/><circle cx="17" cy="17" r="3" fill="#fff"/></svg>
+    <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="16" fill="#fff"/><path d="M17 5l3.2 8.8L29 17l-8.8 3.2L17 29l-3.2-8.8L5 17l8.8-3.2z" fill="#17a2a0"/><circle cx="17" cy="17" r="3" fill="#1b3f8f"/></svg>
     Guidy
   </a>
   <ul>
     <li><a href="#gezgin">Gezginler için</a></li>
-    <li><a href="#elci">Elçi ol</a></li>
     <li><a href="#rotalar">Rotalar</a></li>
+    <li><a href="#elci">Elçi olun</a></li>
     <li><a href="#sss">Sorular</a></li>
   </ul>
-  <a class="btn" href="#basvuru">Elçi başvurusu</a>
+  <a class="btn light" href="#iletisim" data-tip="gezgin">Seyahatimi planlat</a>
 </nav>
 
-<header id="top">
-  <div class="band hero wrap">
-    <div>
-      <h1>Seyahatinizi, sizi tanıyan bir elçi planlasın</h1>
-      <p style="margin-top:16px">Guidy, Türkiye'nin seyahat elçileri ağı. Elçilerimiz rotanızı sizin için tasarlar, otelleri ve deneyimleri ayarlar, yolculuk boyunca yanınızda olur. Seyahati sevenler için de yeni bir meslek: kendi müşterilerine hizmet veren bağımsız seyahat danışmanlığı.</p>
-      <div class="cta">
-        <a class="btn" href="#basvuru">Elçi olmak istiyorum</a>
-        <a class="btn ghost" href="#gezgin">Seyahat planlatın</a>
-      </div>
-    </div>
-    <ul style="list-style:none;margin:0;padding:0;display:grid;gap:14px">
-      <li style="display:flex;gap:12px"><b style="color:var(--tq);font-size:22px;line-height:1">✓</b><span><b>Tek muhatap.</b> Uçaktan otele, rehberden restorana kadar bir kişiyle konuşursunuz.</span></li>
-      <li style="display:flex;gap:12px"><b style="color:var(--tq);font-size:22px;line-height:1">✓</b><span><b>Lisanslı altyapı.</b> Satışlar belgeli bir A grubu seyahat acentesi çatısı altında yapılır.</span></li>
-      <li style="display:flex;gap:12px"><b style="color:var(--tq);font-size:22px;line-height:1">✓</b><span><b>Ek ücret yok.</b> Elçi hizmeti için ayrıca ödeme yapmazsınız.</span></li>
-    </ul>
-  </div>
-  <svg class="scene" viewBox="0 0 1200 440" preserveAspectRatio="xMidYMax slice" role="img" aria-label="Ege kıyısında beyaz evler, yelkenli ve uzakta sıcak hava balonu">
-    <defs>
-      <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a8fb0"/><stop offset="1" stop-color="#14306f"/></linearGradient>
-      <linearGradient id="h1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7d8fbf"/><stop offset="1" stop-color="#5a6ea6"/></linearGradient>
-      <linearGradient id="h2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3f5f99"/><stop offset="1" stop-color="#2b4680"/></linearGradient>
-      <g id="house"><rect x="0" y="0" width="34" height="28" fill="#fff"/><rect x="0" y="0" width="10" height="28" fill="#dfe6f3"/><rect x="15" y="9" width="7" height="9" fill="#1b3f8f"/><rect x="-2" y="-4" width="38" height="5" fill="#f2f5fb"/></g>
-    </defs>
-    <circle cx="880" cy="150" r="70" fill="#fff4d6" opacity=".95"/>
-    <g class="balloon">
-      <path d="M260 70c-30 0-48 22-48 46 0 28 30 46 40 62h16c10-16 40-34 40-62 0-24-18-46-48-46z" fill="#d6453d"/>
-      <path d="M260 70c-12 0-18 22-18 46 0 28 12 46 14 62h8c2-16 14-34 14-62 0-24-6-46-18-46z" fill="#f4f1ea"/>
-      <rect x="252" y="186" width="16" height="12" rx="2" fill="#7a4a2a"/>
-      <path d="M254 178l-2 8M266 178l2 8" stroke="#7a4a2a" stroke-width="1.5"/>
-    </g>
-    <path d="M0 270C140 220 260 240 380 214S640 190 760 222 1000 200 1200 230V440H0z" fill="url(#h1)"/>
-    <path d="M0 312C160 268 300 300 460 272S760 260 900 286 1100 270 1200 282V440H0z" fill="url(#h2)"/>
-    <g id="town"></g>
-    <rect x="0" y="336" width="1200" height="104" fill="url(#sea)"/>
-    <g fill="#fff" opacity=".35"><rect x="80" y="352" width="120" height="3" rx="1.5"/><rect x="420" y="372" width="180" height="3" rx="1.5"/><rect x="820" y="358" width="140" height="3" rx="1.5"/><rect x="980" y="398" width="160" height="3" rx="1.5"/><rect x="200" y="410" width="150" height="3" rx="1.5"/></g>
-    <g class="boat">
-      <path d="M690 372h120l-18 22h-86z" fill="#f4f1ea"/><path d="M690 372h120l-4 5H694z" fill="#d6453d"/>
-      <path d="M748 368V278l52 90z" fill="#fff"/><path d="M744 368V292l-38 76z" fill="#dfe6f3"/>
-      <rect x="745" y="274" width="3" height="98" fill="#7a4a2a"/>
-    </g>
-  </svg>
-  <div class="tile" aria-hidden="true"></div>
-</header>
-
-<section id="gezgin" class="band">
+<header id="top" class="hero">
   <div class="wrap">
-    <h2>Gezginler için: dört adımda size özel seyahat</h2>
-    <p class="lead">Bir rezervasyon sitesinde saatlerce arama yapmak yerine, ne istediğinizi bir kez anlatırsınız. Gerisini elçiniz halleder.</p>
-    <ol class="steps">
-      <li><h3>Anlatın</h3><p>Nereye, kiminle, hangi tarihte ve nasıl bir tatil istediğinizi kısa bir görüşmede paylaşırsınız.</p></li>
-      <li><h3>Rotanız hazırlanır</h3><p>Elçiniz otel, ulaşım ve deneyim seçenekleriyle size özel bir plan ve fiyat teklifi gönderir.</p></li>
-      <li><h3>Onaylayın</h3><p>Planı birlikte son haline getirir, rezervasyonları lisanslı acente altyapısı üzerinden yaparsınız.</p></li>
-      <li><h3>Keyfini çıkarın</h3><p>Yolculuk boyunca bir sorun olursa arayacağınız kişi belli: elçiniz.</p></li>
-    </ol>
+    <p class="kicker">Türkiye'nin seyahat elçileri ağı</p>
+    <h1>Seyahatin modern hali:<br>sizi tanıyan bir elçi</h1>
+    <p>Guidy elçileri rotanızı sizin için tasarlar, otelleri ve deneyimleri ayarlar, yolculuk boyunca yanınızda olur. Hiçbir algoritmanın tek başına çıkaramayacağı seyahatler, lisanslı acente güvencesiyle.</p>
+    <div class="cta">
+      <a class="btn light" href="#iletisim" data-tip="gezgin">Seyahatimi planlat</a>
+      <a class="btn line" href="#elci">Guidy elçisi olun</a>
+    </div>
+  </div>
+</header>
+<div class="tile" aria-hidden="true"></div>
+
+<section class="band">
+  <div class="wrap center">
+    <p class="kicker">Herkes için daha iyi bir denklem</p>
+    <h2>Gezgin daha iyi seyahat eder, elçi gerçek bir iş kurar</h2>
+    <p class="lead">Guidy; seyahat edenleri, onları tanıyan elçileri ve güvenilir otel ve tur ortaklarını aynı masada buluşturur.</p>
+  </div>
+  <div class="wrap eq">
+    <article><span class="tag">Gezginler</span><h3>Size özel plan, tek muhatap</h3><p>Saatlerce arama yapmak yok. Ne istediğinizi bir kez anlatırsınız; planı, rezervasyonu ve yolculuktaki değişiklikleri elçiniz üstlenir.</p></article>
+    <article><span class="tag">Elçiler</span><h3>Tutkunuz, kendi işiniz</h3><p>Eğitim, hazır ürün kataloğu, teklif ve komisyon takibi yapan elçi portalı. Siz müşterinizle ilgilenirsiniz, altyapı Guidy'den.</p></article>
+    <article><span class="tag">Ortaklar</span><h3>Doğru misafir, doğru kanal</h3><p>Oteller ve tur operatörleri, misafirini tanıyan ve onu doğru ürüne yönlendiren güvenilir temsilcilerle çalışır.</p></article>
   </div>
 </section>
 
-<section id="elci" class="band cobband">
-  <div class="wrap">
-    <div class="two">
-      <div>
-        <h2>Guidy elçisi olun</h2>
-        <p class="lead">Seyahati seviyor, çevrenize tavsiye veriyor ve bunu bir işe dönüştürmek istiyorsanız Guidy size altyapıyı sağlar. Kendi müşterilerinizle, kendi takviminizle çalışırsınız.</p>
+<section id="gezgin" class="band" style="background:var(--sand)">
+  <div class="wrap split">
+    <div class="photo"><img src="https://images.unsplash.com/photo-1589561454226-796a8aa89b05?auto=format&fit=crop&w=1100&q=70" alt="Boğaz'da ilerleyen vapur ve arkada Eminönü silueti" loading="lazy"></div>
+    <div>
+      <p class="kicker">Gezginler için</p>
+      <h2>Daha iyi seyahat, bir elçiyle başlar</h2>
+      <p class="lead">Elçiniz sizi dinler, seçenekleri sizin yerinize tartar ve yolculuk bitene kadar yanınızda olur.</p>
+      <div class="trio">
+        <div><i>1</i><div><h3>Daha iyi planlayın</h3><p>Nereye, kiminle, ne zaman ve nasıl bir tatil istediğinizi kısa bir görüşmede anlatın. Elçiniz otel, ulaşım ve deneyimleri bir araya getirip size özel bir plan ve fiyat teklifi hazırlar.</p></div></div>
+        <div><i>2</i><div><h3>Güvenle rezervasyon yapın</h3><p>Rezervasyon ve ödeme, belgeli seyahat acentesi altyapısı üzerinden yapılır. Elçi hizmeti için ayrıca ücret ödemezsiniz.</p></div></div>
+        <div><i>3</i><div><h3>Keyfini çıkarın</h3><p>Uçuş rötar yaptı, oda beklediğiniz gibi değil, planınız değişti: arayacağınız kişi belli. Elçiniz sizin adınıza takip eder.</p></div></div>
       </div>
-      <div style="align-self:end">
-        <p style="color:#c9d6f5">Kimler için: emekli profesyoneller, seyahat tutkunları, rehberler, etkinlik ve davet organizatörleri, geniş sosyal çevresi olan herkes. Turizm deneyimi şart değil; eğitimi biz veriyoruz.</p>
-        <div class="cta"><a class="btn" style="background:#17a2a0;border-color:#17a2a0" href="#basvuru">Başvuru formuna git</a></div>
-      </div>
-    </div>
-    <div class="perks">
-      <div class="perk"><svg class="ico" viewBox="0 0 44 44" aria-hidden="true"><rect x="6" y="10" width="32" height="26" rx="4" fill="none" stroke="#17a2a0" stroke-width="3"/><path d="M14 22l6 6 10-12" fill="none" stroke="#fff" stroke-width="3"/></svg><h3>Lisanslı çatı</h3><p>Satışlarınız belgeli bir A grubu seyahat acentesi üzerinden yapılır; kendi acentenizi kurmanız gerekmez.</p></div>
-      <div class="perk"><svg class="ico" viewBox="0 0 44 44" aria-hidden="true"><path d="M6 14l16-8 16 8-16 8z" fill="none" stroke="#17a2a0" stroke-width="3"/><path d="M12 18v10c0 3 5 6 10 6s10-3 10-6V18" fill="none" stroke="#fff" stroke-width="3"/></svg><h3>Eğitim</h3><p>Destinasyon bilgisi, satış, müşteri ilişkileri ve rezervasyon sistemleri üzerine başlangıç ve sürekli eğitim.</p></div>
-      <div class="perk"><svg class="ico" viewBox="0 0 44 44" aria-hidden="true"><rect x="6" y="8" width="32" height="28" rx="4" fill="none" stroke="#17a2a0" stroke-width="3"/><path d="M6 16h32M14 4v8M30 4v8" stroke="#fff" stroke-width="3"/></svg><h3>Rezervasyon altyapısı</h3><p>Oteller, turlar ve deneyimler için rezervasyon ve komisyon takibini tek yerden yaparsınız.</p></div>
-      <div class="perk"><svg class="ico" viewBox="0 0 44 44" aria-hidden="true"><path d="M22 6l4.8 10 11 1.4-8 7.6 2 11L22 30.6 12.2 36l2-11-8-7.6 11-1.4z" fill="none" stroke="#17a2a0" stroke-width="3"/></svg><h3>Otel ayrıcalıkları</h3><p>Ortak otellerde müşterilerinize oda yükseltme, kahvaltı ya da otel kredisi gibi ayrıcalıklar sunmayı hedefliyoruz.</p></div>
-      <div class="perk"><svg class="ico" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="15" fill="none" stroke="#17a2a0" stroke-width="3"/><path d="M22 13v18M17 17h8a3 3 0 010 6h-6a3 3 0 000 6h8" fill="none" stroke="#fff" stroke-width="3"/></svg><h3>Komisyon geliri</h3><p>Her satıştan komisyon kazanırsınız. Oranlar ve ödeme koşulları başvuru görüşmesinde paylaşılır.</p></div>
-      <div class="perk"><svg class="ico" viewBox="0 0 44 44" aria-hidden="true"><circle cx="15" cy="16" r="6" fill="none" stroke="#17a2a0" stroke-width="3"/><circle cx="30" cy="16" r="6" fill="none" stroke="#fff" stroke-width="3"/><path d="M4 36c2-7 7-10 11-10s9 3 11 10M22 36c2-7 5-10 8-10s8 3 10 10" fill="none" stroke="#17a2a0" stroke-width="3"/></svg><h3>Topluluk</h3><p>Diğer elçilerle bilgi paylaşımı, ortak tanıtım ve düzenli buluşmalar.</p></div>
+      <div class="cta"><a class="btn" href="#iletisim" data-tip="gezgin">Elçimle tanışmak istiyorum</a></div>
     </div>
   </div>
 </section>
 
 <section id="rotalar" class="band">
   <div class="wrap">
-    <h2>Elçilerimizin hazırlayabileceği rotalardan örnekler</h2>
-    <p class="lead">Her rota kişiye göre değişir. Aşağıdakiler, bir elçinin nasıl bir plan sunabileceğini göstermek için.</p>
+    <p class="kicker">İlham için</p>
+    <h2>Elçilerimizin planlayabileceği rotalar</h2>
+    <p class="lead">Her plan kişiye göre değişir. Aşağıdakiler, yurt içinden dünyanın öbür ucuna, bir elçinin neler hazırlayabileceğini gösteren örnekler.</p>
     <div class="routes" id="routes"></div>
     <p class="note">Örnek rotalardır; süre ve içerik talebe göre belirlenir, fiyat teklif aşamasında verilir.</p>
   </div>
 </section>
 
-<section id="basvuru" class="band" style="background:var(--pan)">
-  <div class="wrap two">
+<section id="elci" class="band cobband">
+  <div class="wrap split">
     <div>
-      <h2>Elçi başvurusu</h2>
-      <p class="lead">Formu doldurun, sizi kısa bir tanışma görüşmesi için arayalım. Görüşmede çalışma modelini, eğitimi ve komisyon koşullarını ayrıntılı anlatıyoruz.</p>
-      <ol style="margin:24px 0 0;padding-left:20px;display:grid;gap:10px;color:var(--soft)">
-        <li><b style="color:var(--ink)">Başvuru:</b> bu form, 5 dakika.</li>
-        <li><b style="color:var(--ink)">Tanışma görüşmesi:</b> 30 dakika, online.</li>
-        <li><b style="color:var(--ink)">Eğitim:</b> başlangıç programı ve ilk rotanız.</li>
-        <li><b style="color:var(--ink)">İlk müşteriniz:</b> ilk satışlarınızda mentor desteği.</li>
+      <p class="kicker">Guidy elçisi olun</p>
+      <h2>Seyahat tutkunuzu gerçek bir işe dönüştürün</h2>
+      <p class="lead">Çevreniz size zaten seyahat danışıyor. Guidy ile bu tavsiyeler komisyon kazandıran rezervasyonlara dönüşür; kendi müşterilerinizle, kendi takviminizle.</p>
+      <div class="trio">
+        <div><i>1</i><div><h3>Güvenle başlayın</h3><p>Başlangıç eğitimi, ürün bilgisi ve ilk satışlarınızda mentor desteği. Turizm deneyimi şart değil.</p></div></div>
+        <div><i>2</i><div><h3>İşinizi büyütün</h3><p>Rezervasyon, tahsilat ve tedarikçi ilişkilerini altyapı üstlenir; siz müşteri ilişkisine ve büyümeye odaklanırsınız.</p></div></div>
+        <div><i>3</i><div><h3>Özgürce çalışın</h3><p>Yarı zamanlı ya da tam zamanlı, evden ya da yoldan. Gelir sınırını sizin müşteri ağınız belirler.</p></div></div>
+      </div>
+      <div class="cta"><a class="btn light" href="#iletisim" data-tip="elci">Elçi başvurusu yap</a></div>
+    </div>
+    <div class="photo"><img src="https://images.unsplash.com/photo-1543269866-487350d6fa5e?auto=format&fit=crop&w=1100&q=70" alt="Dizüstü bilgisayarında çalışan bir kadın" loading="lazy"></div>
+  </div>
+  <div class="wrap perks">
+    <div class="perk"><h3>Hazır ürün kataloğu</h3><p>Yüzlerce yurt dışı tur ve yurt içi rota; fiyat, tarih ve içerikleriyle tek yerde.</p></div>
+    <div class="perk"><h3>Elçi portalı</h3><p>Müşteri talepleri, teklif metinleri ve kazandığınız komisyon tek ekranda.</p></div>
+    <div class="perk"><h3>Lisanslı altyapı</h3><p>Satışlar belgeli seyahat acentesi üzerinden yapılır; acente belgesi almanız gerekmez.</p></div>
+    <div class="perk"><h3>Şeffaf komisyon</h3><p>Her satıştan payınızı baştan bilirsiniz; ödemeler düzenli ve takip edilebilir.</p></div>
+    <div class="perk"><h3>Eğitim ve topluluk</h3><p>Düzenli online oturumlar ve deneyimlerini paylaşan bir elçi topluluğu.</p></div>
+    <div class="perk"><h3>Kendi markanız</h3><p>Guidy elçisi unvanı ve hazır tanıtım materyalleriyle güven veren bir başlangıç.</p></div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <p class="kicker">Kimler için</p>
+    <h2>Elçilerimiz kimlerden oluşur?</h2>
+    <p class="lead">Seyahati seven, çevresine tavsiye veren ve insanlarla ilgilenmekten keyif alan herkes.</p>
+    <div class="stats">
+      <div><b>Emekli profesyoneller</b><span>Deneyimini ve ağını yeni bir işe taşımak isteyenler</span></div>
+      <div><b>Seyahat tutkunları</b><span>Gezdiği yerleri en iyi bilen, her yolculuğu planlayan kişiler</span></div>
+      <div><b>Rehber ve organizatörler</b><span>Etkinlik, davet ve grup gezisi düzenleyenler</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="iletisim" class="band" style="background:var(--pan)">
+  <div class="wrap split" style="align-items:start">
+    <div>
+      <p class="kicker">Bize ulaşın</p>
+      <h2 id="fh">Sizi tanıyalım</h2>
+      <p class="lead" id="fl">Seyahatinizi planlatmak ya da elçi olmak için formu doldurun; sizi kısa bir tanışma görüşmesi için arayalım.</p>
+      <ol class="steps" id="adim-elci" hidden>
+        <li><span><b>Başvuru:</b> bu form, 5 dakika.</span></li>
+        <li><span><b>Tanışma görüşmesi:</b> 30 dakika, online. Çalışma modelini ve komisyon koşullarını anlatırız.</span></li>
+        <li><span><b>Eğitim:</b> başlangıç programı ve ilk rotanız.</span></li>
+        <li><span><b>İlk müşteriniz:</b> ilk satışlarınızda mentor desteği.</span></li>
+      </ol>
+      <ol class="steps" id="adim-gezgin">
+        <li><span><b>Formu doldurun:</b> nereye, ne zaman, kaç kişi.</span></li>
+        <li><span><b>Elçinizle tanışın:</b> size uygun elçi sizi arar.</span></li>
+        <li><span><b>Planınızı alın:</b> size özel rota ve fiyat teklifi.</span></li>
       </ol>
     </div>
     <div>
       <form id="f" action="https://formspree.io/f/mrpqpazq" method="POST" novalidate>
-        <input type="hidden" name="_subject" value="Yeni Guidy elçi başvurusu">
+        <input type="hidden" name="_subject" id="subj" value="Yeni Guidy seyahat talebi">
+        <fieldset class="seg">
+          <legend>Ne yapmak istiyorsunuz?</legend>
+          <label><input type="radio" name="tip" value="Seyahat talebi" checked><span>Seyahatimi planlatmak</span></label>
+          <label><input type="radio" name="tip" value="Elçi başvurusu"><span>Guidy elçisi olmak</span></label>
+        </fieldset>
         <div class="row">
           <label for="ad">Ad soyad<input id="ad" name="ad" autocomplete="name" required></label>
           <label for="sehir">Şehir<input id="sehir" name="sehir" autocomplete="address-level2" required></label>
@@ -215,91 +258,115 @@ footer b{color:#fff}
           <label for="eposta">E-posta<input id="eposta" name="email" type="email" autocomplete="email" required></label>
           <label for="tel">Telefon<input id="tel" name="tel" type="tel" autocomplete="tel" required></label>
         </div>
-        <label for="deneyim">Seyahat ve satış deneyiminiz
-          <select id="deneyim" name="deneyim">
-            <option>Turizmde çalıştım</option>
-            <option>Satış / müşteri ilişkilerinde çalıştım</option>
-            <option>Deneyimim yok ama seyahati çok seviyorum</option>
-            <option>Diğer</option>
-          </select>
-        </label>
-        <label for="neden">Neden Guidy elçisi olmak istiyorsunuz?<textarea id="neden" name="neden" placeholder="Hangi bölgeleri iyi biliyorsunuz, kimlere seyahat planlamak istersiniz?"></textarea></label>
-        <label class="chk" for="kvkk"><input id="kvkk" name="kvkk_onay" value="evet" type="checkbox" required><span>Kişisel verilerimin başvurumun değerlendirilmesi amacıyla işlenmesini kabul ediyorum.</span></label>
+        <div id="g-alan">
+          <div class="row">
+            <label for="nereye">Nereye?<input id="nereye" name="nereye" placeholder="ör. İtalya, Kapadokya, henüz karar vermedim"></label>
+            <label for="ne_zaman">Ne zaman?<input id="ne_zaman" name="ne_zaman" placeholder="ör. Mayıs 2027, 7 gece"></label>
+          </div>
+          <div class="row" style="margin-top:16px">
+            <label for="kisi">Kaç kişi?<input id="kisi" name="kisi" inputmode="numeric" placeholder="ör. 2 yetişkin, 1 çocuk"></label>
+            <label for="butce">Kişi başı bütçe<select id="butce" name="butce"><option>Belirtmek istemiyorum</option><option>50.000 TL altı</option><option>50.000–100.000 TL</option><option>100.000–200.000 TL</option><option>200.000 TL üzeri</option></select></label>
+          </div>
+        </div>
+        <div id="e-alan" hidden>
+          <label for="deneyim">Seyahat ve satış deneyiminiz
+            <select id="deneyim" name="deneyim">
+              <option>Turizmde çalıştım</option>
+              <option>Satış / müşteri ilişkilerinde çalıştım</option>
+              <option>Deneyimim yok ama seyahati çok seviyorum</option>
+              <option>Diğer</option>
+            </select>
+          </label>
+        </div>
+        <label for="neden" id="neden-l"><span id="neden-t">Hayalinizdeki seyahati anlatın</span><textarea id="neden" name="mesaj" placeholder="Nasıl bir tatil istiyorsunuz? Özel bir kutlama, ilgi alanları, olmazsa olmazlar…"></textarea></label>
+        <label class="chk" for="kvkk"><input id="kvkk" name="kvkk_onay" value="evet" type="checkbox" required><span>Kişisel verilerimin talebimin değerlendirilmesi ve benimle iletişime geçilmesi amacıyla işlenmesini kabul ediyorum.</span></label>
         <p class="err" id="err" role="alert"></p>
-        <button class="btn" type="submit">Başvurumu gönder</button>
+        <button class="btn" type="submit" id="gonder">Gönder</button>
       </form>
       <div class="ok" id="ok" role="status">
-        <h3>Teşekkürler, başvurunuz bize ulaştı</h3>
+        <h3>Teşekkürler, mesajınız bize ulaştı</h3>
         <p style="margin-top:8px;color:var(--soft)" id="okmsg"></p>
-        <button class="btn ghost" type="button" id="again" style="margin-top:14px">Yeni başvuru</button>
+        <button class="btn ghost" type="button" id="again" style="margin-top:14px">Yeni form</button>
       </div>
     </div>
   </div>
 </section>
 
 <section id="sss" class="band">
-  <div class="wrap two">
-    <h2>Sık sorulan sorular</h2>
-    <div>
-      <details><summary>Elçi olmak için acente belgem olması gerekiyor mu?</summary><p>Hayır. Satışlar, Guidy'nin çalıştığı belgeli A grubu seyahat acentesi üzerinden yapılır. Siz müşteriyle ilgilenir, planı hazırlarsınız.</p></details>
+  <div class="wrap" style="max-width:860px">
+    <p class="kicker">Sık sorulan sorular</p>
+    <h2>Merak edilenler</h2>
+    <div style="margin-top:24px">
+      <details><summary>Elçiyle planlamak daha pahalı mı?</summary><p>Hayır, elçi hizmeti için ayrıca ücret ödemezsiniz. Elçinin geliri, otel ve tur ortaklarının satıştan ödediği komisyondan gelir.</p></details>
+      <details><summary>Rezervasyon ve ödemeyi kime yapıyorum?</summary><p>Rezervasyonlar ve ödemeler, Guidy'nin çalıştığı belgeli seyahat acentesi üzerinden yapılır. Elçiler sizden doğrudan para tahsil etmez.</p></details>
+      <details><summary>Elçi olmak için acente belgem olması gerekiyor mu?</summary><p>Hayır. Satışlar, Guidy'nin çalıştığı belgeli seyahat acentesi üzerinden yapılır. Siz müşteriyle ilgilenir, planı hazırlarsınız; rezervasyon ve tahsilat acente altyapısıyla yürür.</p></details>
       <details><summary>Tam zamanlı çalışmak zorunda mıyım?</summary><p>Hayır. Elçiler kendi takvimleriyle, yarı zamanlı ya da tam zamanlı çalışabilir.</p></details>
-      <details><summary>Gezginler elçi hizmeti için ücret öder mi?</summary><p>Hayır. Elçinin geliri satılan otel, tur ve deneyimlerden gelen komisyondur.</p></details>
-      <details><summary>Hangi ürünleri satabilirim?</summary><p>Yurt içi ve yurt dışı oteller, turlar, transferler ve deneyimler. Ürün yelpazesi ortaklıklar arttıkça genişler.</p></details>
-      <details><summary>Eğitim ne kadar sürüyor?</summary><p>Başlangıç eğitimi birkaç hafta sürer; ardından düzenli online oturumlarla devam eder. Ayrıntılar tanışma görüşmesinde paylaşılır.</p></details>
+      <details><summary>Hangi ürünleri satabilirim?</summary><p>Yurt dışı turlar, yurt içi rotalar, oteller, transferler ve deneyimler. Ürün yelpazesi ortaklıklar arttıkça genişler.</p></details>
+      <details><summary>Eğitim ne kadar sürüyor?</summary><p>Başlangıç eğitimi birkaç hafta sürer; ardından düzenli online oturumlarla devam eder. Ayrıntıları tanışma görüşmesinde paylaşıyoruz.</p></details>
     </div>
   </div>
 </section>
 
 <footer class="band">
   <div class="wrap">
-    <div><b style="font-family:Marcellus,serif;font-size:24px">Guidy</b><p style="margin-top:6px">Türkiye'nin seyahat elçileri ağı.</p></div>
-    <div><p><b>Web:</b> guidy.com.tr</p><p>Başvuru ve sorularınız için formu kullanın.</p></div>
-    <div><p>Satışlar belgeli bir A grubu seyahat acentesi çatısı altında yapılır.</p><p>© 2026 Guidy</p></div>
+    <div><b style="font-family:Marcellus,serif;font-size:26px">Guidy</b><p style="margin-top:6px">Türkiye'nin seyahat elçileri ağı.</p></div>
+    <div><p><b>Web:</b> guidy.com.tr</p><p>Talep ve başvurular için <a href="#iletisim">iletişim formunu</a> kullanın.</p></div>
+    <div><p>Satışlar belgeli bir seyahat acentesi çatısı altında yapılır.</p><p>Fotoğraflar: <a href="https://unsplash.com" rel="noopener">Unsplash</a> · © 2026 Guidy</p></div>
   </div>
 </footer>
 
 <script>
 {
+  const U=id=>`https://images.unsplash.com/${id}?auto=format&fit=crop&w=900&q=70`;
   const routes=[
-    {t:"Ege'de 7 gün: Bozcaada, Assos, Alaçatı",d:"7 gün",k:"Çiftler, gurme",a:["#2a8fb0","#f3c27a","#ffffff"],sh:"sea"},
-    {t:"Kapadokya'da 4 gün: balon, vadiler, mağara otel",d:"4 gün",k:"Aile, ilk kez gidenler",a:["#e99a7a","#f9d9a8","#d6453d"],sh:"balloon"},
-    {t:"İstanbul'da 3 gün: Boğaz, saraylar, lezzet turu",d:"3 gün",k:"Şehir, kültür",a:["#1b3f8f","#f3b98a","#17a2a0"],sh:"city"}
+    {t:"Kapadokya'da 4 gün",s:"Balon, vadiler, mağara otel",d:"4 gün",k:"Aile, ilk kez gidenler",img:"photo-1604156789095-3348604c0f43",alt:"Kapadokya üzerinde sıcak hava balonları"},
+    {t:"Ege'de 7 gün",s:"Alaçatı, Bozcaada, Assos",d:"7 gün",k:"Çiftler, gurmeler",img:"photo-1732371502404-ee875805abc6",alt:"Alaçatı'da taş ev önünde mavi bisiklet"},
+    {t:"İtalya: Amalfi kıyıları",s:"Positano, Capri, Napoli",d:"6 gün",k:"Balayı, romantik kaçamak",img:"photo-1612698093158-e07ac200d44e",alt:"Amalfi kıyısında yamaca kurulmuş renkli evler"},
+    {t:"Lapland'da kuzey ışıkları",s:"Kızak, kar, aurora gecesi",d:"4 gün",k:"Aileler, macera sevenler",img:"photo-1505281906411-28d444dd417e",alt:"Gökyüzünde yeşil kuzey ışıkları"},
+    {t:"Japonya: Tokyo ve Kyoto",s:"Tapınaklar, sakura, mutfak",d:"9 gün",k:"Kültür meraklıları",img:"photo-1545569341-9eb8b30979d9",alt:"Kyoto'da ağaçlarla çevrili pagoda"},
+    {t:"İstanbul'da 3 gün",s:"Boğaz, saraylar, lezzet turu",d:"3 gün",k:"Şehir ve kültür",img:"photo-1763965368246-5e89755e4455",alt:"Gün batımında Boğaz kıyısında cami ve köprü"}
   ];
-  const art=(r)=>{
-    const [c1,c2,c3]=r.a;
-    let s=`<rect width="400" height="150" fill="${c2}"/>`;
-    if(r.sh==="sea"){s+=`<circle cx="310" cy="50" r="26" fill="#fff4d6"/><path d="M0 95C80 70 160 85 240 72S360 80 400 76V150H0z" fill="#3f5f99"/><rect y="105" width="400" height="45" fill="${c1}"/>`+[40,110,180].map((x,i)=>`<rect x="${x}" y="${84-i*4}" width="22" height="18" fill="#fff"/><rect x="${x+8}" y="${90-i*4}" width="6" height="7" fill="#1b3f8f"/>`).join('')+`<path d="M250 112h60l-8 10h-44z" fill="#fff"/><path d="M280 110V70l26 40z" fill="#fff"/>`}
-    if(r.sh==="balloon"){s+=`<path d="M0 110C60 70 100 120 160 90S260 60 320 95 380 85 400 90V150H0z" fill="${c1}"/>`+[[90,40,"#d6453d"],[200,25,"#17a2a0"],[310,50,"#1b3f8f"]].map(([x,y,c])=>`<path d="M${x} ${y}c-14 0-22 10-22 21 0 13 14 21 18 28h8c4-7 18-15 18-28 0-11-8-21-22-21z" fill="${c}"/><rect x="${x-4}" y="${y+51}" width="8" height="6" fill="#7a4a2a"/>`).join('')}
-    if(r.sh==="city"){s+=`<rect y="110" width="400" height="40" fill="${c1}"/>`+`<path d="M60 110V70h50v40zM85 70a25 25 0 0150 0z" fill="#2b4680"/><path d="M85 45h4v25h-4z" fill="#2b4680"/><path d="M180 110V60h70v50zM215 60a35 35 0 0170 0z" fill="#3f5f99"/><rect x="170" y="30" width="5" height="80" fill="#3f5f99"/><rect x="295" y="35" width="5" height="75" fill="#3f5f99"/><rect x="320" y="80" width="60" height="30" fill="#2b4680"/>`+`<path d="M20 125h80M150 135h100M280 128h90" stroke="#fff" stroke-opacity=".4" stroke-width="3"/>`}
-    return `<svg viewBox="0 0 400 150" preserveAspectRatio="xMidYMid slice" aria-hidden="true">${s}</svg>`;
-  };
-  document.getElementById('routes').innerHTML=routes.map(r=>`<article class="route">${art(r)}<div><h3>${r.t}</h3><p class="meta"><span>Süre: <b>${r.d}</b></span><span>Kimin için: <b>${r.k}</b></span></p></div></article>`).join('');
+  document.getElementById('routes').innerHTML=routes.map(r=>`<article class="route"><img src="${U(r.img)}" alt="${r.alt}" loading="lazy"><div><h3>${r.t}</h3><p style="color:#eef2fa;margin-top:4px">${r.s}</p><p class="meta"><span>${r.d}</span><span>·</span><span>${r.k}</span></p></div></article>`).join('');
 
-  const town=document.getElementById('town');
-  let seed=7;const rnd=()=>(seed=seed*16807%2147483647)/2147483647;
-  let h='';
-  for(let i=0;i<16;i++){const x=40+i*70+rnd()*30,y=292+rnd()*26;h+=`<use href="#house" x="${x.toFixed(0)}" y="${y.toFixed(0)}"/>`}
-  h+=`<path d="M560 292v-30h4v30z" fill="#fff"/><path d="M548 300a14 14 0 0128 0z" fill="#fff"/>`;
-  town.innerHTML=h;
+  const $=id=>document.getElementById(id);
+  const f=$('f'),ok=$('ok'),err=$('err');
+  function setTip(t){
+    const el=t==='elci';
+    f.querySelector(`input[name=tip][value="${el?'Elçi başvurusu':'Seyahat talebi'}"]`).checked=true;
+    $('g-alan').hidden=el;$('e-alan').hidden=!el;
+    $('adim-elci').hidden=!el;$('adim-gezgin').hidden=el;
+    $('subj').value=el?'Yeni Guidy elçi başvurusu':'Yeni Guidy seyahat talebi';
+    $('fh').textContent=el?'Elçi başvurusu':'Seyahatinizi planlayalım';
+    $('fl').textContent=el?'Formu doldurun, sizi kısa bir tanışma görüşmesi için arayalım. Görüşmede çalışma modelini, eğitimi ve komisyon koşullarını ayrıntılı anlatıyoruz.':'Birkaç bilgi yeterli. Size uygun elçi sizi arar ve hayalinizdeki seyahati birlikte planlarsınız.';
+    $('neden-t').textContent=el?'Neden Guidy elçisi olmak istiyorsunuz?':'Hayalinizdeki seyahati anlatın';
+    $('neden').placeholder=el?'Hangi bölgeleri iyi biliyorsunuz, kimlere seyahat planlamak istersiniz?':'Nasıl bir tatil istiyorsunuz? Özel bir kutlama, ilgi alanları, olmazsa olmazlar…';
+    $('gonder').textContent=el?'Başvurumu gönder':'Talebimi gönder';
+  }
+  f.querySelectorAll('input[name=tip]').forEach(r=>r.addEventListener('change',()=>setTip(r.value==='Elçi başvurusu'?'elci':'gezgin')));
+  document.querySelectorAll('[data-tip]').forEach(a=>a.addEventListener('click',()=>setTip(a.dataset.tip)));
+  setTip(location.hash==='#basvuru'?'elci':'gezgin');
+  if(location.hash==='#basvuru')$('iletisim').scrollIntoView();
 
-  const f=document.getElementById('f'),ok=document.getElementById('ok'),err=document.getElementById('err');
   f.addEventListener('submit',e=>{
     e.preventDefault();
-    const need=['ad','sehir','eposta','tel'].filter(id=>!document.getElementById(id).value.trim());
-    const mail=document.getElementById('eposta').value.trim();
-    if(need.length){err.textContent='Lütfen ad, şehir, e-posta ve telefon alanlarını doldurun.';document.getElementById(need[0]).focus();return}
-    if(!/^\S+@\S+\.\S+$/.test(mail)){err.textContent='E-posta adresini kontrol edin.';document.getElementById('eposta').focus();return}
-    if(!document.getElementById('kvkk').checked){err.textContent='Devam etmek için kişisel veri onayını işaretleyin.';return}
+    const need=['ad','sehir','eposta','tel'].filter(id=>!$(id).value.trim());
+    const mail=$('eposta').value.trim();
+    if(need.length){err.textContent='Lütfen ad, şehir, e-posta ve telefon alanlarını doldurun.';$(need[0]).focus();return}
+    if(!/^\S+@\S+\.\S+$/.test(mail)){err.textContent='E-posta adresini kontrol edin.';$('eposta').focus();return}
+    if(!$('kvkk').checked){err.textContent='Devam etmek için kişisel veri onayını işaretleyin.';return}
     err.textContent='';
-    const btn=f.querySelector('button[type=submit]');btn.disabled=true;btn.textContent='Gönderiliyor…';
-    fetch(f.action,{method:'POST',body:new FormData(f),headers:{Accept:'application/json'}})
-      .then(r=>{if(!r.ok)throw new Error('x');
-        document.getElementById('okmsg').textContent=`${document.getElementById('ad').value.trim()}, bilgileriniz alındı. En kısa sürede tanışma görüşmesi için sizinle iletişime geçeceğiz.`;
+    const btn=$('gonder'),label=btn.textContent;btn.disabled=true;btn.textContent='Gönderiliyor…';
+    const fd=new FormData(f);
+    (($('g-alan').hidden)?['nereye','ne_zaman','kisi','butce']:['deneyim']).forEach(k=>fd.delete(k));
+    fetch(f.action,{method:'POST',body:fd,headers:{Accept:'application/json'}})
+      .then(async r=>{if(!r.ok){let m='';try{const j=await r.json();m=(j.errors||[]).map(x=>x.message).join(' ')}catch(_){}throw new Error(m)}
+        const el=$('g-alan').hidden;
+        $('okmsg').textContent=`${$('ad').value.trim()}, bilgileriniz alındı. ${el?'En kısa sürede tanışma görüşmesi için sizinle iletişime geçeceğiz.':'Size uygun bir elçi en kısa sürede sizi arayacak.'}`;
         f.style.display='none';ok.classList.add('show');})
-      .catch(()=>{err.textContent='Başvuru şu an gönderilemedi. Lütfen birazdan tekrar deneyin.';})
-      .finally(()=>{btn.disabled=false;btn.textContent='Başvurumu gönder';});
+      .catch(x=>{err.textContent=x.message?('Gönderilemedi: '+x.message):'Şu an gönderilemedi. Lütfen birazdan tekrar deneyin.';})
+      .finally(()=>{btn.disabled=false;btn.textContent=label;});
   });
-  document.getElementById('again').addEventListener('click',()=>{f.reset();ok.classList.remove('show');f.style.display='grid'});
+  $('again').addEventListener('click',()=>{f.reset();ok.classList.remove('show');f.style.display='grid';setTip('gezgin')});
 }
 </script>
 </body>
