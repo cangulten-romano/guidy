@@ -156,5 +156,9 @@ body.sub nav{position:sticky;top:0;background:var(--cobd)}
 @media(max-width:600px){.row{grid-template-columns:minmax(0,1fr)}nav ul{display:none}.hero{min-height:88vh}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
 
+.reels{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(220px,260px);gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:10px;margin-top:28px}
+.reel{margin:0;scroll-snap-align:start}
+.reel iframe{width:100%;aspect-ratio:9/16;border:0;border-radius:18px;background:#0f2556}
+.reel p{font-size:14px;color:var(--soft);margin-top:8px}
 .crumb{font-size:14px;color:var(--soft);text-decoration:none}
 .crumb:hover{color:var(--cob)}
