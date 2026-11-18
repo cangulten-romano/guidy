@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://cangulten-romano.github.io/guidy/sitemap.xml
+Sitemap: https://www.guidy.tr/sitemap.xml
