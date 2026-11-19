@@ -6,7 +6,8 @@
 "semt": "Beşiktaş",
 "tip": "Saray otel",
 "fora": "100 $ otel kredisi, hoş geldin notu, günlük kahvaltı, müsaitse oda yükseltme ve erken giriş/geç çıkış",
-"fora_kaynak": "foratravel.com/guides (İstanbul rehberleri)"
+"fora_kaynak": "foratravel.com/guides (İstanbul rehberleri)",
+"virtuoso": "Standart Virtuoso: müsaitse oda yükseltme, erken giriş/geç çıkış, iki kişilik günlük kahvaltı, Wi-Fi, otel kredisi/ikram"
 },
 {
 "id": "ist-fs-bosphorus",
@@ -15,7 +16,8 @@
 "semt": "Beşiktaş",
 "tip": "Lüks otel",
 "fora": "Four Seasons Preferred Partner ayrıcalıkları",
-"fora_kaynak": "foratravel.com/guides (İstanbul rehberleri)"
+"fora_kaynak": "foratravel.com/guides (İstanbul rehberleri)",
+"virtuoso": "Standart Virtuoso: müsaitse oda yükseltme, erken giriş/geç çıkış, iki kişilik günlük kahvaltı, Wi-Fi, otel kredisi/ikram"
 },
 {
 "id": "ist-fs-sultanahmet",
@@ -24,7 +26,8 @@
 "semt": "Sultanahmet",
 "tip": "Butik lüks",
 "fora": "Four Seasons Preferred Partner ayrıcalıkları",
-"fora_kaynak": "foratravel.com/guides (İstanbul rehberleri)"
+"fora_kaynak": "foratravel.com/guides (İstanbul rehberleri)",
+"virtuoso": "Standart Virtuoso: müsaitse oda yükseltme, erken giriş/geç çıkış, iki kişilik günlük kahvaltı, Wi-Fi, otel kredisi/ikram"
 },
 {
 "id": "ist-peninsula",
@@ -33,14 +36,16 @@
 "semt": "Karaköy",
 "tip": "Lüks otel",
 "fora": "100 $ otel kredisi, günlük kahvaltı, müsaitse oda yükseltme ve erken giriş/geç çıkış",
-"fora_kaynak": "foratravel.com/guides (İstanbul rehberleri)"
+"fora_kaynak": "foratravel.com/guides (İstanbul rehberleri)",
+"virtuoso": "Standart Virtuoso: müsaitse oda yükseltme, erken giriş/geç çıkış, iki kişilik günlük kahvaltı, Wi-Fi, otel kredisi/ikram"
 },
 {
 "id": "ist-raffles",
 "ad": "Raffles Istanbul",
 "sehir": "İstanbul",
 "semt": "Zorlu Center",
-"tip": "Lüks otel"
+"tip": "Lüks otel",
+"virtuoso": "Standart Virtuoso: müsaitse oda yükseltme, erken giriş/geç çıkış, iki kişilik günlük kahvaltı, Wi-Fi, otel kredisi/ikram"
 },
 {
 "id": "ist-mo",
@@ -49,28 +54,32 @@
 "semt": "Kuruçeşme",
 "tip": "Lüks otel",
 "fora": "100 $ yiyecek-içecek ya da spa kredisi, hoş geldin ikramı, günlük kahvaltı, müsaitse oda yükseltme ve erken giriş/geç çıkış",
-"fora_kaynak": "foratravel.com/guides (İstanbul rehberleri)"
+"fora_kaynak": "foratravel.com/guides (İstanbul rehberleri)",
+"virtuoso": "Standart Virtuoso: müsaitse oda yükseltme, erken giriş/geç çıkış, iki kişilik günlük kahvaltı, Wi-Fi, otel kredisi/ikram"
 },
 {
 "id": "ist-sixsenses",
 "ad": "Six Senses Kocataş Mansions",
 "sehir": "İstanbul",
 "semt": "Sarıyer",
-"tip": "Lüks otel ve spa"
+"tip": "Lüks otel ve spa",
+"virtuoso": "Standart Virtuoso: müsaitse oda yükseltme, erken giriş/geç çıkış, iki kişilik günlük kahvaltı, Wi-Fi, otel kredisi/ikram"
 },
 {
 "id": "ist-shangrila",
 "ad": "Shangri-La Bosphorus, Istanbul",
 "sehir": "İstanbul",
 "semt": "Beşiktaş",
-"tip": "Lüks otel"
+"tip": "Lüks otel",
+"virtuoso": "Müsaitse rezervasyonda oda yükseltme, iki kişilik kahvaltı, 100 $ otel kredisi, erken giriş/geç çıkış"
 },
 {
 "id": "ist-ritz",
 "ad": "The Ritz-Carlton, Istanbul",
 "sehir": "İstanbul",
 "semt": "Şişli",
-"tip": "Lüks otel"
+"tip": "Lüks otel",
+"virtuoso": "Standart Virtuoso: müsaitse oda yükseltme, erken giriş/geç çıkış, iki kişilik günlük kahvaltı, Wi-Fi, otel kredisi/ikram"
 },
 {
 "id": "ist-soho",
@@ -86,7 +95,8 @@
 "semt": "Uçhisar",
 "tip": "Mağara otel",
 "fora": "Fora ortağı; ayrıcalıkları portalda görülecek",
-"fora_kaynak": "foratravel.com/guides (Kapadokya rehberleri)"
+"fora_kaynak": "foratravel.com/guides (Kapadokya rehberleri)",
+"virtuoso": "Müsaitse erken giriş/geç çıkış, Wi-Fi"
 },
 {
 "id": "kap-argos",
@@ -95,7 +105,8 @@
 "semt": "Uçhisar",
 "tip": "Mağara otel",
 "fora": "Fora ortağı; ayrıcalıkları portalda görülecek",
-"fora_kaynak": "foratravel.com/guides (Kapadokya rehberleri)"
+"fora_kaynak": "foratravel.com/guides (Kapadokya rehberleri)",
+"virtuoso": "Standart Virtuoso: müsaitse oda yükseltme, erken giriş/geç çıkış, iki kişilik günlük kahvaltı, Wi-Fi, otel kredisi/ikram"
 },
 {
 "id": "kap-kayakapi",
@@ -116,14 +127,16 @@
 "ad": "Mandarin Oriental, Bodrum",
 "sehir": "Bodrum",
 "semt": "Göltürkbükü",
-"tip": "Resort"
+"tip": "Resort",
+"virtuoso": "Müsaitse varışta oda yükseltme, iki kişilik günlük açık büfe kahvaltı, Wi-Fi"
 },
 {
 "id": "bod-edition",
 "ad": "The Bodrum EDITION",
 "sehir": "Bodrum",
 "semt": "Yalıkavak",
-"tip": "Resort"
+"tip": "Resort",
+"virtuoso": "Standart Virtuoso: müsaitse oda yükseltme, erken giriş/geç çıkış, iki kişilik günlük kahvaltı, Wi-Fi, otel kredisi/ikram"
 },
 {
 "id": "bod-caresse",
@@ -139,14 +152,16 @@
 "semt": "Göltürkbükü",
 "tip": "Butik resort",
 "fora": "100 $ otel kredisi, günlük kahvaltı, müsaitse oda yükseltme ve erken giriş/geç çıkış",
-"fora_kaynak": "foratravel.com/guides (Bodrum rehberi)"
+"fora_kaynak": "foratravel.com/guides (Bodrum rehberi)",
+"virtuoso": "Müsaitse varışta oda yükseltme; yerel şarap, meyve tabağı ve lokum ikramı; motorsuz su sporları ekipmanı"
 },
 {
 "id": "bod-macakizi",
 "ad": "Maçakızı",
 "sehir": "Bodrum",
 "semt": "Göltürkbükü",
-"tip": "Butik otel"
+"tip": "Butik otel",
+"virtuoso": "Müsaitse rezervasyonda oda yükseltme"
 },
 {
 "id": "mil-kaplankaya",
@@ -225,7 +240,8 @@
 "semt": "Nişantaşı",
 "tip": "Lüks otel",
 "fora": "100 $ yiyecek-içecek kredisi, günlük kahvaltı, müsaitse oda yükseltme ve erken giriş/geç çıkış, hoş geldin notu",
-"fora_kaynak": "foratravel.com/guides (İstanbul rehberleri)"
+"fora_kaynak": "foratravel.com/guides (İstanbul rehberleri)",
+"virtuoso": "Standart Virtuoso: müsaitse oda yükseltme, erken giriş/geç çıkış, iki kişilik günlük kahvaltı, Wi-Fi, otel kredisi/ikram"
 },
 {
 "id": "ist-bebek",
@@ -261,7 +277,8 @@
 "semt": "Uçhisar",
 "tip": "Butik lüks (SLH)",
 "fora": "Günlük kahvaltı, müsaitse oda yükseltme ve erken giriş/geç çıkış",
-"fora_kaynak": "foratravel.com/guides (Kapadokya rehberleri)"
+"fora_kaynak": "foratravel.com/guides (Kapadokya rehberleri)",
+"virtuoso": "Standart Virtuoso: müsaitse oda yükseltme, erken giriş/geç çıkış, iki kişilik günlük kahvaltı, Wi-Fi, otel kredisi/ikram"
 },
 {
 "id": "kap-hezen",
@@ -271,5 +288,37 @@
 "tip": "Butik mağara otel",
 "fora": "Odada hoş geldin ikramı, müsaitse oda yükseltme",
 "fora_kaynak": "foratravel.com/guides (Kapadokya rehberleri)"
+},
+{
+"id": "ist-parkhyatt",
+"ad": "Park Hyatt Istanbul – Maçka Palas",
+"sehir": "İstanbul",
+"semt": "Nişantaşı",
+"tip": "Lüks otel",
+"virtuoso": "Müsaitse varışta oda yükseltme, iki kişilik günlük açık büfe kahvaltı, 100 $ otel kredisi"
+},
+{
+"id": "bod-susona",
+"ad": "Susona Bodrum, LXR Hotels & Resorts",
+"sehir": "Bodrum",
+"semt": "Torba",
+"tip": "Resort",
+"virtuoso": "Ayrıcalıklar otelle teyit edilecek"
+},
+{
+"id": "bod-kempinski",
+"ad": "Kempinski Hotel Barbaros Bay",
+"sehir": "Bodrum",
+"semt": "Yalıçiftlik",
+"tip": "Resort",
+"virtuoso": "Müsaitse varışta oda yükseltme"
+},
+{
+"id": "kap-tafoni",
+"ad": "Tafoni Houses Cave Hotel",
+"sehir": "Kapadokya",
+"semt": "",
+"tip": "Butik mağara otel",
+"virtuoso": "Müsaitse varışta oda yükseltme"
 }
 ]
