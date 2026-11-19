@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html lang="tr">
+
+<html lang="ru">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Seyahatinizi planlayalım — Guidy</title>
-<meta name="description" content="Hayalinizdeki seyahati anlatın; size uygun Guidy seyahat tasarımcısı rotanızı tasarlasın, otelleri ve deneyimleri ayarlasın.">
-<link rel="canonical" href="https://www.guidy.tr/seyahat-talebi.html">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="site.css?v=5">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Спланируем вашу поездку — Guidy</title>
+<meta content="Расскажите о поездке мечты — подходящий тревел-дизайнер Guidy составит маршрут и подберёт отели и впечатления." name="description"/>
+<link href="https://www.guidy.tr/ru/seyahat-talebi.html" rel="canonical"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="../site.css?v=6" rel="stylesheet"/>
 <style>
 .tform{max-width:860px;margin:0 auto}
 .tform h2{font-size:clamp(20px,2.2vw,24px);margin-top:8px}
@@ -28,166 +29,162 @@
 #ok.show{display:block}
 .konu{background:var(--pan);color:var(--cob);border-radius:12px;padding:10px 14px;font-size:14px}
 </style>
+<link rel="alternate" hreflang="tr" href="https://www.guidy.tr/seyahat-talebi.html">
+<link rel="alternate" hreflang="en" href="https://www.guidy.tr/en/seyahat-talebi.html">
+<link rel="alternate" hreflang="es" href="https://www.guidy.tr/es/seyahat-talebi.html">
+<link rel="alternate" hreflang="de" href="https://www.guidy.tr/de/seyahat-talebi.html">
+<link rel="alternate" hreflang="ru" href="https://www.guidy.tr/ru/seyahat-talebi.html">
+<link rel="alternate" hreflang="x-default" href="https://www.guidy.tr/seyahat-talebi.html">
 </head>
 <body class="sub">
 <nav>
-  <a class="logo" href="index.html" aria-label="Guidy ana sayfa">Guidy</a><a class="homeback" href="index.html">← Ana sayfa</a>
-  <ul>
-    <li><a href="index.html#gezgin">Gezginler için</a></li>
-    <li><a href="turlar.html">Turlar</a></li>
-    <li><a href="index.html#elcilerimiz">Seyahat Tasarımcıları</a></li>
-    <li><a href="index.html#elci">Seyahat tasarımcısı olun</a></li>
-    <li><a href="index.html#sss">Sorular</a></li>
-  </ul>
-  <a class="btn light" href="seyahat-talebi.html">Seyahatimi tasarla</a>
+<a aria-label="Главная Guidy" class="logo" href="index.html">Guidy</a><a class="homeback" href="index.html">← Главная</a><div class="langsw" aria-label="Language"><a href="../seyahat-talebi.html" hreflang="tr" lang="tr">TR</a><a href="../en/seyahat-talebi.html" hreflang="en" lang="en">EN</a><a href="../es/seyahat-talebi.html" hreflang="es" lang="es">ES</a><a href="../de/seyahat-talebi.html" hreflang="de" lang="de">DE</a><a class="on" href="../ru/seyahat-talebi.html" hreflang="ru" lang="ru">RU</a></div>
+<ul>
+<li><a href="index.html#gezgin">Путешественникам</a></li>
+<li><a href="../turlar.html">Туры</a></li>
+<li><a href="index.html#elcilerimiz">Тревел-дизайнеры</a></li>
+<li><a href="index.html#elci">Стать тревел-дизайнером</a></li>
+<li><a href="index.html#sss">Вопросы</a></li>
+</ul>
+<a class="btn light" href="seyahat-talebi.html">Спланировать поездку</a>
 </nav>
-
 <main class="band">
 <div class="tform">
-  <p class="kicker">Seyahat talebi</p>
-  <h1 style="font-family:Marcellus,serif">Seyahatinizi birlikte planlayalım</h1>
-  <p class="lead">Bu form yaklaşık 5 dakika sürer. Ne kadar çok anlatırsanız, seyahat tasarımcınız ilk teklifte size o kadar yaklaşır. Seyahat tasarımcısı hizmeti için ayrıca ücret ödemezsiniz.</p>
-
-  <form id="f" action="https://formspree.io/f/mrpqpazq" method="POST" novalidate style="margin-top:28px">
-    <input type="hidden" name="_subject" value="Yeni Guidy seyahat talebi (detaylı form)">
-    <input type="hidden" name="tip" value="Seyahat talebi — detaylı">
-    <input type="hidden" name="ilgili_tur" id="f_tur">
-    <input type="hidden" name="tercih_edilen_elci" id="f_elci">
-    <input type="hidden" name="rota_ortagi" id="f_ref">
-    <input type="hidden" name="kaynak" id="f_kaynak" value="Site formu">
-    <p class="konu" id="konu" hidden></p>
-
-    <div class="grp">
-      <h2>1. Siz</h2>
-      <div class="row">
-        <label for="ad">Ad soyad<input id="ad" name="ad" autocomplete="name" required></label>
-        <label for="sehir">Yaşadığınız şehir<input id="sehir" name="sehir" autocomplete="address-level2" required></label>
-      </div>
-      <div class="row">
-        <label for="eposta">E-posta<input id="eposta" name="email" type="email" autocomplete="email" required></label>
-        <label for="tel">Telefon<span class="telw"><select id="tel_ulke" name="tel_ulke" aria-label="Ülke kodu"><option value="+90" selected>+90 Türkiye</option><option value="+49">+49 Almanya</option><option value="+44">+44 Birleşik Krallık</option><option value="+1">+1 ABD / Kanada</option><option value="+31">+31 Hollanda</option><option value="+33">+33 Fransa</option><option value="+41">+41 İsviçre</option><option value="+43">+43 Avusturya</option><option value="+32">+32 Belçika</option><option value="+46">+46 İsveç</option><option value="+45">+45 Danimarka</option><option value="+47">+47 Norveç</option><option value="+39">+39 İtalya</option><option value="+34">+34 İspanya</option><option value="+30">+30 Yunanistan</option><option value="+357">+357 Kıbrıs</option><option value="+971">+971 BAE</option><option value="+966">+966 Suudi Arabistan</option><option value="+974">+974 Katar</option><option value="+994">+994 Azerbaycan</option><option value="+7">+7 Rusya / Kazakistan</option><option value="+972">+972 İsrail</option><option value="+61">+61 Avustralya</option><option value="Diğer">Diğer</option></select><input id="tel" name="tel" type="tel" autocomplete="tel-national" placeholder="5xx xxx xx xx" required></span></label>
-      </div>
-      <fieldset><legend>Size nasıl ulaşalım?</legend>
-        <div class="chips">
-          <label><input type="radio" name="iletisim_tercihi" value="Telefon" checked><span>Telefon</span></label>
-          <label><input type="radio" name="iletisim_tercihi" value="WhatsApp"><span>WhatsApp</span></label>
-          <label><input type="radio" name="iletisim_tercihi" value="E-posta"><span>E-posta</span></label>
-          <label><input type="radio" name="iletisim_tercihi" value="Görüntülü görüşme"><span>Görüntülü görüşme</span></label>
-        </div>
-      </fieldset>
-    </div>
-
-    <div class="grp">
-      <h2>2. Seyahat</h2>
-      <div class="row"><label for="nereye">Nereye gitmek istiyorsunuz?<input id="nereye" name="nereye" placeholder="ör. İtalya'da Toskana ve Amalfi, Kapadokya, henüz karar vermedim"></label><label for="kalkis">Nereden yola çıkacaksınız?<select id="kalkis" name="kalkis"><option value="">Seçin</option><option>İstanbul</option><option>Ankara</option><option>İzmir</option><option>Antalya</option><option>Bursa</option><option>Adana</option><option>Muğla (Bodrum / Dalaman)</option><option>Trabzon</option><option>Gaziantep</option><option>Kayseri</option><option>Diyarbakır</option><option>Samsun</option><option>Eskişehir</option><option>Konya</option><option>Yurt dışından katılacağım</option><option>Fark etmez</option></select></label></div>
-      <div class="row">
-        <label for="ne_zaman">Ne zaman?<input id="ne_zaman" name="ne_zaman" placeholder="ör. 10–17 Mayıs 2027 ya da Mayıs 2027"></label>
-        <label for="gece">Kaç gece?<input id="gece" name="gece_sayisi" inputmode="numeric" placeholder="ör. 7"></label>
-      </div>
-      <fieldset><legend>Tarihleriniz esnek mi?</legend>
-        <div class="chips">
-          <label><input type="radio" name="tarih_esnekligi" value="Tarihler kesin" checked><span>Kesin</span></label>
-          <label><input type="radio" name="tarih_esnekligi" value="Birkaç gün oynayabilir"><span>Birkaç gün oynayabilir</span></label>
-          <label><input type="radio" name="tarih_esnekligi" value="Tamamen esnek"><span>Tamamen esnek</span></label>
-        </div>
-      </fieldset>
-      <div class="row row3">
-        <label for="yetiskin">Yetişkin<select id="yetiskin" name="yetiskin"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>10+</option></select></label>
-        <label for="cocuk_sayi">Çocuk<select id="cocuk_sayi" name="cocuk_sayisi"><option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select></label><label for="cocuk">Çocukların yaşları<input id="cocuk" name="cocuk_yaslari" placeholder="ör. 6 ve 11"></label>
-      </div>
-      <fieldset><legend>Seyahatin nedeni</legend>
-        <div class="chips">
-          <label><input type="checkbox" name="neden" value="Dinlenme tatili"><span>Dinlenme tatili</span></label>
-          <label><input type="checkbox" name="neden" value="Balayı"><span>Balayı</span></label>
-          <label><input type="checkbox" name="neden" value="Yıldönümü / doğum günü"><span>Yıldönümü / doğum günü</span></label>
-          <label><input type="checkbox" name="neden" value="Aile tatili"><span>Aile tatili</span></label>
-          <label><input type="checkbox" name="neden" value="Arkadaş grubu"><span>Arkadaş grubu</span></label>
-          <label><input type="checkbox" name="neden" value="İş + tatil"><span>İş + tatil</span></label>
-          <label><input type="checkbox" name="neden" value="Kurumsal / ödül seyahati"><span>Kurumsal / ödül seyahati</span></label>
-        </div>
-      </fieldset>
-    </div>
-
-    <div class="grp">
-      <h2>3. Tarzınız</h2>
-      <fieldset><legend>Seyahatte en çok ne istersiniz? <span class="hint">Birden çok seçebilirsiniz.</span></legend>
-        <div class="chips">
-          <label><input type="checkbox" name="tarz" value="Dinlenmek"><span>Dinlenmek</span></label>
-          <label><input type="checkbox" name="tarz" value="Kültür ve tarih"><span>Kültür ve tarih</span></label>
-          <label><input type="checkbox" name="tarz" value="Gastronomi ve şarap"><span>Gastronomi ve şarap</span></label>
-          <label><input type="checkbox" name="tarz" value="Doğa ve yürüyüş"><span>Doğa ve yürüyüş</span></label>
-          <label><input type="checkbox" name="tarz" value="Deniz ve plaj"><span>Deniz ve plaj</span></label>
-          <label><input type="checkbox" name="tarz" value="Macera"><span>Macera</span></label>
-          <label><input type="checkbox" name="tarz" value="Alışveriş"><span>Alışveriş</span></label>
-          <label><input type="checkbox" name="tarz" value="Sanat ve müzeler"><span>Sanat ve müzeler</span></label>
-          <label><input type="checkbox" name="tarz" value="Spa ve wellness"><span>Spa ve wellness</span></label>
-        </div>
-      </fieldset>
-      <fieldset><legend>Konaklama tercihi</legend>
-        <div class="chips">
-          <label><input type="radio" name="konaklama" value="Butik otel"><span>Butik otel</span></label>
-          <label><input type="radio" name="konaklama" value="4 yıldız"><span>4 yıldız</span></label>
-          <label><input type="radio" name="konaklama" value="5 yıldız"><span>5 yıldız</span></label>
-          <label><input type="radio" name="konaklama" value="Ultra lüks"><span>Ultra lüks</span></label>
-          <label><input type="radio" name="konaklama" value="Villa / ev"><span>Villa / ev</span></label>
-          <label><input type="radio" name="konaklama" value="Seyahat tasarımcım önersin" checked><span>Seyahat tasarımcım önersin</span></label>
-        </div>
-      </fieldset>
-      <fieldset><legend>Tempo</legend>
-        <div class="chips">
-          <label><input type="radio" name="tempo" value="Sakin, az program"><span>Sakin, az program</span></label>
-          <label><input type="radio" name="tempo" value="Dengeli" checked><span>Dengeli</span></label>
-          <label><input type="radio" name="tempo" value="Yoğun, çok şey görmek"><span>Yoğun, çok şey görmek</span></label>
-        </div>
-      </fieldset>
-      <label for="sevdigi">Çok sevdiğiniz bir seyahatinizi anlatır mısınız? <span class="hint">Seyahat tasarımcınız sizi böyle daha iyi tanır.</span><textarea id="sevdigi" name="sevdigi_seyahat" placeholder="Nereye gittiniz, ne güzeldi, neyi bir daha istemezsiniz?"></textarea></label>
-    </div>
-
-    <div class="grp">
-      <h2>4. Ulaşım ve hizmetler</h2>
-      <fieldset><legend>Hangi hizmetler gerekli?</legend>
-        <div class="chips">
-          <label><input type="checkbox" name="hizmet" value="Uçak bileti"><span>Uçak bileti</span></label>
-          <label><input type="checkbox" name="hizmet" value="Havalimanı transferi"><span>Transfer</span></label>
-          <label><input type="checkbox" name="hizmet" value="Araç kiralama"><span>Araç kiralama</span></label>
-          <label><input type="checkbox" name="hizmet" value="Özel rehber"><span>Özel rehber</span></label>
-          <label><input type="checkbox" name="hizmet" value="Restoran rezervasyonları"><span>Restoran rezervasyonları</span></label>
-          <label><input type="checkbox" name="hizmet" value="Vize desteği"><span>Vize desteği</span></label>
-          <label><input type="checkbox" name="hizmet" value="Seyahat sigortası"><span>Seyahat sigortası</span></label>
-        </div>
-      </fieldset>
-      <div class="row">
-        <label for="kalkis">Kalkış şehri<input id="kalkis" name="kalkis_sehri" placeholder="ör. İstanbul"></label>
-        <label for="ucus_sinif">Uçuş sınıfı<select id="ucus_sinif" name="ucus_sinifi"><option>Fark etmez</option><option>Ekonomi</option><option>Premium ekonomi</option><option>Business</option><option>First</option></select></label>
-      </div>
-    </div>
-
-    <div class="grp">
-      <h2>5. Bütçe</h2>
-      <div class="row">
-        <label for="butce">Kişi başı toplam bütçe <span class="hint">Uçak, konaklama ve programlar dahil.</span><select id="butce" name="butce"><option>Belirtmek istemiyorum</option><option>50.000 TL altı</option><option>50.000–100.000 TL</option><option>100.000–200.000 TL</option><option>200.000–400.000 TL</option><option>400.000 TL üzeri</option></select></label>
-        <label for="karar">Ne zaman karar vermeyi düşünüyorsunuz?<select id="karar" name="karar_zamani"><option>Hemen, teklif bekliyorum</option><option>1 ay içinde</option><option>1–3 ay içinde</option><option>Sadece fikir topluyorum</option></select></label>
-      </div>
-      <label for="ozel">Özel istekleriniz ya da olmazsa olmazlarınız<textarea id="ozel" name="ozel_istekler" placeholder="ör. deniz manzaralı oda, çocuk kulübü, evcil hayvan, beslenme tercihleri, sürpriz kutlama…"></textarea></label>
-    </div>
-
-    <div class="grp">
-      <label class="chk" for="kvkk"><input id="kvkk" name="kvkk_onay" value="evet" type="checkbox" required><span>Kişisel verilerimin talebimin değerlendirilmesi, bana teklif hazırlanması ve benimle iletişime geçilmesi amacıyla işlenmesini kabul ediyorum.</span></label>
-      <p id="err" role="alert"></p>
-      <button class="btn" type="submit" id="gonder">Talebimi gönder</button>
-    </div>
-  </form>
-
-  <div id="ok" role="status" style="margin-top:28px"><h2 style="margin-top:0">Talebiniz alındı</h2><p id="okmsg"></p><p style="margin-top:12px"><a href="turlar.html">Bu arada turlara göz atın →</a></p></div>
+<p class="kicker">Запрос на поездку</p>
+<h1 style="font-family:Marcellus,serif">Спланируем поездку вместе</h1>
+<p class="lead">Заполнение формы займёт около 5 минут. Чем больше вы расскажете, тем точнее будет первое предложение тревел-дизайнера.</p>
+<form action="https://formspree.io/f/mrpqpazq" id="f" method="POST" novalidate="" style="margin-top:28px"><input name="dil" type="hidden" value="RU"/>
+<input name="_subject" type="hidden" value="Yeni Guidy seyahat talebi (detaylı form)"/>
+<input name="tip" type="hidden" value="Seyahat talebi — detaylı"/>
+<input id="f_tur" name="ilgili_tur" type="hidden"/>
+<input id="f_elci" name="tercih_edilen_elci" type="hidden"/>
+<input id="f_ref" name="rota_ortagi" type="hidden"/>
+<input id="f_kaynak" name="kaynak" type="hidden" value="Site formu"/>
+<p class="konu" hidden="" id="konu"></p>
+<div class="grp">
+<h2>1. О вас</h2>
+<div class="row">
+<label for="ad">Имя и фамилия<input autocomplete="name" id="ad" name="ad" required=""/></label>
+<label for="sehir">Город проживания<input autocomplete="address-level2" id="sehir" name="sehir" required=""/></label>
+</div>
+<div class="row">
+<label for="eposta">Эл. почта<input autocomplete="email" id="eposta" name="email" required="" type="email"/></label>
+<label for="tel">Телефон<span class="telw"><select aria-label="Код страны" id="tel_ulke" name="tel_ulke"><option selected="" value="+90">+90 Турция</option><option value="+49">+49 Германия</option><option value="+44">+44 Великобритания</option><option value="+1">+1 США / Канада</option><option value="+31">+31 Нидерланды</option><option value="+33">+33 Франция</option><option value="+41">+41 Швейцария</option><option value="+43">+43 Австрия</option><option value="+32">+32 Бельгия</option><option value="+46">+46 Швеция</option><option value="+45">+45 Дания</option><option value="+47">+47 Норвегия</option><option value="+39">+39 Италия</option><option value="+34">+34 Испания</option><option value="+30">+30 Греция</option><option value="+357">+357 Кипр</option><option value="+971">+971 ОАЭ</option><option value="+966">+966 Саудовская Аравия</option><option value="+974">+974 Катар</option><option value="+994">+994 Азербайджан</option><option value="+7">+7 Россия / Казахстан</option><option value="+972">+972 Израиль</option><option value="+61">+61 Австралия</option><option value="Diğer">Другое</option></select><input autocomplete="tel-national" id="tel" name="tel" placeholder="Номер телефона" required="" type="tel"/></span></label>
+</div>
+<fieldset><legend>Как с вами связаться?</legend>
+<div class="chips">
+<label><input checked="" name="iletisim_tercihi" type="radio" value="Telefon"/><span>Телефон</span></label>
+<label><input name="iletisim_tercihi" type="radio" value="WhatsApp"/><span>WhatsApp</span></label>
+<label><input name="iletisim_tercihi" type="radio" value="E-posta"/><span>Эл. почта</span></label>
+<label><input name="iletisim_tercihi" type="radio" value="Görüntülü görüşme"/><span>Видеозвонок</span></label>
+</div>
+</fieldset>
+</div>
+<div class="grp">
+<h2>2. Поездка</h2>
+<div class="row"><label for="nereye">Куда вы хотите поехать?<input id="nereye" name="nereye" placeholder="например, Тоскана и Амальфи в Италии, Каппадокия, ещё не решил(а)"/></label><label for="kalkis">Откуда вы отправляетесь?<select id="kalkis" name="kalkis"><option value="">Выберите</option><option>İstanbul</option><option>Ankara</option><option>İzmir</option><option>Antalya</option><option>Bursa</option><option>Adana</option><option>Muğla (Bodrum / Dalaman)</option><option>Trabzon</option><option>Gaziantep</option><option>Kayseri</option><option>Diyarbakır</option><option>Samsun</option><option>Eskişehir</option><option>Konya</option><option>Присоединюсь из-за границы</option><option>Неважно</option></select></label></div>
+<div class="row">
+<label for="ne_zaman">Когда?<input id="ne_zaman" name="ne_zaman" placeholder="например, 10–17 мая 2027 или май 2027"/></label>
+<label for="gece">Сколько ночей?<input id="gece" inputmode="numeric" name="gece_sayisi" placeholder="например, 7"/></label>
+</div>
+<fieldset><legend>Даты гибкие?</legend>
+<div class="chips">
+<label><input checked="" name="tarih_esnekligi" type="radio" value="Tarihler kesin"/><span>Точные</span></label>
+<label><input name="tarih_esnekligi" type="radio" value="Birkaç gün oynayabilir"/><span>Плюс-минус несколько дней</span></label>
+<label><input name="tarih_esnekligi" type="radio" value="Tamamen esnek"/><span>Полностью гибкие</span></label>
+</div>
+</fieldset>
+<div class="row row3">
+<label for="yetiskin">Взрослые<select id="yetiskin" name="yetiskin"><option>1</option><option selected="">2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>10+</option></select></label>
+<label for="cocuk_sayi">Дети<select id="cocuk_sayi" name="cocuk_sayisi"><option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select></label><label for="cocuk">Возраст детей<input id="cocuk" name="cocuk_yaslari" placeholder="например, 6 и 11"/></label>
+</div>
+<fieldset><legend>Повод для поездки</legend>
+<div class="chips">
+<label><input name="neden" type="checkbox" value="Dinlenme tatili"/><span>Спокойный отдых</span></label>
+<label><input name="neden" type="checkbox" value="Balayı"/><span>Медовый месяц</span></label>
+<label><input name="neden" type="checkbox" value="Yıldönümü / doğum günü"/><span>Годовщина / день рождения</span></label>
+<label><input name="neden" type="checkbox" value="Aile tatili"/><span>Семейный отдых</span></label>
+<label><input name="neden" type="checkbox" value="Arkadaş grubu"/><span>Компания друзей</span></label>
+<label><input name="neden" type="checkbox" value="İş + tatil"/><span>Работа + отдых</span></label>
+<label><input name="neden" type="checkbox" value="Kurumsal / ödül seyahati"/><span>Корпоративная / мотивационная поездка</span></label>
+</div>
+</fieldset>
+</div>
+<div class="grp">
+<h2>3. Ваш стиль</h2>
+<fieldset><legend>Что для вас главное в поездке? <span class="hint">Можно выбрать несколько вариантов.</span></legend>
+<div class="chips">
+<label><input name="tarz" type="checkbox" value="Dinlenmek"/><span>Отдых</span></label>
+<label><input name="tarz" type="checkbox" value="Kültür ve tarih"/><span>Культура и история</span></label>
+<label><input name="tarz" type="checkbox" value="Gastronomi ve şarap"/><span>Гастрономия и вино</span></label>
+<label><input name="tarz" type="checkbox" value="Doğa ve yürüyüş"/><span>Природа и пешие прогулки</span></label>
+<label><input name="tarz" type="checkbox" value="Deniz ve plaj"/><span>Море и пляж</span></label>
+<label><input name="tarz" type="checkbox" value="Macera"/><span>Приключения</span></label>
+<label><input name="tarz" type="checkbox" value="Alışveriş"/><span>Шопинг</span></label>
+<label><input name="tarz" type="checkbox" value="Sanat ve müzeler"/><span>Искусство и музеи</span></label>
+<label><input name="tarz" type="checkbox" value="Spa ve wellness"/><span>СПА и велнес</span></label>
+</div>
+</fieldset>
+<fieldset><legend>Размещение</legend>
+<div class="chips">
+<label><input name="konaklama" type="radio" value="Butik otel"/><span>Бутик-отель</span></label>
+<label><input name="konaklama" type="radio" value="4 yıldız"/><span>4 звезды</span></label>
+<label><input name="konaklama" type="radio" value="5 yıldız"/><span>5 звёзд</span></label>
+<label><input name="konaklama" type="radio" value="Ultra lüks"/><span>Ультралюкс</span></label>
+<label><input name="konaklama" type="radio" value="Villa / ev"/><span>Вилла / дом</span></label>
+<label><input checked="" name="konaklama" type="radio" value="Seyahat tasarımcım önersin"/><span>Пусть предложит тревел-дизайнер</span></label>
+</div>
+</fieldset>
+<fieldset><legend>Темп</legend>
+<div class="chips">
+<label><input name="tempo" type="radio" value="Sakin, az program"/><span>Спокойный, мало программы</span></label>
+<label><input checked="" name="tempo" type="radio" value="Dengeli"/><span>Сбалансированный</span></label>
+<label><input name="tempo" type="radio" value="Yoğun, çok şey görmek"/><span>Насыщенный, увидеть многое</span></label>
+</div>
+</fieldset>
+<label for="sevdigi">Расскажите о поездке, которая вам очень понравилась <span class="hint">Так тревел-дизайнер лучше вас узнает.</span><textarea id="sevdigi" name="sevdigi_seyahat" placeholder="Куда вы ездили, что понравилось, чего больше не хотите?"></textarea></label>
+</div>
+<div class="grp">
+<h2>4. Транспорт и услуги</h2>
+<fieldset><legend>Какие услуги нужны?</legend>
+<div class="chips">
+<label><input name="hizmet" type="checkbox" value="Uçak bileti"/><span>Авиабилеты</span></label>
+<label><input name="hizmet" type="checkbox" value="Havalimanı transferi"/><span>Трансфер</span></label>
+<label><input name="hizmet" type="checkbox" value="Araç kiralama"/><span>Аренда авто</span></label>
+<label><input name="hizmet" type="checkbox" value="Özel rehber"/><span>Личный гид</span></label>
+<label><input name="hizmet" type="checkbox" value="Restoran rezervasyonları"/><span>Бронирование ресторанов</span></label>
+<label><input name="hizmet" type="checkbox" value="Vize desteği"/><span>Помощь с визой</span></label>
+<label><input name="hizmet" type="checkbox" value="Seyahat sigortası"/><span>Туристическая страховка</span></label>
+</div>
+</fieldset>
+<div class="row">
+<label for="kalkis">Город вылета<input id="kalkis" name="kalkis_sehri" placeholder="например, Стамбул"/></label>
+<label for="ucus_sinif">Класс перелёта<select id="ucus_sinif" name="ucus_sinifi"><option>Неважно</option><option>Эконом</option><option>Премиум-эконом</option><option>Бизнес</option><option>Первый</option></select></label>
+</div>
+</div>
+<div class="grp">
+<h2>5. Бюджет</h2>
+<div class="row">
+<label for="butce">Общий бюджет на человека <span class="hint">Включая перелёт, проживание и программу.</span><select id="butce" name="butce"><option>Предпочитаю не указывать</option><option>До 50 000 TL</option><option>50 000–100 000 TL</option><option>100 000–200 000 TL</option><option>200 000–400 000 TL</option><option>Более 400 000 TL</option></select></label>
+<label for="karar">Когда вы планируете принять решение?<select id="karar" name="karar_zamani"><option>Сразу, жду предложения</option><option>В течение 1 месяца</option><option>В течение 1–3 месяцев</option><option>Пока просто собираю идеи</option></select></label>
+</div>
+<label for="ozel">Особые пожелания или обязательные условия<textarea id="ozel" name="ozel_istekler" placeholder="например, номер с видом на море, детский клуб, домашние животные, питание, сюрприз-праздник…"></textarea></label>
+</div>
+<div class="grp">
+<label class="chk" for="kvkk"><input id="kvkk" name="kvkk_onay" required="" type="checkbox" value="evet"/><span>Я согласен(на) на обработку моих персональных данных для рассмотрения запроса, подготовки предложения и связи со мной.</span></label>
+<p id="err" role="alert"></p>
+<button class="btn" id="gonder" type="submit">Отправить запрос</button>
+</div>
+</form>
+<div id="ok" role="status" style="margin-top:28px"><h2 style="margin-top:0">Ваш запрос получен</h2><p id="okmsg"></p><p style="margin-top:12px"><a href="../turlar.html">А пока посмотрите туры →</a></p></div>
 </div>
 </main>
-
 <footer class="band">
-  <div class="wrap">
-    <div><b style="font-family:Marcellus,serif;font-size:26px">Guidy</b><p style="margin-top:6px">Türkiye'nin seyahat tasarımcıları ağı.</p></div>
-    <div><p><a href="turlar.html">Turlar</a> · <a href="index.html#elcilerimiz">Seyahat Tasarımcıları</a> · <a href="index.html#elci">Seyahat tasarımcısı olun</a></p></div>
-    <div><p>Satışlar belgeli bir seyahat acentesi çatısı altında yapılır.</p><p>© 2026 Guidy</p></div>
-  </div>
+<div class="wrap">
+<div><b style="font-family:Marcellus,serif;font-size:26px">Guidy</b><p style="margin-top:6px">Сеть тревел-дизайнеров Турции.</p></div>
+<div><p><a href="../turlar.html">Туры</a> · <a href="index.html#elcilerimiz">Тревел-дизайнеры</a> · <a href="index.html#elci">Стать тревел-дизайнером</a></p></div>
+<div><p>Продажи осуществляются через лицензированное турагентство.</p><p>© 2026 Guidy</p></div>
+</div>
 </footer>
 <script>
 (function(){
@@ -196,29 +193,29 @@
   const esc=s=>s.replace(/[<>&]/g,c=>({'<':'&lt;','>':'&gt;','&':'&amp;'}[c]));
   const tur=q.get('tur'),elci=q.get('elci'),ref=q.get('ref');
   if(tur){$('f_tur').value=tur;parts.push('Tur: <b>'+esc(tur)+'</b>');if(!$('nereye').value)$('nereye').value=tur}
-  if(elci){$('f_elci').value=elci;parts.push('Seyahat tasarımcısı: <b>'+esc(elci)+'</b>')}
-  if(ref){$('f_ref').value=ref;$('f_kaynak').value='Rota Ortağı';try{localStorage.setItem('guidy_ref',ref)}catch(_){}}
-  else{try{const r=localStorage.getItem('guidy_ref');if(r){$('f_ref').value=r;$('f_kaynak').value='Rota Ortağı'}}catch(_){}}
+  if(elci){$('f_elci').value=elci;parts.push('Тревел-дизайнер: <b>'+esc(elci)+'</b>')}
+  if(ref){$('f_ref').value=ref;$('f_kaynak').value='Партнёр маршрутов';try{localStorage.setItem('guidy_ref',ref)}catch(_){}}
+  else{try{const r=localStorage.getItem('guidy_ref');if(r){$('f_ref').value=r;$('f_kaynak').value='Партнёр маршрутов'}}catch(_){}}
   if(parts.length){$('konu').innerHTML=parts.join(' · ');$('konu').hidden=false}
   f.addEventListener('submit',async e=>{
     e.preventDefault();err.textContent='';
     const need=['ad','sehir','eposta','tel'].filter(id=>!$(id).value.trim());
-    if(need.length){err.textContent='Lütfen ad, şehir, e-posta ve telefon alanlarını doldurun.';$(need[0]).focus();return}
-    if(!/^\S+@\S+\.\S+$/.test($('eposta').value.trim())){err.textContent='E-posta adresini kontrol edin.';$('eposta').focus();return}
-    if(!$('kvkk').checked){err.textContent='Devam etmek için kişisel veri onayını işaretleyin.';return}
+    if(need.length){err.textContent='Пожалуйста, укажите имя, город, эл. почту и телефон.';$(need[0]).focus();return}
+    if(!/^\S+@\S+\.\S+$/.test($('eposta').value.trim())){err.textContent='Проверьте адрес эл. почты.';$('eposta').focus();return}
+    if(!$('kvkk').checked){err.textContent='Чтобы продолжить, отметьте согласие на обработку персональных данных.';return}
     const fd=new FormData(f);
     ['neden','tarz','hizmet'].forEach(k=>{const v=fd.getAll(k);fd.delete(k);if(v.length)fd.set(k,v.join(', '))});
-    const b=$('gonder'),l=b.textContent;b.disabled=true;b.textContent='Gönderiliyor…';
+    const b=$('gonder'),l=b.textContent;b.disabled=true;b.textContent='Отправка…';
     try{
       const r=await fetch(f.action,{method:'POST',body:fd,headers:{Accept:'application/json'}});
       if(!r.ok)throw 0;
       f.style.display='none';
-      $('okmsg').textContent=$('ad').value.trim()+', talebiniz bize ulaştı. Size uygun Guidy seyahat tasarımcısı en geç 24 saat içinde sizinle iletişime geçecek.';
+      $('okmsg').textContent=$('ad').value.trim()+', ваш запрос получен. Подходящий тревел-дизайнер Guidy свяжется с вами в течение 24 часов.';
       $('ok').classList.add('show');window.scrollTo({top:0,behavior:'smooth'});
-    }catch(_){err.textContent='Gönderilemedi. Lütfen biraz sonra tekrar deneyin.';b.disabled=false;b.textContent=l}
+    }catch(_){err.textContent='Не удалось отправить. Попробуйте ещё раз немного позже.';b.disabled=false;b.textContent=l}
   });
 })();
 </script>
-<a class="wa" href="https://wa.me/905353751195?text=Merhaba%20Guidy%2C%20seyahatim%20i%C3%A7in%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener" aria-label="WhatsApp'tan yazın"><svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.2-.2-.4-.3z"/></svg><span>WhatsApp'tan yazın</span></a>
+<a aria-label="Напишите нам в WhatsApp" class="wa" href="https://wa.me/905353751195?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20Guidy%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BF%D0%BE%D0%BB%D1%83%D1%87%D0%B8%D1%82%D1%8C%20%D0%B8%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D1%8E%20%D0%BE%20%D0%BF%D0%BE%D0%B5%D0%B7%D0%B4%D0%BA%D0%B5." rel="noopener" target="_blank"><svg aria-hidden="true" height="26" viewbox="0 0 24 24" width="26"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.2-.2-.4-.3z" fill="#fff"></path></svg><span>Напишите нам в WhatsApp</span></a>
 </body>
 </html>
