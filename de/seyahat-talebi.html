@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+
+<html lang="de">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Lassen Sie uns Ihre Reise planen — Guidy</title>
+<meta content="Erzählen Sie uns von Ihrer Traumreise; der passende Guidy-Reisedesigner gestaltet Ihre Route und organisiert Hotels und Erlebnisse." name="description"/>
+<link href="https://www.guidy.tr/de/seyahat-talebi.html" rel="canonical"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="../site.css?v=6" rel="stylesheet"/>
+<style>
+.tform{max-width:860px;margin:0 auto}
+.tform h2{font-size:clamp(20px,2.2vw,24px);margin-top:8px}
+.tform fieldset{border:0;padding:0;margin:0}
+.tform legend{font-size:14px;font-weight:600;margin-bottom:8px}
+.grp{display:grid;gap:16px;padding-top:22px;border-top:1px solid var(--line)}
+.grp:first-of-type{border-top:0;padding-top:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips label{display:block;cursor:pointer;font-weight:500}
+.chips input{position:absolute;opacity:0;pointer-events:none}
+.chips span{display:inline-block;padding:9px 14px;border:1px solid var(--line);border-radius:999px;font-size:14px}
+.chips input:checked+span{border-color:var(--cob);background:var(--pan);color:var(--cob)}
+.chips input:focus-visible+span{outline:3px solid var(--tq);outline-offset:2px}
+.hint{font-size:13px;color:var(--soft);font-weight:400}
+#err{color:#b3261e;font-size:14px;min-height:1em}
+#ok{display:none;background:#fff;border:1px solid var(--line);border-radius:20px;padding:28px}
+#ok.show{display:block}
+.konu{background:var(--pan);color:var(--cob);border-radius:12px;padding:10px 14px;font-size:14px}
+</style>
+<link href="https://www.guidy.tr/seyahat-talebi.html" hreflang="tr" rel="alternate"/>
+<link href="https://www.guidy.tr/en/seyahat-talebi.html" hreflang="en" rel="alternate"/>
+<link href="https://www.guidy.tr/es/seyahat-talebi.html" hreflang="es" rel="alternate"/>
+<link href="https://www.guidy.tr/de/seyahat-talebi.html" hreflang="de" rel="alternate"/>
+<link href="https://www.guidy.tr/ru/seyahat-talebi.html" hreflang="ru" rel="alternate"/>
+<link href="https://www.guidy.tr/seyahat-talebi.html" hreflang="x-default" rel="alternate"/>
+<link rel="alternate" hreflang="tr" href="https://www.guidy.tr/seyahat-talebi.html">
+<link rel="alternate" hreflang="en" href="https://www.guidy.tr/en/seyahat-talebi.html">
+<link rel="alternate" hreflang="es" href="https://www.guidy.tr/es/seyahat-talebi.html">
+<link rel="alternate" hreflang="de" href="https://www.guidy.tr/de/seyahat-talebi.html">
+<link rel="alternate" hreflang="ru" href="https://www.guidy.tr/ru/seyahat-talebi.html">
+<link rel="alternate" hreflang="x-default" href="https://www.guidy.tr/seyahat-talebi.html">
+</head>
+<body class="sub">
+<nav>
+<a aria-label="Guidy Startseite" class="logo" href="index.html">Guidy</a><a class="homeback" href="index.html">← Startseite</a><div class="langsw" aria-label="Language"><a href="../seyahat-talebi.html" hreflang="tr" lang="tr">TR</a><a href="../en/seyahat-talebi.html" hreflang="en" lang="en">EN</a><a href="../es/seyahat-talebi.html" hreflang="es" lang="es">ES</a><a class="on" href="../de/seyahat-talebi.html" hreflang="de" lang="de">DE</a><a href="../ru/seyahat-talebi.html" hreflang="ru" lang="ru">RU</a></div>
+<ul>
+<li><a href="index.html#gezgin">Für Reisende</a></li>
+<li><a href="../turlar.html">Touren</a></li>
+<li><a href="index.html#elcilerimiz">Reisedesigner</a></li>
+<li><a href="index.html#elci">Reisedesigner werden</a></li>
+<li><a href="index.html#sss">Fragen</a></li>
+</ul>
+<a class="btn light" href="seyahat-talebi.html">Meine Reise planen</a>
+</nav>
+<main class="band">
+<div class="tform">
+<p class="kicker">Reiseanfrage</p>
+<h1 style="font-family:Marcellus,serif">Planen wir Ihre Reise gemeinsam</h1>
+<p class="lead">Das Formular dauert etwa 5 Minuten. Je mehr Sie erzählen, desto genauer trifft das erste Angebot Ihres Reisedesigners.</p>
+<form action="https://formspree.io/f/mrpqpazq" id="f" method="POST" novalidate="" style="margin-top:28px"><input name="dil" type="hidden" value="DE"/>
+<input name="_subject" type="hidden" value="Yeni Guidy seyahat talebi (detaylı form)"/>
+<input name="tip" type="hidden" value="Seyahat talebi — detaylı"/>
+<input id="f_tur" name="ilgili_tur" type="hidden"/>
+<input id="f_elci" name="tercih_edilen_elci" type="hidden"/>
+<input id="f_ref" name="rota_ortagi" type="hidden"/>
+<input id="f_kaynak" name="kaynak" type="hidden" value="Site formu"/>
+<p class="konu" hidden="" id="konu"></p>
+<div class="grp">
+<h2>1. Über Sie</h2>
+<div class="row">
+<label for="ad">Vor- und Nachname<input autocomplete="name" id="ad" name="ad" required=""/></label>
+<label for="sehir">Ihr Wohnort<input autocomplete="address-level2" id="sehir" name="sehir" required=""/></label>
+</div>
+<div class="row">
+<label for="eposta">E-Mail<input autocomplete="email" id="eposta" name="email" required="" type="email"/></label>
+<label for="tel">Telefon<span class="telw"><select aria-label="Ländervorwahl" id="tel_ulke" name="tel_ulke"><option selected="" value="+90">+90 Türkei</option><option value="+49">+49 Deutschland</option><option value="+44">+44 Vereinigtes Königreich</option><option value="+1">+1 USA / Kanada</option><option value="+31">+31 Niederlande</option><option value="+33">+33 Frankreich</option><option value="+41">+41 Schweiz</option><option value="+43">+43 Österreich</option><option value="+32">+32 Belgien</option><option value="+46">+46 Schweden</option><option value="+45">+45 Dänemark</option><option value="+47">+47 Norwegen</option><option value="+39">+39 Italien</option><option value="+34">+34 Spanien</option><option value="+30">+30 Griechenland</option><option value="+357">+357 Zypern</option><option value="+971">+971 VAE</option><option value="+966">+966 Saudi-Arabien</option><option value="+974">+974 Katar</option><option value="+994">+994 Aserbaidschan</option><option value="+7">+7 Russland / Kasachstan</option><option value="+972">+972 Israel</option><option value="+61">+61 Australien</option><option value="Diğer">Andere</option></select><input autocomplete="tel-national" id="tel" name="tel" placeholder="Telefonnummer" required="" type="tel"/></span></label>
+</div>
+<fieldset><legend>Wie erreichen wir Sie?</legend>
+<div class="chips">
+<label><input checked="" name="iletisim_tercihi" type="radio" value="Telefon"/><span>Telefon</span></label>
+<label><input name="iletisim_tercihi" type="radio" value="WhatsApp"/><span>WhatsApp</span></label>
+<label><input name="iletisim_tercihi" type="radio" value="E-posta"/><span>E-Mail</span></label>
+<label><input name="iletisim_tercihi" type="radio" value="Görüntülü görüşme"/><span>Videoanruf</span></label>
+</div>
+</fieldset>
+</div>
+<div class="grp">
+<h2>2. Die Reise</h2>
+<div class="row"><label for="nereye">Wohin möchten Sie reisen?<input id="nereye" name="nereye" placeholder="z. B. Toskana und Amalfi in Italien, Kappadokien, noch nicht entschieden"/></label><label for="kalkis">Von wo reisen Sie ab?<select id="kalkis" name="kalkis"><option value="">Bitte wählen</option><option>İstanbul</option><option>Ankara</option><option>İzmir</option><option>Antalya</option><option>Bursa</option><option>Adana</option><option>Muğla (Bodrum / Dalaman)</option><option>Trabzon</option><option>Gaziantep</option><option>Kayseri</option><option>Diyarbakır</option><option>Samsun</option><option>Eskişehir</option><option>Konya</option><option>Ich reise aus dem Ausland an</option><option>Egal</option></select></label></div>
+<div class="row">
+<label for="ne_zaman">Wann?<input id="ne_zaman" name="ne_zaman" placeholder="z. B. 10.–17. Mai 2027 oder Mai 2027"/></label>
+<label for="gece">Wie viele Nächte?<input id="gece" inputmode="numeric" name="gece_sayisi" placeholder="z. B. 7"/></label>
+</div>
+<fieldset><legend>Sind Ihre Daten flexibel?</legend>
+<div class="chips">
+<label><input checked="" name="tarih_esnekligi" type="radio" value="Tarihler kesin"/><span>Fest</span></label>
+<label><input name="tarih_esnekligi" type="radio" value="Birkaç gün oynayabilir"/><span>Ein paar Tage Spielraum</span></label>
+<label><input name="tarih_esnekligi" type="radio" value="Tamamen esnek"/><span>Völlig flexibel</span></label>
+</div>
+</fieldset>
+<div class="row row3">
+<label for="yetiskin">Erwachsene<select id="yetiskin" name="yetiskin"><option>1</option><option selected="">2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>10+</option></select></label>
+<label for="cocuk_sayi">Kinder<select id="cocuk_sayi" name="cocuk_sayisi"><option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select></label><label for="cocuk">Alter der Kinder<input id="cocuk" name="cocuk_yaslari" placeholder="z. B. 6 und 11"/></label>
+</div>
+<fieldset><legend>Anlass der Reise</legend>
+<div class="chips">
+<label><input name="neden" type="checkbox" value="Dinlenme tatili"/><span>Erholungsurlaub</span></label>
+<label><input name="neden" type="checkbox" value="Balayı"/><span>Flitterwochen</span></label>
+<label><input name="neden" type="checkbox" value="Yıldönümü / doğum günü"/><span>Jahrestag / Geburtstag</span></label>
+<label><input name="neden" type="checkbox" value="Aile tatili"/><span>Familienurlaub</span></label>
+<label><input name="neden" type="checkbox" value="Arkadaş grubu"/><span>Freundesgruppe</span></label>
+<label><input name="neden" type="checkbox" value="İş + tatil"/><span>Geschäft + Urlaub</span></label>
+<label><input name="neden" type="checkbox" value="Kurumsal / ödül seyahati"/><span>Firmen- / Incentive-Reise</span></label>
+</div>
+</fieldset>
+</div>
+<div class="grp">
+<h2>3. Ihr Stil</h2>
+<fieldset><legend>Was ist Ihnen auf Reisen am wichtigsten? <span class="hint">Mehrfachauswahl möglich.</span></legend>
+<div class="chips">
+<label><input name="tarz" type="checkbox" value="Dinlenmek"/><span>Entspannen</span></label>
+<label><input name="tarz" type="checkbox" value="Kültür ve tarih"/><span>Kultur und Geschichte</span></label>
+<label><input name="tarz" type="checkbox" value="Gastronomi ve şarap"/><span>Kulinarik und Wein</span></label>
+<label><input name="tarz" type="checkbox" value="Doğa ve yürüyüş"/><span>Natur und Wandern</span></label>
+<label><input name="tarz" type="checkbox" value="Deniz ve plaj"/><span>Meer und Strand</span></label>
+<label><input name="tarz" type="checkbox" value="Macera"/><span>Abenteuer</span></label>
+<label><input name="tarz" type="checkbox" value="Alışveriş"/><span>Shopping</span></label>
+<label><input name="tarz" type="checkbox" value="Sanat ve müzeler"/><span>Kunst und Museen</span></label>
+<label><input name="tarz" type="checkbox" value="Spa ve wellness"/><span>Spa und Wellness</span></label>
+</div>
+</fieldset>
+<fieldset><legend>Unterkunft</legend>
+<div class="chips">
+<label><input name="konaklama" type="radio" value="Butik otel"/><span>Boutique-Hotel</span></label>
+<label><input name="konaklama" type="radio" value="4 yıldız"/><span>4 Sterne</span></label>
+<label><input name="konaklama" type="radio" value="5 yıldız"/><span>5 Sterne</span></label>
+<label><input name="konaklama" type="radio" value="Ultra lüks"/><span>Ultra-Luxus</span></label>
+<label><input name="konaklama" type="radio" value="Villa / ev"/><span>Villa / Ferienhaus</span></label>
+<label><input checked="" name="konaklama" type="radio" value="Seyahat tasarımcım önersin"/><span>Mein Reisedesigner soll vorschlagen</span></label>
+</div>
+</fieldset>
+<fieldset><legend>Tempo</legend>
+<div class="chips">
+<label><input name="tempo" type="radio" value="Sakin, az program"/><span>Ruhig, wenig Programm</span></label>
+<label><input checked="" name="tempo" type="radio" value="Dengeli"/><span>Ausgewogen</span></label>
+<label><input name="tempo" type="radio" value="Yoğun, çok şey görmek"/><span>Intensiv, viel sehen</span></label>
+</div>
+</fieldset>
+<label for="sevdigi">Erzählen Sie uns von einer Reise, die Sie geliebt haben <span class="hint">So lernt Ihr Reisedesigner Sie besser kennen.</span><textarea id="sevdigi" name="sevdigi_seyahat" placeholder="Wohin sind Sie gereist, was war schön, was möchten Sie nie wieder?"></textarea></label>
+</div>
+<div class="grp">
+<h2>4. Anreise und Leistungen</h2>
+<fieldset><legend>Welche Leistungen benötigen Sie?</legend>
+<div class="chips">
+<label><input name="hizmet" type="checkbox" value="Uçak bileti"/><span>Flüge</span></label>
+<label><input name="hizmet" type="checkbox" value="Havalimanı transferi"/><span>Transfers</span></label>
+<label><input name="hizmet" type="checkbox" value="Araç kiralama"/><span>Mietwagen</span></label>
+<label><input name="hizmet" type="checkbox" value="Özel rehber"/><span>Privater Reiseleiter</span></label>
+<label><input name="hizmet" type="checkbox" value="Restoran rezervasyonları"/><span>Restaurantreservierungen</span></label>
+<label><input name="hizmet" type="checkbox" value="Vize desteği"/><span>Visa-Unterstützung</span></label>
+<label><input name="hizmet" type="checkbox" value="Seyahat sigortası"/><span>Reiseversicherung</span></label>
+</div>
+</fieldset>
+<div class="row">
+<label for="kalkis">Abflugort<input id="kalkis" name="kalkis_sehri" placeholder="z. B. Istanbul"/></label>
+<label for="ucus_sinif">Flugklasse<select id="ucus_sinif" name="ucus_sinifi"><option>Egal</option><option>Economy</option><option>Premium Economy</option><option>Business</option><option>First</option></select></label>
+</div>
+</div>
+<div class="grp">
+<h2>5. Budget</h2>
+<div class="row">
+<label for="butce">Gesamtbudget pro Person <span class="hint">Inklusive Flüge, Unterkunft und Programm.</span><select id="butce" name="butce"><option>Keine Angabe</option><option>Unter 50.000 TL</option><option>50.000–100.000 TL</option><option>100.000–200.000 TL</option><option>200.000–400.000 TL</option><option>Über 400.000 TL</option></select></label>
+<label for="karar">Wann möchten Sie sich entscheiden?<select id="karar" name="karar_zamani"><option>Sofort, ich warte auf ein Angebot</option><option>Innerhalb von 1 Monat</option><option>Innerhalb von 1–3 Monaten</option><option>Ich sammle nur Ideen</option></select></label>
+</div>
+<label for="ozel">Besondere Wünsche oder Must-haves<textarea id="ozel" name="ozel_istekler" placeholder="z. B. Zimmer mit Meerblick, Kinderclub, Haustiere, Ernährungswünsche, eine Überraschungsfeier…"></textarea></label>
+</div>
+<div class="grp">
+<label class="chk" for="kvkk"><input id="kvkk" name="kvkk_onay" required="" type="checkbox" value="evet"/><span>Ich willige ein, dass meine personenbezogenen Daten zur Bearbeitung meiner Anfrage, zur Erstellung eines Angebots und zur Kontaktaufnahme verarbeitet werden.</span></label>
+<p id="err" role="alert"></p>
+<button class="btn" id="gonder" type="submit">Anfrage senden</button>
+</div>
+</form>
+<div id="ok" role="status" style="margin-top:28px"><h2 style="margin-top:0">Ihre Anfrage ist eingegangen</h2><p id="okmsg"></p><p style="margin-top:12px"><a href="../turlar.html">Stöbern Sie inzwischen in unseren Touren →</a></p></div>
+</div>
+</main>
+<footer class="band">
+<div class="wrap">
+<div><b style="font-family:Marcellus,serif;font-size:26px">Guidy</b><p style="margin-top:6px">Das Netzwerk der Reisedesigner in der Türkei.</p></div>
+<div><p><a href="../turlar.html">Touren</a> · <a href="index.html#elcilerimiz">Reisedesigner</a> · <a href="index.html#elci">Reisedesigner werden</a></p></div>
+<div><p>Die Verkäufe erfolgen unter dem Dach eines lizenzierten Reisebüros.</p><p>© 2026 Guidy</p></div>
+</div>
+</footer>
+<script>
+(function(){
+  const $=id=>document.getElementById(id),f=$('f'),err=$('err');
+  const q=new URLSearchParams(location.search),parts=[];
+  const esc=s=>s.replace(/[<>&]/g,c=>({'<':'&lt;','>':'&gt;','&':'&amp;'}[c]));
+  const tur=q.get('tur'),elci=q.get('elci'),ref=q.get('ref');
+  if(tur){$('f_tur').value=tur;parts.push('Tur: <b>'+esc(tur)+'</b>');if(!$('nereye').value)$('nereye').value=tur}
+  if(elci){$('f_elci').value=elci;parts.push('Reisedesigner: <b>'+esc(elci)+'</b>')}
+  if(ref){$('f_ref').value=ref;$('f_kaynak').value='Routenpartner';try{localStorage.setItem('guidy_ref',ref)}catch(_){}}
+  else{try{const r=localStorage.getItem('guidy_ref');if(r){$('f_ref').value=r;$('f_kaynak').value='Routenpartner'}}catch(_){}}
+  if(parts.length){$('konu').innerHTML=parts.join(' · ');$('konu').hidden=false}
+  f.addEventListener('submit',async e=>{
+    e.preventDefault();err.textContent='';
+    const need=['ad','sehir','eposta','tel'].filter(id=>!$(id).value.trim());
+    if(need.length){err.textContent='Bitte füllen Sie Name, Stadt, E-Mail und Telefon aus.';$(need[0]).focus();return}
+    if(!/^\S+@\S+\.\S+$/.test($('eposta').value.trim())){err.textContent='Bitte prüfen Sie Ihre E-Mail-Adresse.';$('eposta').focus();return}
+    if(!$('kvkk').checked){err.textContent='Bitte bestätigen Sie die Datenschutzeinwilligung, um fortzufahren.';return}
+    const fd=new FormData(f);
+    ['neden','tarz','hizmet'].forEach(k=>{const v=fd.getAll(k);fd.delete(k);if(v.length)fd.set(k,v.join(', '))});
+    const b=$('gonder'),l=b.textContent;b.disabled=true;b.textContent='Wird gesendet…';
+    try{
+      const r=await fetch(f.action,{method:'POST',body:fd,headers:{Accept:'application/json'}});
+      if(!r.ok)throw 0;
+      f.style.display='none';
+      $('okmsg').textContent=$('ad').value.trim()+', Ihre Anfrage ist bei uns eingegangen. Der passende Guidy-Reisedesigner meldet sich innerhalb von 24 Stunden bei Ihnen.';
+      $('ok').classList.add('show');window.scrollTo({top:0,behavior:'smooth'});
+    }catch(_){err.textContent='Senden fehlgeschlagen. Bitte versuchen Sie es etwas später noch einmal.';b.disabled=false;b.textContent=l}
+  });
+})();
+</script>
+<a aria-label="Schreiben Sie uns auf WhatsApp" class="wa" href="https://wa.me/905353751195?text=Hallo%20Guidy%2C%20ich%20h%C3%A4tte%20gerne%20Informationen%20zu%20meiner%20Reise." rel="noopener" target="_blank"><svg aria-hidden="true" height="26" viewbox="0 0 24 24" width="26"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.2-.2-.4-.3z" fill="#fff"></path></svg><span>Schreiben Sie uns auf WhatsApp</span></a>
+</body>
+</html>
