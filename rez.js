@@ -34,3 +34,9 @@ const GR=(function(){
   const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
   return {SOURCES,PORTAL,STATUS,load,save,upsert,totals,tl,log,unpackTeklif,newNo,esc};
 })();
+/* Kimlik: Cloudflare Access açıldığında giriş yapan e-postayı okur ve tasarımcıyı otomatik atar.
+   Yönetici (gulten@) herkesi görür; diğer tasarımcılar sadece kendini. */
+GR.TEAM={'gulten@guidy.tr':'Gülten Can Romano','melisa@guidy.tr':'Melisa Tamses','ali@guidy.tr':'Ali Mataracı','cansu@guidy.tr':'Cansu Keskin'};
+GR.ADMIN=['gulten@guidy.tr'];
+GR.who=async function(){try{const r=await fetch('/cdn-cgi/access/get-identity',{credentials:'include'});if(!r.ok)return null;const j=await r.json();const e=String(j.email||'').toLowerCase();if(!e)return null;return {email:e,name:GR.TEAM[e]||'',admin:GR.ADMIN.includes(e)}}catch(e){return null}};
+GR.lock=async function(selId){const w=await GR.who();if(!w)return null;const s=document.getElementById(selId);if(s&&w.name){s.value=w.name;if(!w.admin){s.disabled=true;[...s.options].forEach(o=>{if(o.value!==w.name)o.remove()})}try{localStorage.setItem('guidy_me',w.name)}catch(e){}s.dispatchEvent(new Event('change'))}return w};

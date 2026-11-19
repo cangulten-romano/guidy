@@ -95,7 +95,7 @@ textarea{min-height:80px}
 </div>
 </div></main>
 <footer class="band" style="padding-block:28px"><div class="wrap"><p class="note">Guidy · Rezervasyonlar belgeli seyahat acentesi üzerinden kesinleşir.</p></div></footer>
-<script src="rez.js?v=2"></script>
+<script src="rez.js?v=3"></script>
 <script>
 (function(){
 const $=id=>document.getElementById(id),E=GR.esc;let tip='otel',rec=null;
@@ -132,7 +132,7 @@ $('send').onclick=async()=>{const r=rec?{...rec}:{no:GR.newNo(),durum:'Talep al�
   $('ok').style.display='block';$('ok').innerHTML=`<b>Rezervasyon ${E(r.no)} kaydedildi.</b> ${ok?'Guidy kaydına düştü.':'Guidy kaydına gönderilemedi; tekrar kaydedin.'} ${saved?'':'Bu tarayıcı yerel kayda izin vermiyor.'}<div class="cta" style="margin-top:10px"><a class="btn mini" href="rezervasyonlar.html">Rezervasyonlarım</a></div>`;$('h1').textContent='Rezervasyon '+r.no};
 const id=new URLSearchParams(location.search).get('no');if(id){rec=GR.load().find(x=>x.no===id);if(rec){F.forEach(f=>$(f).value=rec[f]||'');(rec.items||[]).forEach(addItem);$('h1').textContent='Rezervasyon '+rec.no;$('kv').checked=true}}
 try{const m=localStorage.getItem('guidy_me');if(m&&!rec)$('tasarimci').value=m}catch(e){}
-search();
+search();GR.lock('tasarimci');
 })();
 </script>
 </body>

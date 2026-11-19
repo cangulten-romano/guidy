@@ -77,12 +77,12 @@
   <a href="elci-sozlesmesi.html"><b>Sözleşme</b><small>Seyahat tasarımcısı sözleşmesi</small></a>
   <a id="myPage" href="elci-gulten-can-romano.html"><b>Vitrin sayfam</b><small>Müşterilerin gördüğü profil</small></a>
   <a href="seyahat-talebi.html"><b>Müşteri talep formu</b><small>Müşteriye gönderebileceğiniz form</small></a>
-  <a href="https://mail.zoho.com/" target="_blank" rel="noopener"><b>Guidy e-postam</b><small>isim@guidy.tr</small></a>
+  <a href="https://mail.zoho.eu/" target="_blank" rel="noopener"><b>Guidy e-postam</b><small>isim@guidy.tr</small></a>
   <a href="https://wa.me/905353751195?text=Guidy%20%C3%A7al%C4%B1%C5%9Fma%20alan%C4%B1%20destek" target="_blank" rel="noopener"><b>Destek: WhatsApp</b><small>Gülten Can Romano</small></a>
 </div></section>
 </div></main>
 <footer class="band" style="padding-block:28px"><div class="wrap"><p class="note">Guidy · Seyahat tasarımcıları çalışma alanı · Bu sayfayı telefonunuzun ana ekranına ekleyebilirsiniz.</p></div></footer>
-<script src="rez.js?v=2"></script>
+<script src="rez.js?v=3"></script>
 <script>
 (function(){
 const $=id=>document.getElementById(id),E=GR.esc;
@@ -100,7 +100,7 @@ function render(){me=$('me').value;try{localStorage.setItem('guidy_me',me)}catch
   const up=act.map(r=>({r,o:ops(r),d:days(ops(r)),g:days(r.giris)})).filter(x=>(x.d!=null&&x.d<=7)||(x.g!=null&&x.g>=0&&x.g<=14)).sort((a,b)=>(a.d??99)-(b.d??99)).slice(0,6);
   $('upcW').style.display=up.length?'':'none';
   $('upc').innerHTML=up.map(x=>`<a href="rezervasyon.html?no=${encodeURIComponent(x.r.no)}"><span><b>${E(x.r.musteri)}</b> · ${E(x.r.durum)}</span><span class="${x.d!=null&&x.d<=2?'w':''}">${x.d!=null&&x.d<=7?'Opsiyon: '+E(x.o):'Seyahat: '+E(x.r.giris)}</span></a>`).join('')}
-$('me').onchange=render;render();
+$('me').onchange=render;render();GR.lock('me');
 })();
 </script>
 </body>

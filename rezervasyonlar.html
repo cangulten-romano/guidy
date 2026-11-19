@@ -43,14 +43,15 @@
 <div id="list"></div>
 </div></main>
 <footer class="band" style="padding-block:28px"><div class="wrap"><p class="note">Guidy · Rezervasyonlar belgeli seyahat acentesi üzerinden kesinleşir.</p></div></footer>
-<script src="rez.js?v=2"></script>
+<script src="rez.js?v=3"></script>
 <script>
 (function(){
 const $=id=>document.getElementById(id),E=GR.esc;
 GR.STATUS.forEach(s=>$('fd').insertAdjacentHTML('beforeend',`<option>${s}</option>`));
 const days=d=>d?Math.ceil((new Date(d+'T23:59')-new Date())/864e5):null;
 const opsMin=r=>(r.items||[]).map(i=>i.ops).filter(Boolean).sort()[0];
-function render(){const all=GR.load(),fd=$('fd').value,q=$('fq').value.toLocaleLowerCase('tr-TR');
+let ME=null;
+function render(){const all=GR.load().filter(r=>!ME||ME.admin||!ME.name||r.tasarimci===ME.name),fd=$('fd').value,q=$('fq').value.toLocaleLowerCase('tr-TR');
   const act=all.filter(r=>!['Tamamlandı','İptal'].includes(r.durum));
   $('kA').textContent=act.length;$('kO').textContent=act.filter(r=>{const d=days(opsMin(r));return d!=null&&d<=2&&['Talep alındı','Opsiyonlu'].includes(r.durum)}).length;
   const live=all.filter(r=>r.durum!=='İptal'),tot=live.reduce((a,r)=>{const t=GR.totals(r);a.s+=t.sat;a.k+=t.kar;return a},{s:0,k:0});$('kS').textContent=GR.tl(tot.s);$('kK').textContent=GR.tl(tot.k);
@@ -66,9 +67,10 @@ function render(){const all=GR.load(),fd=$('fd').value,q=$('fq').value.toLocaleL
   $('list').querySelectorAll('select[data-no]').forEach(s=>s.onchange=async()=>{const l=GR.load(),r=l.find(x=>x.no===s.dataset.no);if(!r)return;const eski=r.durum;r.durum=s.value;
     if(s.value==='İptal'&&!confirm('Rezervasyon iptal olarak işaretlensin mi? Rota tasarım ücreti müşteriye iade edilir ve tasarımcı dosyasına kaydedilir.')){s.value=eski;return}
     r.gecmis=(r.gecmis||[]).concat([{t:new Date().toISOString(),o:eski+' → '+s.value}]);GR.save(l);render();await GR.log(r,'Durum: '+eski+' → '+s.value)})}
+GR.who().then(w=>{ME=w;render()});
 $('fd').onchange=render;$('fq').oninput=render;
 $('csv').onclick=()=>{const rows=[['Rez. no','Durum','Tasarımcı','Müşteri','Telefon','E-posta','Giriş','Çıkış','Kişi','Teklif no','Kalem','Tedarikçi','Tedarikçi rez. no','Opsiyon','Net TL','Satış TL']];
-  GR.load().forEach(r=>(r.items||[]).forEach(i=>rows.push([r.no,r.durum,r.tasarimci,r.musteri,r.tel,r.email,r.giris,r.cikis,r.kisi,r.teklif,i.ad,i.kaynak,i.konf,i.ops,i.net,i.sat])));
+  GR.load().filter(r=>!ME||ME.admin||!ME.name||r.tasarimci===ME.name).forEach(r=>(r.items||[]).forEach(i=>rows.push([r.no,r.durum,r.tasarimci,r.musteri,r.tel,r.email,r.giris,r.cikis,r.kisi,r.teklif,i.ad,i.kaynak,i.konf,i.ops,i.net,i.sat])));
   const csv='﻿'+rows.map(x=>x.map(v=>'"'+String(v??'').replace(/"/g,'""')+'"').join(';')).join('\n');const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));a.download='guidy-rezervasyonlar.csv';a.click()};
 render();
 })();

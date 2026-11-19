@@ -109,6 +109,7 @@ textarea{min-height:80px}
 </div>
 </div></main>
 <footer class="band" style="padding-block:28px"><div class="wrap"><p class="note">Guidy · Teklif Oluşturucu · Satışlar belgeli seyahat acentesi üzerinden yapılır.</p></div></footer>
+<script src="rez.js?v=3"></script>
 <script>
 (function(){
   const $=id=>document.getElementById(id),fmt=n=>Math.round(n).toLocaleString('tr-TR')+' TL';
@@ -158,6 +159,7 @@ textarea{min-height:80px}
   const g=new Date();g.setDate(g.getDate()+7);$('gec').value=g.toISOString().slice(0,10);
   let saved=null;try{saved=JSON.parse(localStorage.getItem('guidy_teklif_taslak')||'null')}catch(e){}
   if(saved)load(saved);else{addItem();addDay();}
+  GR.lock('tas');
 })();
 </script>
 </body>
