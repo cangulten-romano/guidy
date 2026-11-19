@@ -218,6 +218,7 @@
     if(!/^\S+@\S+\.\S+$/.test($('eposta').value.trim())){err.textContent='E-posta adresini kontrol edin.';$('eposta').focus();return}
     if(!$('kvkk').checked){err.textContent='Devam etmek için kişisel veri onayını işaretleyin.';return}
     const fd=new FormData(f);
+    {const n=$('nereye').value.trim()||'Henüz karar vermedi',e=$('f_elci').value;fd.set('_subject','Seyahat talebi: '+n+' · '+$('ad').value.trim()+(e?' → '+e:' → tasarımcı atanacak'))}
     ['neden','tarz','hizmet'].forEach(k=>{const v=fd.getAll(k);fd.delete(k);if(v.length)fd.set(k,v.join(', '))});
     const b=$('gonder'),l=b.textContent;b.disabled=true;b.textContent='Gönderiliyor…';
     try{
