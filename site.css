@@ -170,3 +170,8 @@ body.sub nav{position:sticky;top:0;background:var(--cobd)}
 .reel p{font-size:14px;color:var(--soft);margin-top:8px}
 .crumb{font-size:14px;color:var(--soft);text-decoration:none}
 .crumb:hover{color:var(--cob)}
+
+.telw{display:flex;gap:8px;margin-top:6px}.telw select{flex:0 0 132px;margin-top:0}.telw input{flex:1;min-width:0;margin-top:0}
+.row3{grid-template-columns:110px 110px minmax(0,1fr)}
+@media(max-width:600px){.row3{grid-template-columns:1fr 1fr}.row3>label:last-child{grid-column:1/-1}}
+a.route{display:block;text-decoration:none}.route .rgo{display:inline-block;margin-top:12px;font-weight:600;font-size:15px;color:#9fe3e1}.route:hover .rgo{color:#fff}
