@@ -3,7 +3,7 @@
    sayfalar değişmez. Her kaynak search({tip,q,sehir,giris,cikis,kisi}) -> sonuç listesi döner. */
 const GR=(function(){
   const FORM='https://formspree.io/f/mrpqpazq', KEY='guidy_rez';
-  const PORTAL={'RateHawk':'https://www.ratehawk.com/','Bedsonline / Hotelbeds':'https://www.bedsonline.com/','Expedia TAAP':'https://www.expediataap.com/','TBO Holidays':'https://www.tboholidays.com/','Sunhotels (WebBeds)':'https://www.sunhotels.com/','Booking.com (affiliate)':'https://www.booking.com/','Gazelle B2B':'','Otel doğrudan':'','Diğer':''};
+  const PORTAL={'RateHawk':'https://www.ratehawk.com/','Bedsonline / Hotelbeds':'https://www.bedsonline.com/','Expedia TAAP':'https://www.expediataap.com/','Fora (Virtuoso ayrıcalıkları)':'https://www.foratravel.com/','TBO Holidays':'https://www.tboholidays.com/','Sunhotels (WebBeds)':'https://www.sunhotels.com/','Booking.com (affiliate)':'https://www.booking.com/','Gazelle B2B':'','Otel doğrudan':'','Diğer':''};
   const STATUS=['Talep alındı','Opsiyonlu','Kesinleşti','Ödendi','Tamamlandı','İptal'];
   const cache={};
   const j=async u=>cache[u]||(cache[u]=await (await fetch(u,{cache:'no-cache'})).json());

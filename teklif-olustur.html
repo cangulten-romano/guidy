@@ -109,12 +109,12 @@ textarea{min-height:80px}
 </div>
 </div></main>
 <footer class="band" style="padding-block:28px"><div class="wrap"><p class="note">Guidy · Teklif Oluşturucu · Satışlar belgeli seyahat acentesi üzerinden yapılır.</p></div></footer>
-<script src="rez.js?v=3"></script>
+<script src="rez.js?v=4"></script>
 <script>
 (function(){
   const $=id=>document.getElementById(id),fmt=n=>Math.round(n).toLocaleString('tr-TR')+' TL';
   const TYPES=[['otel','Otel'],['tur','Tur'],['transfer','Transfer'],['ucus','Uçuş'],['deneyim','Deneyim'],['sigorta','Sigorta'],['diger','Diğer']];
-  const SRC=['RateHawk','Bedsonline / Hotelbeds','Expedia TAAP','Gazelle B2B','Guidy turlar','Otel doğrudan','Diğer'];
+  const SRC=['Fora (Virtuoso)','RateHawk','Bedsonline / Hotelbeds','Expedia TAAP','Gazelle B2B','Guidy turlar','Otel doğrudan','Diğer'];
   const opt=(arr,sel)=>arr.map(a=>Array.isArray(a)?`<option value="${a[0]}"${a[0]===sel?' selected':''}>${a[1]}</option>`:`<option${a===sel?' selected':''}>${a}</option>`).join('');
   function addItem(d={}){const el=document.createElement('div');el.className='item';el.innerHTML=`<button class="x" type="button" title="Sil">×</button>
     <div class="g g4"><label>Tür<select data-k="tip">${opt(TYPES,d.tip||'otel')}</select></label><label style="grid-column:span 2">Ad<input data-k="ad" placeholder="ör. Museum Hotel, Uçhisar" value="${(d.ad||'').replace(/"/g,'&quot;')}"></label><label>Kaynak <span class="priv">gizli</span><select data-k="kay">${opt(SRC,d.kay||'RateHawk')}</select></label></div>
