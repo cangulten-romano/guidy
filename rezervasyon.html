@@ -95,7 +95,7 @@ textarea{min-height:80px}
 </div>
 </div></main>
 <footer class="band" style="padding-block:28px"><div class="wrap"><p class="note">Guidy · Rezervasyonlar belgeli seyahat acentesi üzerinden kesinleşir.</p></div></footer>
-<script src="rez.js?v=4"></script>
+<script src="rez.js?v=5"></script>
 <script>
 (function(){
 const $=id=>document.getElementById(id),E=GR.esc;let tip='otel',rec=null;
@@ -106,7 +106,7 @@ const src=GR.SOURCES;$('srcinfo').innerHTML='Kaynak: <b>'+Object.values(src).map
 fetch('data/oteller.json').then(r=>r.json()).then(L=>{[...new Set(L.map(h=>h.sehir))].forEach(s=>$('sehir').insertAdjacentHTML('beforeend',`<option>${E(s)}</option>`))});
 let timer;async function search(){const p={tip,q:$('q').value.trim(),sehir:tip==='otel'?$('sehir').value:''};let out=[];for(const s of Object.values(src)){try{out=out.concat(await s.search(p))}catch(e){}}
   $('res').innerHTML=out.length?out.map((r,i)=>`<div class="r"><div><b>${E(r.ad)}</b><small>${E(r.yer)} · ${E(r.alt)}${r.satis?' · katalog fiyatı '+GR.tl(r.satis)+' /kişi':''}</small></div><button class="btn mini" type="button" data-i="${i}">Ekle</button></div>`).join(''):'<p class="note">Sonuç yok. Elle ekleyebilirsiniz.</p>';
-  $('res').querySelectorAll('[data-i]').forEach(b=>b.onclick=()=>{const r=out[+b.dataset.i];addItem({tip:r.tip,ad:r.ad,det:r.tip==='tur'?r.alt:'',kaynak:r.kaynak,sat:r.satis||'',giris:$('giris').value,cikis:r.tip==='otel'?$('cikis').value:''});b.textContent='Eklendi ✓'})}
+  $('res').querySelectorAll('[data-i]').forEach(b=>b.onclick=()=>{const r=out[+b.dataset.i];addItem({tip:r.tip,ad:r.ad,det:r.tip==='tur'?r.alt:(r.perk?'Ayrıcalık: '+r.perk:''),kaynak:r.kaynak,sat:r.satis||'',giris:$('giris').value,cikis:r.tip==='otel'?$('cikis').value:''});b.textContent='Eklendi ✓'})}
 document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tabs button').forEach(x=>x.classList.toggle('on',x===b));tip=b.dataset.t;$('sehirW').style.visibility=tip==='otel'?'visible':'hidden';search()});
 $('q').addEventListener('input',()=>{clearTimeout(timer);timer=setTimeout(search,250)});$('sehir').onchange=search;
 function addItem(d={}){$('empty').style.display='none';const el=document.createElement('div');el.className='item';

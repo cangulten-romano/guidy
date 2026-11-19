@@ -14,7 +14,7 @@ const GR=(function(){
       if(p.tip==='tur'){const L=await j('data/turlar.json');return L.filter(t=>(!p.q||low(t[1]+' '+t[2]).includes(low(p.q)))).slice(0,40)
         .map(t=>({tip:'tur',kaynak:'Gazelle B2B',ref:t[0],ad:t[1],yer:t[2],alt:t[3]+' · '+sure(t[4]),satis:t[5]||''}))}
       const L=await j('data/oteller.json');return L.filter(h=>(!p.sehir||h.sehir===p.sehir)&&(!p.q||low(h.ad+' '+h.semt+' '+h.sehir).includes(low(p.q))))
-        .map(h=>({tip:'otel',kaynak:'RateHawk',ref:h.id,ad:h.ad,yer:h.sehir+' · '+h.semt,alt:h.tip,satis:''}))}}
+        .map(h=>({tip:'otel',kaynak:h.fora?'Fora (Virtuoso ayrıcalıkları)':'RateHawk',ref:h.id,ad:h.ad,yer:h.sehir+(h.semt?' · '+h.semt:''),alt:h.tip+(h.fora?' · Fora ayrıcalığı: '+h.fora:''),satis:'',perk:h.fora||''}))}}
     /* ratehawk:{ad:'RateHawk',canli:true,async search(p){ return (await fetch('/api/ratehawk/search',{method:'POST',body:JSON.stringify(p)})).json() }} */
   };
   const load=()=>{try{return JSON.parse(localStorage.getItem(KEY)||'[]')}catch(e){return []}};

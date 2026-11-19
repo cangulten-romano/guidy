@@ -4,28 +4,36 @@
 "ad": "Çırağan Palace Kempinski",
 "sehir": "İstanbul",
 "semt": "Beşiktaş",
-"tip": "Saray otel"
+"tip": "Saray otel",
+"fora": "100 $ otel kredisi, hoş geldin notu, günlük kahvaltı, müsaitse oda yükseltme ve erken giriş/geç çıkış",
+"fora_kaynak": "foratravel.com/guides (İstanbul rehberleri)"
 },
 {
 "id": "ist-fs-bosphorus",
 "ad": "Four Seasons Hotel Istanbul at the Bosphorus",
 "sehir": "İstanbul",
 "semt": "Beşiktaş",
-"tip": "Lüks otel"
+"tip": "Lüks otel",
+"fora": "Four Seasons Preferred Partner ayrıcalıkları",
+"fora_kaynak": "foratravel.com/guides (İstanbul rehberleri)"
 },
 {
 "id": "ist-fs-sultanahmet",
 "ad": "Four Seasons Hotel Istanbul at Sultanahmet",
 "sehir": "İstanbul",
 "semt": "Sultanahmet",
-"tip": "Butik lüks"
+"tip": "Butik lüks",
+"fora": "Four Seasons Preferred Partner ayrıcalıkları",
+"fora_kaynak": "foratravel.com/guides (İstanbul rehberleri)"
 },
 {
 "id": "ist-peninsula",
 "ad": "The Peninsula Istanbul",
 "sehir": "İstanbul",
 "semt": "Karaköy",
-"tip": "Lüks otel"
+"tip": "Lüks otel",
+"fora": "100 $ otel kredisi, günlük kahvaltı, müsaitse oda yükseltme ve erken giriş/geç çıkış",
+"fora_kaynak": "foratravel.com/guides (İstanbul rehberleri)"
 },
 {
 "id": "ist-raffles",
@@ -39,7 +47,9 @@
 "ad": "Mandarin Oriental Bosphorus, Istanbul",
 "sehir": "İstanbul",
 "semt": "Kuruçeşme",
-"tip": "Lüks otel"
+"tip": "Lüks otel",
+"fora": "100 $ yiyecek-içecek ya da spa kredisi, hoş geldin ikramı, günlük kahvaltı, müsaitse oda yükseltme ve erken giriş/geç çıkış",
+"fora_kaynak": "foratravel.com/guides (İstanbul rehberleri)"
 },
 {
 "id": "ist-sixsenses",
@@ -74,14 +84,18 @@
 "ad": "Museum Hotel",
 "sehir": "Kapadokya",
 "semt": "Uçhisar",
-"tip": "Mağara otel"
+"tip": "Mağara otel",
+"fora": "Fora ortağı; ayrıcalıkları portalda görülecek",
+"fora_kaynak": "foratravel.com/guides (Kapadokya rehberleri)"
 },
 {
 "id": "kap-argos",
 "ad": "Argos in Cappadocia",
 "sehir": "Kapadokya",
 "semt": "Uçhisar",
-"tip": "Mağara otel"
+"tip": "Mağara otel",
+"fora": "Fora ortağı; ayrıcalıkları portalda görülecek",
+"fora_kaynak": "foratravel.com/guides (Kapadokya rehberleri)"
 },
 {
 "id": "kap-kayakapi",
@@ -123,7 +137,9 @@
 "ad": "Amanruya",
 "sehir": "Bodrum",
 "semt": "Göltürkbükü",
-"tip": "Butik resort"
+"tip": "Butik resort",
+"fora": "100 $ otel kredisi, günlük kahvaltı, müsaitse oda yükseltme ve erken giriş/geç çıkış",
+"fora_kaynak": "foratravel.com/guides (Bodrum rehberi)"
 },
 {
 "id": "bod-macakizi",
@@ -201,5 +217,59 @@
 "sehir": "Çeşme",
 "semt": "Ilıca",
 "tip": "Termal / spa"
+},
+{
+"id": "ist-stregis",
+"ad": "The St. Regis Istanbul",
+"sehir": "İstanbul",
+"semt": "Nişantaşı",
+"tip": "Lüks otel",
+"fora": "100 $ yiyecek-içecek kredisi, günlük kahvaltı, müsaitse oda yükseltme ve erken giriş/geç çıkış, hoş geldin notu",
+"fora_kaynak": "foratravel.com/guides (İstanbul rehberleri)"
+},
+{
+"id": "ist-bebek",
+"ad": "Bebek Hotel by The Stay",
+"sehir": "İstanbul",
+"semt": "Bebek",
+"tip": "Butik otel",
+"fora": "100 $ otel kredisi, odada hoş geldin ikramı, oda yükseltme ve garantili geç çıkış",
+"fora_kaynak": "foratravel.com/guides (İstanbul rehberleri)"
+},
+{
+"id": "kap-taskonaklar",
+"ad": "Taşkonaklar Hotel Cappadocia",
+"sehir": "Kapadokya",
+"semt": "Uçhisar",
+"tip": "Mağara otel",
+"fora": "Hoş geldin ikramı, tek yön ücretsiz havalimanı transferi, müsaitse oda yükseltme (bazı rehberlerde 100 $ kredi)",
+"fora_kaynak": "foratravel.com/partners/taskonaklar-hotel-cappadocia"
+},
+{
+"id": "kap-carus",
+"ad": "Carus Cappadocia Hotel",
+"sehir": "Kapadokya",
+"semt": "",
+"tip": "Mağara otel",
+"fora": "Tek yön ücretsiz özel havalimanı transferi, günlük kahvaltı, müsaitse oda yükseltme ve erken giriş/geç çıkış",
+"fora_kaynak": "foratravel.com/guides (Kapadokya rehberleri)"
+},
+{
+"id": "kap-ariana",
+"ad": "Ariana Sustainable Luxury Lodge",
+"sehir": "Kapadokya",
+"semt": "Uçhisar",
+"tip": "Butik lüks (SLH)",
+"fora": "Günlük kahvaltı, müsaitse oda yükseltme ve erken giriş/geç çıkış",
+"fora_kaynak": "foratravel.com/guides (Kapadokya rehberleri)"
+},
+{
+"id": "kap-hezen",
+"ad": "Hezen Cave Hotel",
+"sehir": "Kapadokya",
+"semt": "Ortahisar",
+"tip": "Butik mağara otel",
+"fora": "Odada hoş geldin ikramı, müsaitse oda yükseltme",
+"fora_kaynak": "foratravel.com/guides (Kapadokya rehberleri)"
 }
 ]
