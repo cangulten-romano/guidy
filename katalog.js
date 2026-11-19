@@ -12,8 +12,9 @@ const GK=(function(){
     if(/spa|termal|wellness|six senses/.test(t))o.push('Spa');if(/saray|palace|palas/.test(t))o.push('Tarihi');if(/her şey dahil/.test(t))o.push('Her şey dahil');
     if(h.sehir==='İstanbul'&&!o.length)o.push('Şehir');if(/aile/.test(t))o.push('Aile');return o.slice(0,3)};
   const regionOf=h=>B.find(b=>b.sehir.includes(h.sehir));
-  function card(h){const pk=h.fora||h.virtuoso,r=regionOf(h);
-    return `<article class="hcard">${r?`<a class="hcard-img" href="destinasyon.html?b=${r.id}" style="background-image:url('${IMG(r.img,600)}')" aria-label="${esc(r.ad)}"></a>`:''}
+  const pic=(h,r)=>{const g=(r.galeri&&r.galeri.length)?r.galeri:[r.img];let n=0;for(const c of h.id)n=(n*31+c.charCodeAt(0))>>>0;return g[n%g.length]};
+  function card(h){const pk=h.fora||h.virtuoso||(h.vlist?'1':''),r=regionOf(h);
+    return `<article class="hcard">${r?`<a class="hcard-img" href="destinasyon.html?b=${r.id}" style="background-image:url('${IMG(pic(h,r),700)}')" aria-label="${esc(r.ad)}"></a>`:''}
     <div class="hcard-body"><p class="hcard-loc">${esc(h.sehir)}${h.semt?' · '+esc(h.semt):''}</p><h3>${esc(h.ad)}</h3>
     <div class="chips">${tags(h).map(t=>`<span class="chip sm">${t}</span>`).join('')}${pk?'<span class="chip sm perk">Ayrıcalıklı</span>':''}</div>
     ${pk?`<p class="hcard-perk">${SHOW_PERKS?esc(pk):'Seyahat tasarımcınızla rezervasyonda otele özel ayrıcalıklar: oda yükseltme, kahvaltı ya da otel kredisi gibi.'}</p>`:''}
@@ -23,5 +24,6 @@ const GK=(function(){
   function wireSearch(form){const inp=form.querySelector('input'),dl=document.createElement('datalist');dl.id='gk-dl';
     load().then(()=>{dl.innerHTML=B.map(b=>`<option value="${esc(b.ad)}">`).join('')+H.map(h=>`<option value="${esc(h.ad)}">`).join('');document.body.appendChild(dl);inp.setAttribute('list','gk-dl')});
     form.addEventListener('submit',e=>{e.preventDefault();const v=inp.value.trim();if(!v)return;const b=B&&B.find(x=>low(x.ad)===low(v));location.href=b?`destinasyon.html?b=${b.id}`:`destinasyon.html?q=${encodeURIComponent(v)}`})}
-  return {load,card,regionTile,search,wireSearch,IMG,esc,regionOf};
+  function gallery(b){const g=b.galeri||[];if(!g.length)return '';return `<div class="dgal n${Math.min(g.length,5)}">${g.slice(0,5).map((id,i)=>`<a href="${IMG(id,1800)}" target="_blank" rel="noopener" style="background-image:url('${IMG(id,i?700:1300)}')" aria-label="${esc(b.ad)} fotoğraf ${i+1}"></a>`).join('')}</div><p class="dgal-cr">Fotoğraflar: Unsplash</p>`}
+  return {load,card,gallery,regionTile,search,wireSearch,IMG,esc,regionOf};
 })();
