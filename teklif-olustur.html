@@ -33,7 +33,7 @@ textarea{min-height:80px}
 <body class="sub">
 <nav>
   <a class="logo" href="index.html" aria-label="Guidy ana sayfa">Guidy</a><a class="homeback" href="index.html">← Ana sayfa</a>
-  <ul><li><a href="rezervasyon.html">Yeni rezervasyon</a></li><li><a href="rezervasyonlar.html">Rezervasyonlarım</a></li><li><a href="tasarimci-bilgi.html">Tasarımcı bilgi</a></li></ul>
+  <ul><li><a href="calisma-alani.html"><b>Çalışma alanım</b></a></li><li><a href="rezervasyon.html">Yeni rezervasyon</a></li><li><a href="rezervasyonlar.html">Rezervasyonlarım</a></li><li><a href="tasarimci-bilgi.html">Tasarımcı bilgi</a></li></ul>
 </nav>
 <main class="band"><div class="tb">
 <p class="kicker">Seyahat tasarımcıları için</p>
@@ -154,6 +154,7 @@ textarea{min-height:80px}
     try{const r=await fetch('https://formspree.io/f/mrpqpazq',{method:'POST',body:fd,headers:{Accept:'application/json'}});$('rec').textContent=r.ok?'Teklif ('+id+') Guidy kaydına düştü.':'Link hazır; Guidy kaydına gönderilemedi, linki gulten@guidy.tr adresine iletin.'}catch(e){$('rec').textContent='Link hazır; Guidy kaydına gönderilemedi, linki gulten@guidy.tr adresine iletin.'}
   };
   $('copy').onclick=async()=>{try{await navigator.clipboard.writeText($('link').value);$('copy').textContent='Kopyalandı ✓'}catch(e){$('link').select();document.execCommand('copy');$('copy').textContent='Kopyalandı ✓'}setTimeout(()=>$('copy').textContent='Linki kopyala',2000)};
+  try{const m=localStorage.getItem('guidy_me');if(m)$('tas').value=m}catch(e){}
   const g=new Date();g.setDate(g.getDate()+7);$('gec').value=g.toISOString().slice(0,10);
   let saved=null;try{saved=JSON.parse(localStorage.getItem('guidy_teklif_taslak')||'null')}catch(e){}
   if(saved)load(saved);else{addItem();addDay();}

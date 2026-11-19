@@ -33,7 +33,7 @@ textarea{min-height:80px}
 <body class="sub">
 <nav>
   <a class="logo" href="index.html" aria-label="Guidy ana sayfa">Guidy</a><a class="homeback" href="index.html">← Ana sayfa</a>
-  <ul><li><a href="teklif-olustur.html">Teklif Oluşturucu</a></li><li><a href="rezervasyonlar.html">Rezervasyonlarım</a></li><li><a href="tasarimci-bilgi.html">Tasarımcı bilgi</a></li></ul>
+  <ul><li><a href="calisma-alani.html"><b>Çalışma alanım</b></a></li><li><a href="teklif-olustur.html">Teklif Oluşturucu</a></li><li><a href="rezervasyonlar.html">Rezervasyonlarım</a></li><li><a href="tasarimci-bilgi.html">Tasarımcı bilgi</a></li></ul>
 </nav>
 <main class="band"><div class="tb">
 <p class="kicker">Seyahat tasarımcıları için</p>
@@ -131,6 +131,7 @@ $('send').onclick=async()=>{const r=rec?{...rec}:{no:GR.newNo(),durum:'Talep al�
   $('err').textContent='';r.gecmis=(r.gecmis||[]).concat([{t:new Date().toISOString(),o:rec?'Güncellendi':'Oluşturuldu'}]);const saved=GR.upsert(r);$('send').disabled=true;const ok=await GR.log(r,rec?'Güncellendi':'Yeni');$('send').disabled=false;rec=r;
   $('ok').style.display='block';$('ok').innerHTML=`<b>Rezervasyon ${E(r.no)} kaydedildi.</b> ${ok?'Guidy kaydına düştü.':'Guidy kaydına gönderilemedi; tekrar kaydedin.'} ${saved?'':'Bu tarayıcı yerel kayda izin vermiyor.'}<div class="cta" style="margin-top:10px"><a class="btn mini" href="rezervasyonlar.html">Rezervasyonlarım</a></div>`;$('h1').textContent='Rezervasyon '+r.no};
 const id=new URLSearchParams(location.search).get('no');if(id){rec=GR.load().find(x=>x.no===id);if(rec){F.forEach(f=>$(f).value=rec[f]||'');(rec.items||[]).forEach(addItem);$('h1').textContent='Rezervasyon '+rec.no;$('kv').checked=true}}
+try{const m=localStorage.getItem('guidy_me');if(m&&!rec)$('tasarimci').value=m}catch(e){}
 search();
 })();
 </script>

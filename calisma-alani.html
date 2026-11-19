@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Çalışma alanım — Guidy seyahat tasarımcıları</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css?v=6">
+<style>
+.tb{max-width:1080px;margin:0 auto}
+.hi{display:flex;flex-wrap:wrap;gap:16px;align-items:end;justify-content:space-between}
+.hi label{min-width:240px}
+.kpi{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:24px}
+.kpi a,.kpi div{background:var(--pan);border-radius:14px;padding:16px;text-decoration:none;color:inherit}
+.kpi b{display:block;font-family:Marcellus,serif;font-size:28px;color:var(--cob);margin-top:4px}
+.kpi .warn b{color:var(--red)}
+.steps3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:28px}
+.st{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:20px;padding:24px;text-decoration:none;color:inherit;transition:transform .15s,box-shadow .15s}
+.st:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(10,22,52,.10)}
+.st .n{font:700 13px Inter,sans-serif;letter-spacing:.12em;color:var(--tq)}
+.st h2{font-size:24px;margin-top:8px}
+.st p{color:var(--soft);margin-top:8px;flex:1}
+.st .go{margin-top:16px;font-weight:700;color:var(--cob)}
+.sec{margin-top:40px}
+.sec h2{font-size:clamp(20px,2.2vw,24px)}
+.links{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-top:14px}
+.links a{display:block;background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 16px;text-decoration:none;color:inherit}
+.links a b{display:block}.links a small{color:var(--soft)}
+.upc{margin-top:14px;display:grid;gap:8px}
+.upc a{display:flex;justify-content:space-between;gap:12px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 16px;text-decoration:none;color:inherit}
+.upc .w{color:var(--red);font-weight:600}
+@media(max-width:820px){.kpi,.steps3{grid-template-columns:minmax(0,1fr)}}
+</style>
+</head>
+<body class="sub">
+<nav>
+  <a class="logo" href="index.html" aria-label="Guidy ana sayfa">Guidy</a><a class="homeback" href="index.html">← Ana sayfa</a>
+  <ul><li><a href="teklif-olustur.html">Teklif</a></li><li><a href="rezervasyon.html">Rezervasyon</a></li><li><a href="rezervasyonlar.html">Rezervasyonlarım</a></li></ul>
+</nav>
+<main class="band"><div class="tb">
+<div class="hi">
+  <div><p class="kicker">Seyahat tasarımcıları için</p><h1 style="font-size:clamp(30px,4vw,46px)" id="hello">Çalışma alanım</h1></div>
+  <label>Ben<select id="me"><option>Gülten Can Romano</option><option>Melisa Tamses</option><option>Ali Mataracı</option><option>Cansu Keskin</option></select></label>
+</div>
+<p class="lead">Müşteriden gelen talebi teklife, onaylanan teklifi rezervasyona çevirdiğiniz yer. Üç adım, sırayla.</p>
+
+<div class="kpi">
+  <a href="rezervasyonlar.html">Aktif rezervasyon<b id="kA">0</b></a>
+  <a href="rezervasyonlar.html" id="kOw">Opsiyonu yaklaşan<b id="kO">0</b></a>
+  <div>Bu ayki satış<b id="kS">0 TL</b></div>
+  <div>Bu ayki brüt kâr<b id="kK">0 TL</b></div>
+</div>
+
+<div class="steps3">
+  <a class="st" href="teklif-olustur.html"><span class="n">1. ADIM</span><h2>Planla ve teklif ver</h2><p>Otel ve turları net fiyatıyla girin, gün gün programı yazın. Müşteriye kendi dilinde, Guidy tasarımlı bir teklif linki gider.</p><span class="go">Teklif Oluşturucu →</span></a>
+  <a class="st" href="rezervasyon.html"><span class="n">2. ADIM</span><h2>Rezervasyon yap</h2><p>Onaylanan teklif linkini yapıştırın; kalemler gelir. Tedarikçide yeri tutup rezervasyon numarası ve opsiyon tarihini girin.</p><span class="go">Yeni rezervasyon →</span></a>
+  <a class="st" href="rezervasyonlar.html"><span class="n">3. ADIM</span><h2>Takip et</h2><p>Opsiyon, ödeme ve kesinleşme durumlarını güncelleyin. Opsiyonu dolmak üzere olanlar kırmızı görünür.</p><span class="go">Rezervasyonlarım →</span></a>
+</div>
+
+<section class="sec" id="upcW" style="display:none"><h2>Yaklaşan opsiyon ve seyahatler</h2><div class="upc" id="upc"></div></section>
+
+<section class="sec"><h2>Tedarikçi portalları</h2><p class="note">Net fiyat ve müsaitliği buradan kontrol edin. Hesabınız yoksa Gülten'e yazın.</p>
+<div class="links">
+  <a href="https://www.ratehawk.com/" target="_blank" rel="noopener"><b>RateHawk</b><small>Otel, transfer · B2B net fiyat</small></a>
+  <a href="https://www.tboholidays.com/" target="_blank" rel="noopener"><b>TBO Holidays</b><small>Otel, transfer, aktivite</small></a>
+  <a href="https://www.bedsonline.com/" target="_blank" rel="noopener"><b>Bedsonline / Hotelbeds</b><small>Otel, transfer, aktivite</small></a>
+  <a href="https://www.expediataap.com/" target="_blank" rel="noopener"><b>Expedia TAAP</b><small>Otel, paket · komisyonlu</small></a>
+  <a href="https://www.sunhotels.com/" target="_blank" rel="noopener"><b>Sunhotels (WebBeds)</b><small>Otel, villa, transfer</small></a>
+  <a href="turlar.html"><b>Guidy turlar</b><small>Gazelle tur kataloğu</small></a>
+</div></section>
+
+<section class="sec"><h2>Bilgi ve destek</h2>
+<div class="links">
+  <a href="tasarimci-bilgi.html"><b>Çalışma modeli</b><small>Üyelik, komisyon, rota tasarım ücreti</small></a>
+  <a href="elci-sozlesmesi.html"><b>Sözleşme</b><small>Seyahat tasarımcısı sözleşmesi</small></a>
+  <a id="myPage" href="elci-gulten-can-romano.html"><b>Vitrin sayfam</b><small>Müşterilerin gördüğü profil</small></a>
+  <a href="seyahat-talebi.html"><b>Müşteri talep formu</b><small>Müşteriye gönderebileceğiniz form</small></a>
+  <a href="https://mail.zoho.com/" target="_blank" rel="noopener"><b>Guidy e-postam</b><small>isim@guidy.tr</small></a>
+  <a href="https://wa.me/905353751195?text=Guidy%20%C3%A7al%C4%B1%C5%9Fma%20alan%C4%B1%20destek" target="_blank" rel="noopener"><b>Destek: WhatsApp</b><small>Gülten Can Romano</small></a>
+</div></section>
+</div></main>
+<footer class="band" style="padding-block:28px"><div class="wrap"><p class="note">Guidy · Seyahat tasarımcıları çalışma alanı · Bu sayfayı telefonunuzun ana ekranına ekleyebilirsiniz.</p></div></footer>
+<script src="rez.js?v=2"></script>
+<script>
+(function(){
+const $=id=>document.getElementById(id),E=GR.esc;
+const PAGES={'Gülten Can Romano':'elci-gulten-can-romano.html','Melisa Tamses':'elci-melisa-tamses.html','Ali Mataracı':'elci-ali-mataraci.html','Cansu Keskin':'elci-cansu-keskin.html'};
+let me='';try{me=localStorage.getItem('guidy_me')||''}catch(e){}if(me)$('me').value=me;
+function render(){me=$('me').value;try{localStorage.setItem('guidy_me',me)}catch(e){}
+  $('hello').textContent='Merhaba '+me.split(' ')[0];$('myPage').href=PAGES[me]||'index.html#elcilerimiz';
+  const all=GR.load().filter(r=>r.tasarimci===me),act=all.filter(r=>!['Tamamlandı','İptal'].includes(r.durum));
+  const days=d=>d?Math.ceil((new Date(d+'T23:59')-new Date())/864e5):null;
+  const ops=r=>(r.items||[]).map(i=>i.ops).filter(Boolean).sort()[0];
+  const soon=act.filter(r=>{const d=days(ops(r));return d!=null&&d<=2&&['Talep alındı','Opsiyonlu'].includes(r.durum)});
+  const ym=new Date().toISOString().slice(0,7),month=all.filter(r=>r.durum!=='İptal'&&(r.olusturma||'').startsWith(ym));
+  const t=month.reduce((a,r)=>{const x=GR.totals(r);a.s+=x.sat;a.k+=x.kar;return a},{s:0,k:0});
+  $('kA').textContent=act.length;$('kO').textContent=soon.length;$('kOw').classList.toggle('warn',soon.length>0);$('kS').textContent=GR.tl(t.s);$('kK').textContent=GR.tl(t.k);
+  const up=act.map(r=>({r,o:ops(r),d:days(ops(r)),g:days(r.giris)})).filter(x=>(x.d!=null&&x.d<=7)||(x.g!=null&&x.g>=0&&x.g<=14)).sort((a,b)=>(a.d??99)-(b.d??99)).slice(0,6);
+  $('upcW').style.display=up.length?'':'none';
+  $('upc').innerHTML=up.map(x=>`<a href="rezervasyon.html?no=${encodeURIComponent(x.r.no)}"><span><b>${E(x.r.musteri)}</b> · ${E(x.r.durum)}</span><span class="${x.d!=null&&x.d<=2?'w':''}">${x.d!=null&&x.d<=7?'Opsiyon: '+E(x.o):'Seyahat: '+E(x.r.giris)}</span></a>`).join('')}
+$('me').onchange=render;render();
+})();
+</script>
+</body>
+</html>
