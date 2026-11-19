@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Teklif Oluşturucu — Guidy seyahat tasarımcıları</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css?v=6">
+<style>
+.tb{max-width:1000px;margin:0 auto}
+.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:clamp(18px,2.6vw,28px);margin-top:20px}
+.card h2{font-size:clamp(20px,2.2vw,24px)}
+.card .sub{color:var(--soft);font-size:14px;margin-top:4px}
+.g{display:grid;gap:14px;margin-top:16px}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}.g3{grid-template-columns:repeat(3,minmax(0,1fr))}.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.item,.day{border:1px solid var(--line);border-radius:14px;padding:14px;margin-top:12px;background:var(--sand);position:relative}
+.item .g{margin-top:0}
+.x{position:absolute;top:8px;right:10px;border:0;background:none;font-size:20px;cursor:pointer;color:var(--soft)}
+.addbtn{margin-top:12px}
+.sum{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:16px}
+.sum div{background:var(--pan);border-radius:14px;padding:14px}
+.sum b{display:block;font-family:Marcellus,serif;font-size:24px;color:var(--cob);margin-top:4px}
+.sum .int{background:#fff7e6}
+.out{margin-top:16px;display:none}
+.out input{font-size:14px}
+.priv{font-size:12px;color:#8a5a00;background:#fff7e6;border-radius:8px;padding:2px 8px;display:inline-block;margin-top:4px}
+textarea{min-height:80px}
+@media(max-width:760px){.g2,.g3,.g4,.sum{grid-template-columns:minmax(0,1fr)}}
+</style>
+</head>
+<body class="sub">
+<nav>
+  <a class="logo" href="index.html" aria-label="Guidy ana sayfa">Guidy</a><a class="homeback" href="index.html">← Ana sayfa</a>
+  <ul><li><a href="tasarimci-bilgi.html">Tasarımcı bilgi sayfası</a></li><li><a href="turlar.html">Turlar</a></li></ul>
+</nav>
+<main class="band"><div class="tb">
+<p class="kicker">Seyahat tasarımcıları için</p>
+<h1 style="font-size:clamp(30px,4vw,44px)">Teklif Oluşturucu</h1>
+<p class="lead">B2B sistemlerde (RateHawk, Bedsonline, Expedia TAAP, Gazelle) bulduğunuz otel ve hizmetleri net fiyatıyla girin, kârınızı ekleyin. Müşteriye sadece satış fiyatlarını gösteren, Guidy tasarımlı bir teklif linki oluşur.</p>
+<p class="priv">Net fiyat, kâr ve kaynak bilgisi müşteriye gitmez; sadece Guidy kaydına düşer.</p>
+
+<div class="card">
+  <h2>1. Teklif bilgileri</h2>
+  <div class="g g3">
+    <label>Seyahat tasarımcısı<select id="tas"><option>Gülten Can Romano</option><option>Melisa Tamses</option><option>Ali Mataracı</option><option>Cansu Keskin</option></select></label>
+    <label>Müşteri adı<input id="mus" placeholder="ör. Ayşe Yılmaz"></label>
+    <label>Teklifin dili (müşterinin göreceği)<select id="dil"><option value="tr">Türkçe</option><option value="en">English</option><option value="es">Español</option><option value="de">Deutsch</option><option value="ru">Русский</option></select></label>
+  </div>
+  <div class="g g3">
+    <label>Teklif başlığı<input id="bas" placeholder="ör. Kapadokya'da 4 gün: balon ve mağara otel"></label>
+    <label>Tarihler<input id="tar" placeholder="ör. 12–16 Mayıs 2027"></label>
+    <label>Kişi sayısı<input id="kis" placeholder="ör. 2 yetişkin, 1 çocuk (8)"></label>
+  </div>
+  <div class="g g3">
+    <label>Teklif geçerlilik tarihi<input id="gec" type="date"></label>
+    <label>Kâr payı (varsayılan %)<input id="kar" type="number" value="12" min="0" step="1"></label>
+    <label>Rota tasarım ücreti (TL)<input id="ucret" type="number" value="7500" min="0" step="500"></label>
+  </div>
+  <p class="note" style="margin-top:8px">Rota tasarım ücreti seyahat başına 5.000–10.000 TL'dir; tamamı tasarımcıya kalır. Seyahat iptal olursa müşteriye iade edilir.</p>
+</div>
+
+<div class="card">
+  <h2>2. Otel ve hizmetler</h2>
+  <p class="sub">Her satır müşteriye ayrı kalem olarak görünür. Satış fiyatı net fiyat + kâr payından otomatik hesaplanır; isterseniz elle değiştirin.</p>
+  <div id="items"></div>
+  <button class="btn ghost addbtn" type="button" id="addItem">+ Kalem ekle</button>
+</div>
+
+<div class="card">
+  <h2>3. Gün gün program</h2>
+  <p class="sub">Müşterinin dilinde yazın. Kısa ve net: ne yapılacak, nerede kalınacak.</p>
+  <div id="days"></div>
+  <button class="btn ghost addbtn" type="button" id="addDay">+ Gün ekle</button>
+</div>
+
+<div class="card">
+  <h2>4. Koşullar ve not</h2>
+  <div class="g g2">
+    <label>İptal ve değişiklik koşulları<textarea id="ipt" placeholder="ör. 30 gün öncesine kadar ücretsiz iptal; sonrasında otel kuralı geçerlidir."></textarea></label>
+    <label>Müşteriye kişisel not<textarea id="not" placeholder="ör. Balon uçuşu hava koşullarına bağlıdır; ertesi sabah için yedek gün planladım."></textarea></label>
+  </div>
+</div>
+
+<div class="card">
+  <h2>5. Özet ve link</h2>
+  <div class="sum">
+    <div>Müşteri toplamı<b id="sTop">0 TL</b></div>
+    <div>Rota tasarım ücreti<b id="sUcr">0 TL</b></div>
+    <div class="int">Net maliyet <span class="priv">gizli</span><b id="sNet">0 TL</b></div>
+    <div class="int">Brüt kâr <span class="priv">gizli</span><b id="sKar">0 TL</b></div>
+  </div>
+  <p class="err" id="err"></p>
+  <div class="cta">
+    <button class="btn" type="button" id="make">Müşteri linkini oluştur</button>
+    <button class="btn ghost" type="button" id="save">Taslağı bu cihaza kaydet</button>
+    <button class="btn ghost" type="button" id="clear">Yeni teklif</button>
+  </div>
+  <div class="out" id="out">
+    <label>Müşteri linki<input id="link" readonly></label>
+    <div class="cta" style="margin-top:12px">
+      <button class="btn" type="button" id="copy">Linki kopyala</button>
+      <a class="btn ghost" id="wa" target="_blank" rel="noopener">WhatsApp'ta gönder</a>
+      <a class="btn ghost" id="open" target="_blank" rel="noopener">Önizle</a>
+    </div>
+    <p class="note" id="rec"></p>
+  </div>
+</div>
+</div></main>
+<footer class="band" style="padding-block:28px"><div class="wrap"><p class="note">Guidy · Teklif Oluşturucu · Satışlar belgeli seyahat acentesi üzerinden yapılır.</p></div></footer>
+<script>
+(function(){
+  const $=id=>document.getElementById(id),fmt=n=>Math.round(n).toLocaleString('tr-TR')+' TL';
+  const TYPES=[['otel','Otel'],['tur','Tur'],['transfer','Transfer'],['ucus','Uçuş'],['deneyim','Deneyim'],['sigorta','Sigorta'],['diger','Diğer']];
+  const SRC=['RateHawk','Bedsonline / Hotelbeds','Expedia TAAP','Gazelle B2B','Guidy turlar','Otel doğrudan','Diğer'];
+  const opt=(arr,sel)=>arr.map(a=>Array.isArray(a)?`<option value="${a[0]}"${a[0]===sel?' selected':''}>${a[1]}</option>`:`<option${a===sel?' selected':''}>${a}</option>`).join('');
+  function addItem(d={}){const el=document.createElement('div');el.className='item';el.innerHTML=`<button class="x" type="button" title="Sil">×</button>
+    <div class="g g4"><label>Tür<select data-k="tip">${opt(TYPES,d.tip||'otel')}</select></label><label style="grid-column:span 2">Ad<input data-k="ad" placeholder="ör. Museum Hotel, Uçhisar" value="${(d.ad||'').replace(/"/g,'&quot;')}"></label><label>Kaynak <span class="priv">gizli</span><select data-k="kay">${opt(SRC,d.kay||'RateHawk')}</select></label></div>
+    <div class="g g4" style="margin-top:10px"><label style="grid-column:span 2">Detay (oda tipi, gece, pansiyon, ayrıcalıklar)<input data-k="det" placeholder="ör. Deluxe oda, 3 gece, kahvaltı dahil, geç çıkış" value="${(d.det||'').replace(/"/g,'&quot;')}"></label><label>Net fiyat (TL) <span class="priv">gizli</span><input data-k="net" type="number" min="0" value="${d.net||''}"></label><label>Satış fiyatı (TL)<input data-k="sat" type="number" min="0" value="${d.sat||''}"></label></div>`;
+    el.querySelector('.x').onclick=()=>{el.remove();calc()};
+    const net=el.querySelector('[data-k=net]'),sat=el.querySelector('[data-k=sat]');
+    net.addEventListener('input',()=>{if(!sat.dataset.manual){sat.value=net.value?Math.round(+net.value*(1+(+$('kar').value||0)/100)):''}calc()});
+    sat.addEventListener('input',()=>{sat.dataset.manual=sat.value?'1':'';calc()});
+    if(d.manual)sat.dataset.manual='1';
+    $('items').appendChild(el);calc()}
+  function addDay(d={}){const n=$('days').children.length+1;const el=document.createElement('div');el.className='day';el.innerHTML=`<button class="x" type="button" title="Sil">×</button><div class="g g4" style="margin-top:0"><label>Gün<input data-k="g" value="${d.g||n}"></label><label style="grid-column:span 3">Başlık<input data-k="b" placeholder="ör. Varış ve Uçhisar'da gün batımı" value="${(d.b||'').replace(/"/g,'&quot;')}"></label></div><label style="margin-top:10px">Açıklama<textarea data-k="a" placeholder="ör. Kayseri havalimanında karşılama, otele transfer…">${d.a||''}</textarea></label>`;el.querySelector('.x').onclick=()=>el.remove();$('days').appendChild(el)}
+  const rows=(id)=>[...$(id).children].map(el=>{const o={};el.querySelectorAll('[data-k]').forEach(i=>o[i.dataset.k]=i.value.trim());if(el.querySelector('[data-k=sat]')?.dataset.manual)o.manual=1;return o});
+  function calc(){const it=rows('items');const sat=it.reduce((s,i)=>s+(+i.sat||0),0),net=it.reduce((s,i)=>s+(+i.net||0),0),u=+$('ucret').value||0;
+    $('sTop').textContent=fmt(sat+u);$('sUcr').textContent=fmt(u);$('sNet').textContent=fmt(net);$('sKar').textContent=fmt(sat-net);return {sat,net,u}}
+  $('kar').addEventListener('input',()=>{document.querySelectorAll('#items .item').forEach(el=>{const n=el.querySelector('[data-k=net]'),s=el.querySelector('[data-k=sat]');if(n.value&&!s.dataset.manual)s.value=Math.round(+n.value*(1+(+$('kar').value||0)/100))});calc()});
+  $('ucret').addEventListener('input',calc);
+  $('addItem').onclick=()=>addItem();$('addDay').onclick=()=>addDay();
+  const FIELDS=['tas','mus','dil','bas','tar','kis','gec','kar','ucret','ipt','not'];
+  const state=()=>{const o={};FIELDS.forEach(f=>o[f]=$(f).value);o.items=rows('items');o.days=rows('days');return o};
+  function load(o){FIELDS.forEach(f=>{if(o[f]!=null)$(f).value=o[f]});$('items').innerHTML='';$('days').innerHTML='';(o.items||[]).forEach(addItem);(o.days||[]).forEach(addDay);calc()}
+  $('save').onclick=()=>{try{localStorage.setItem('guidy_teklif_taslak',JSON.stringify(state()));$('err').textContent='Taslak bu cihaza kaydedildi.'}catch(e){$('err').textContent='Bu tarayıcı taslak kaydetmeye izin vermiyor.'}};
+  $('clear').onclick=()=>{if(!confirmClear())return;try{localStorage.removeItem('guidy_teklif_taslak')}catch(e){}location.reload()};
+  function confirmClear(){if($('clear').dataset.sure){return true}$('clear').dataset.sure='1';$('clear').textContent='Emin misiniz? Tekrar tıklayın';setTimeout(()=>{delete $('clear').dataset.sure;$('clear').textContent='Yeni teklif'},4000);return false}
+  async function pack(obj){const bytes=new TextEncoder().encode(JSON.stringify(obj));let out=bytes;if(window.CompressionStream){const cs=new Blob([bytes]).stream().pipeThrough(new CompressionStream('deflate-raw'));out=new Uint8Array(await new Response(cs).arrayBuffer());}let s='';out.forEach(b=>s+=String.fromCharCode(b));return (window.CompressionStream?'z':'p')+btoa(s).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'')}
+  $('make').onclick=async()=>{
+    const s=state(),t=calc();$('err').textContent='';
+    if(!s.mus||!s.bas){$('err').textContent='Müşteri adı ve teklif başlığını yazın.';return}
+    if(!s.items.some(i=>i.ad&&+i.sat)){$('err').textContent='En az bir kalem için ad ve satış fiyatı girin.';return}
+    const id='G'+Date.now().toString(36).toUpperCase();
+    const pub={v:1,id,tas:s.tas,mus:s.mus,dil:s.dil,bas:s.bas,tar:s.tar,kis:s.kis,gec:s.gec,ucret:+s.ucret||0,ipt:s.ipt,not:s.not,
+      items:s.items.filter(i=>i.ad).map(i=>({t:i.tip,a:i.ad,d:i.det,p:+i.sat||0})),days:s.days.filter(d=>d.b||d.a).map(d=>({g:d.g,b:d.b,a:d.a}))};
+    const url=location.origin+location.pathname.replace(/teklif-olustur\.html$/,'')+'teklif.html#'+await pack(pub);
+    $('link').value=url;$('open').href=url;$('wa').href='https://wa.me/?text='+encodeURIComponent(s.bas+' — '+url);$('out').style.display='block';
+    try{localStorage.setItem('guidy_teklif_taslak',JSON.stringify(s))}catch(e){}
+    const fd=new FormData();fd.append('_subject','Yeni teklif oluşturuldu: '+s.bas+' ('+s.tas+')');fd.append('tip','Teklif oluşturuldu');fd.append('teklif_no',id);fd.append('tasarimci',s.tas);fd.append('musteri',s.mus);fd.append('baslik',s.bas);fd.append('tarihler',s.tar);fd.append('kisi',s.kis);fd.append('dil',s.dil.toUpperCase());
+    fd.append('musteri_toplami_TL',Math.round(t.sat+t.u));fd.append('rota_tasarim_ucreti_TL',t.u);fd.append('net_maliyet_TL',Math.round(t.net));fd.append('brut_kar_TL',Math.round(t.sat-t.net));
+    fd.append('kalemler',s.items.filter(i=>i.ad).map(i=>`${i.tip} | ${i.ad} | ${i.det} | kaynak: ${i.kay} | net ${i.net} | satış ${i.sat}`).join('\n'));fd.append('link',url);
+    try{const r=await fetch('https://formspree.io/f/mrpqpazq',{method:'POST',body:fd,headers:{Accept:'application/json'}});$('rec').textContent=r.ok?'Teklif ('+id+') Guidy kaydına düştü.':'Link hazır; Guidy kaydına gönderilemedi, linki gulten@guidy.tr adresine iletin.'}catch(e){$('rec').textContent='Link hazır; Guidy kaydına gönderilemedi, linki gulten@guidy.tr adresine iletin.'}
+  };
+  $('copy').onclick=async()=>{try{await navigator.clipboard.writeText($('link').value);$('copy').textContent='Kopyalandı ✓'}catch(e){$('link').select();document.execCommand('copy');$('copy').textContent='Kopyalandı ✓'}setTimeout(()=>$('copy').textContent='Linki kopyala',2000)};
+  const g=new Date();g.setDate(g.getDate()+7);$('gec').value=g.toISOString().slice(0,10);
+  let saved=null;try{saved=JSON.parse(localStorage.getItem('guidy_teklif_taslak')||'null')}catch(e){}
+  if(saved)load(saved);else{addItem();addDay();}
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guidy — Seyahat teklifi</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css?v=6">
+<style>
+.pr{max-width:860px;margin:0 auto}
+.phead{background:var(--cobd);color:#fff;border-radius:22px;padding:clamp(24px,4vw,40px)}
+.phead h1{color:#fff;font-size:clamp(28px,4vw,42px);margin-top:6px}
+.phead .kicker{color:#9fe3e1}
+.meta2{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:14px;color:#dbe4f7;font-size:15px}
+.sec{margin-top:34px}
+.sec h2{font-size:clamp(20px,2.4vw,26px)}
+.li{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:6px 16px;align-items:start;border-bottom:1px solid var(--line);padding:14px 0}
+.li .t{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--tq);padding-top:3px;min-width:84px}
+.li .d{color:var(--soft);font-size:14px;margin-top:2px}
+.li .p{font-weight:700;white-space:nowrap}
+.tot{display:flex;justify-content:space-between;align-items:baseline;margin-top:16px;padding:18px;border-radius:16px;background:var(--pan)}
+.tot b{font-family:Marcellus,serif;font-size:30px;color:var(--cob)}
+.dayc{border-left:3px solid var(--tq);padding:4px 0 4px 16px;margin-top:16px}
+.dayc h3{font-size:18px}
+.dayc p{color:var(--soft);margin-top:6px;white-space:pre-line}
+.boxp{background:#fff;border:1px solid var(--line);border-radius:18px;padding:clamp(18px,3vw,28px);margin-top:16px}
+.boxp p{white-space:pre-line}
+@media print{nav,.wa,.noprint,footer{display:none!important}.band{padding:0}.phead{background:#fff;color:#000;border:1px solid #ccc}.phead h1,.phead .meta2{color:#000}}
+</style>
+</head>
+<body class="sub">
+<nav>
+  <a class="logo" href="index.html" aria-label="Guidy">Guidy</a>
+</nav>
+<main class="band"><div class="pr" id="root"><p id="loading">…</p></div></main>
+<footer class="band" style="padding-block:28px"><div class="wrap"><p class="note" id="foot"></p></div></footer>
+<a class="wa" id="wa" href="https://wa.me/905353751195" target="_blank" rel="noopener" aria-label="WhatsApp"><svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.2-.2-.4-.3z"/></svg><span id="waT">WhatsApp</span></a>
+<script>
+(function(){
+const L={
+tr:{k:'Size özel seyahat teklifi',for:'Sayın',dates:'Tarihler',ppl:'Kişi',by:'Seyahat tasarımcınız',items:'Otel ve hizmetler',fee:'Rota tasarım ücreti',feeD:'Size özel rotanın hazırlanması ve yolculuk boyunca destek. Seyahat iptal olursa iade edilir.',total:'Toplam',days:'Gün gün program',day:'Gün',cond:'İptal ve değişiklik koşulları',note:'Seyahat tasarımcınızdan not',valid:'Bu teklif şu tarihe kadar geçerlidir:',pay:'Rezervasyon ve ödemeler, Guidy\'nin çalıştığı belgeli seyahat acentesi üzerinden yapılır. Fiyatlar müsaitliğe bağlıdır ve rezervasyon anında kesinleşir.',ok:'Teklifi onaylıyorum',name:'Ad soyad',phone:'Telefon',msg:'Eklemek istedikleriniz (isteğe bağlı)',kvkk:'Kişisel verilerimin rezervasyon işlemleri ve benimle iletişime geçilmesi amacıyla işlenmesini kabul ediyorum.',send:'Onayı gönder',sending:'Gönderiliyor…',thanks:'Teşekkürler! Onayınız seyahat tasarımcınıza ulaştı. Rezervasyon ve ödeme adımları için sizinle iletişime geçeceğiz.',errF:'Lütfen ad, telefon ve onay kutusunu doldurun.',errS:'Gönderilemedi, lütfen tekrar deneyin ya da WhatsApp\'tan yazın.',print:'Yazdır / PDF',ask:'Soru sor',bad:'Bu teklif linki açılamadı. Lütfen seyahat tasarımcınızdan linki yeniden isteyin.',types:{otel:'Otel',tur:'Tur',transfer:'Transfer',ucus:'Uçuş',deneyim:'Deneyim',sigorta:'Sigorta',diger:'Hizmet'},foot:'Guidy · Türkiye\'nin seyahat tasarımcıları ağı'},
+en:{k:'Your personal travel proposal',for:'Dear',dates:'Dates',ppl:'Travelers',by:'Your travel designer',items:'Hotels and services',fee:'Route design fee',feeD:'Designing your personal route and support throughout the trip. Refunded if the trip is cancelled.',total:'Total',days:'Day-by-day itinerary',day:'Day',cond:'Cancellation and change terms',note:'A note from your travel designer',valid:'This proposal is valid until:',pay:'Bookings and payments are made through the licensed travel agency Guidy works with. Prices are subject to availability and confirmed at the time of booking.',ok:'I accept this proposal',name:'Full name',phone:'Phone',msg:'Anything to add (optional)',kvkk:'I consent to my personal data being processed for the booking and to contact me.',send:'Send acceptance',sending:'Sending…',thanks:'Thank you! Your acceptance has reached your travel designer. We will contact you about booking and payment.',errF:'Please fill in your name, phone and the consent box.',errS:'Could not send. Please try again or message us on WhatsApp.',print:'Print / PDF',ask:'Ask a question',bad:'This proposal link could not be opened. Please ask your travel designer for a new link.',types:{otel:'Hotel',tur:'Tour',transfer:'Transfer',ucus:'Flight',deneyim:'Experience',sigorta:'Insurance',diger:'Service'},foot:'Guidy · Türkiye\'s network of travel designers'},
+es:{k:'Tu propuesta de viaje personalizada',for:'Estimado/a',dates:'Fechas',ppl:'Viajeros',by:'Tu diseñador/a de viajes',items:'Hoteles y servicios',fee:'Tarifa de diseño de ruta',feeD:'Diseño de tu ruta personalizada y asistencia durante todo el viaje. Se reembolsa si el viaje se cancela.',total:'Total',days:'Programa día a día',day:'Día',cond:'Condiciones de cancelación y cambios',note:'Nota de tu diseñador/a de viajes',valid:'Esta propuesta es válida hasta:',pay:'Las reservas y los pagos se realizan a través de la agencia de viajes con licencia con la que trabaja Guidy. Los precios dependen de la disponibilidad y se confirman al reservar.',ok:'Acepto la propuesta',name:'Nombre y apellidos',phone:'Teléfono',msg:'¿Algo que añadir? (opcional)',kvkk:'Acepto el tratamiento de mis datos personales para la reserva y para contactarme.',send:'Enviar aceptación',sending:'Enviando…',thanks:'¡Gracias! Tu aceptación ha llegado a tu diseñador/a de viajes. Te contactaremos para la reserva y el pago.',errF:'Rellena tu nombre, teléfono y la casilla de consentimiento.',errS:'No se pudo enviar. Inténtalo de nuevo o escríbenos por WhatsApp.',print:'Imprimir / PDF',ask:'Hacer una pregunta',bad:'No se pudo abrir este enlace. Pide un enlace nuevo a tu diseñador/a de viajes.',types:{otel:'Hotel',tur:'Tour',transfer:'Traslado',ucus:'Vuelo',deneyim:'Experiencia',sigorta:'Seguro',diger:'Servicio'},foot:'Guidy · La red de diseñadores de viaje de Turquía'},
+de:{k:'Ihr persönliches Reiseangebot',for:'Liebe/r',dates:'Reisedaten',ppl:'Reisende',by:'Ihr Reisedesigner',items:'Hotels und Leistungen',fee:'Gebühr für das Routendesign',feeD:'Gestaltung Ihrer persönlichen Route und Betreuung während der gesamten Reise. Wird bei Stornierung der Reise erstattet.',total:'Gesamt',days:'Programm Tag für Tag',day:'Tag',cond:'Storno- und Änderungsbedingungen',note:'Eine Notiz Ihres Reisedesigners',valid:'Dieses Angebot gilt bis:',pay:'Buchung und Zahlung erfolgen über das lizenzierte Reisebüro, mit dem Guidy zusammenarbeitet. Preise je nach Verfügbarkeit, verbindlich bei Buchung.',ok:'Ich nehme das Angebot an',name:'Vor- und Nachname',phone:'Telefon',msg:'Ergänzungen (optional)',kvkk:'Ich willige ein, dass meine personenbezogenen Daten für die Buchung und zur Kontaktaufnahme verarbeitet werden.',send:'Annahme senden',sending:'Wird gesendet…',thanks:'Vielen Dank! Ihre Annahme ist bei Ihrem Reisedesigner angekommen. Wir melden uns zu Buchung und Zahlung.',errF:'Bitte Name, Telefon und Einwilligung ausfüllen.',errS:'Senden fehlgeschlagen. Bitte erneut versuchen oder per WhatsApp schreiben.',print:'Drucken / PDF',ask:'Frage stellen',bad:'Dieser Angebotslink konnte nicht geöffnet werden. Bitte fordern Sie bei Ihrem Reisedesigner einen neuen Link an.',types:{otel:'Hotel',tur:'Tour',transfer:'Transfer',ucus:'Flug',deneyim:'Erlebnis',sigorta:'Versicherung',diger:'Leistung'},foot:'Guidy · Das Netzwerk der Reisedesigner in der Türkei'},
+ru:{k:'Ваше персональное предложение',for:'Уважаемый(ая)',dates:'Даты',ppl:'Путешественники',by:'Ваш тревел-дизайнер',items:'Отели и услуги',fee:'Плата за разработку маршрута',feeD:'Разработка персонального маршрута и поддержка на протяжении всей поездки. Возвращается при отмене поездки.',total:'Итого',days:'Программа по дням',day:'День',cond:'Условия отмены и изменений',note:'Записка от вашего тревел-дизайнера',valid:'Предложение действительно до:',pay:'Бронирование и оплата проходят через лицензированное турагентство, с которым работает Guidy. Цены зависят от наличия мест и фиксируются при бронировании.',ok:'Я принимаю предложение',name:'Имя и фамилия',phone:'Телефон',msg:'Что добавить (необязательно)',kvkk:'Я согласен(на) на обработку персональных данных для бронирования и связи со мной.',send:'Отправить согласие',sending:'Отправка…',thanks:'Спасибо! Ваше согласие получено тревел-дизайнером. Мы свяжемся с вами по бронированию и оплате.',errF:'Укажите имя, телефон и отметьте согласие.',errS:'Не удалось отправить. Попробуйте снова или напишите в WhatsApp.',print:'Печать / PDF',ask:'Задать вопрос',bad:'Не удалось открыть ссылку. Попросите у тревел-дизайнера новую ссылку.',types:{otel:'Отель',tur:'Тур',transfer:'Трансфер',ucus:'Перелёт',deneyim:'Впечатление',sigorta:'Страховка',diger:'Услуга'},foot:'Guidy · Сеть тревел-дизайнеров Турции'}};
+const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+async function unpack(h){const z=h[0];let b=h.slice(1).replace(/-/g,'+').replace(/_/g,'/');while(b.length%4)b+='=';const raw=Uint8Array.from(atob(b),c=>c.charCodeAt(0));let out=raw;if(z==='z'){const ds=new Blob([raw]).stream().pipeThrough(new DecompressionStream('deflate-raw'));out=new Uint8Array(await new Response(ds).arrayBuffer())}return JSON.parse(new TextDecoder().decode(out))}
+(async function(){
+  const root=document.getElementById('root');let d;
+  try{d=await unpack(location.hash.slice(1))}catch(e){root.innerHTML='<p class="lead">'+L.tr.bad+'<br>'+L.en.bad+'</p>';return}
+  const T=L[d.dil]||L.tr,lc={tr:'tr-TR',en:'en-GB',es:'es-ES',de:'de-DE',ru:'ru-RU'}[d.dil]||'tr-TR';
+  document.documentElement.lang=d.dil||'tr';document.title='Guidy — '+d.bas;
+  const money=n=>Math.round(n).toLocaleString(lc)+' TL';
+  const sum=(d.items||[]).reduce((s,i)=>s+(+i.p||0),0)+(+d.ucret||0);
+  let gec='';if(d.gec){try{gec=new Date(d.gec+'T12:00').toLocaleDateString(lc,{day:'numeric',month:'long',year:'numeric'})}catch(e){gec=d.gec}}
+  root.innerHTML=`<header class="phead"><p class="kicker">${T.k}</p><h1>${esc(d.bas)}</h1><div class="meta2"><span>${T.for} ${esc(d.mus)}</span>${d.tar?`<span>${T.dates}: ${esc(d.tar)}</span>`:''}${d.kis?`<span>${T.ppl}: ${esc(d.kis)}</span>`:''}<span>${T.by}: ${esc(d.tas)}</span></div></header>
+  ${d.not?`<section class="sec"><h2>${T.note}</h2><div class="boxp"><p>${esc(d.not)}</p></div></section>`:''}
+  <section class="sec"><h2>${T.items}</h2>${(d.items||[]).map(i=>`<div class="li"><span class="t">${esc(T.types[i.t]||T.types.diger)}</span><div><b>${esc(i.a)}</b>${i.d?`<div class="d">${esc(i.d)}</div>`:''}</div><span class="p">${money(i.p)}</span></div>`).join('')}
+  ${+d.ucret?`<div class="li"><span class="t">Guidy</span><div><b>${T.fee}</b><div class="d">${T.feeD}</div></div><span class="p">${money(d.ucret)}</span></div>`:''}
+  <div class="tot"><span>${T.total}</span><b>${money(sum)}</b></div></section>
+  ${(d.days||[]).length?`<section class="sec"><h2>${T.days}</h2>${d.days.map(x=>`<div class="dayc"><h3>${T.day} ${esc(x.g)}${x.b?' · '+esc(x.b):''}</h3>${x.a?`<p>${esc(x.a)}</p>`:''}</div>`).join('')}</section>`:''}
+  ${d.ipt?`<section class="sec"><h2>${T.cond}</h2><div class="boxp"><p>${esc(d.ipt)}</p></div></section>`:''}
+  <p class="note" style="margin-top:22px">${gec?T.valid+' <b>'+gec+'</b>. ':''}${T.pay}</p>
+  <section class="sec noprint" id="onay"><div class="boxp"><h2>${T.ok}</h2>
+   <form id="f" novalidate style="margin-top:14px;display:grid;gap:14px"><div class="row"><label>${T.name}<input id="ad" value="${esc(d.mus)}"></label><label>${T.phone}<input id="tel" type="tel"></label></div><label>${T.msg}<textarea id="msg"></textarea></label><label class="chk"><input id="kv" type="checkbox"><span>${T.kvkk}</span></label><p class="err" id="err"></p><div class="cta" style="margin-top:0"><button class="btn" id="gonder">${T.send}</button><button class="btn ghost" type="button" id="pr">${T.print}</button></div></form>
+   <p id="ok" class="lead" style="display:none">${T.thanks}</p></div></section>`;
+  document.getElementById('foot').textContent=T.foot+' · '+(d.id||'');
+  document.getElementById('waT').textContent=T.ask;document.getElementById('wa').href='https://wa.me/905353751195?text='+encodeURIComponent((d.id||'')+' — '+d.bas);
+  document.getElementById('pr').onclick=()=>window.print();
+  document.getElementById('f').addEventListener('submit',async e=>{e.preventDefault();const err=document.getElementById('err'),ad=document.getElementById('ad').value.trim(),tel=document.getElementById('tel').value.trim();
+    if(!ad||!tel||!document.getElementById('kv').checked){err.textContent=T.errF;return}err.textContent='';const b=document.getElementById('gonder');b.disabled=true;b.textContent=T.sending;
+    const fd=new FormData();fd.append('_subject','TEKLİF ONAYLANDI: '+d.bas+' ('+d.tas+')');fd.append('tip','Teklif onayı');fd.append('teklif_no',d.id||'');fd.append('tasarimci',d.tas);fd.append('baslik',d.bas);fd.append('musteri',ad);fd.append('tel',tel);fd.append('mesaj',document.getElementById('msg').value);fd.append('toplam_TL',Math.round(sum));fd.append('dil',(d.dil||'tr').toUpperCase());fd.append('kvkk_onay','evet');fd.append('link',location.href);
+    try{const r=await fetch('https://formspree.io/f/mrpqpazq',{method:'POST',body:fd,headers:{Accept:'application/json'}});if(!r.ok)throw 0;document.getElementById('f').style.display='none';document.getElementById('ok').style.display='block'}catch(x){err.textContent=T.errS;b.disabled=false;b.textContent=T.send}});
+})();
+})();
+</script>
+</body>
+</html>
