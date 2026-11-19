@@ -62,6 +62,7 @@
     <input type="hidden" name="rota_ortagi" id="f_ref">
     <input type="hidden" name="kaynak" id="f_kaynak" value="Site formu">
     <p class="konu" id="konu" hidden></p>
+    <label for="elcisec" id="elcisec-l" style="margin-bottom:18px">Tercih ettiğiniz seyahat tasarımcısı <span class="hint">İsteğe bağlı. Seçmezseniz size en uygun tasarımcıyı biz yönlendiririz.</span><select id="elcisec"><option value="">Fark etmez</option><option>Gülten Can Romano</option><option>Ali Mataracı</option><option>Melisa Tamses</option><option>Cansu Keskin</option></select></label>
 
     <div class="grp">
       <h2>1. Siz</h2>
@@ -205,7 +206,8 @@
   const otel=q.get('otel'),bolge=q.get('bolge');
   if(otel){parts.push('Otel: <b>'+esc(otel)+'</b>');if(!$('ozel').value)$('ozel').value='Konaklamak istediğim otel: '+otel}
   if(bolge){parts.push('Destinasyon: <b>'+esc(bolge)+'</b>');if(!$('nereye').value)$('nereye').value=bolge}
-  if(elci){$('f_elci').value=elci;parts.push('Seyahat tasarımcısı: <b>'+esc(elci)+'</b>')}
+  if(elci){$('f_elci').value=elci;parts.push('Seyahat tasarımcısı: <b>'+esc(elci)+'</b>');$('elcisec').value=elci}
+  $('elcisec').addEventListener('change',e=>{$('f_elci').value=e.target.value});
   if(ref){$('f_ref').value=ref;$('f_kaynak').value='Rota Ortağı';try{localStorage.setItem('guidy_ref',ref)}catch(_){}}
   else{try{const r=localStorage.getItem('guidy_ref');if(r){$('f_ref').value=r;$('f_kaynak').value='Rota Ortağı'}}catch(_){}}
   if(parts.length){$('konu').innerHTML=parts.join(' · ');$('konu').hidden=false}

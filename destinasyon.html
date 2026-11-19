@@ -42,6 +42,15 @@
   const app=document.getElementById('app'),E=GK.esc,q=new URLSearchParams(location.search);
   const {H,B}=await GK.load();
   const searchBox=v=>`<form class="hsearch" id="ds" style="box-shadow:none;border:1px solid var(--line)"><input placeholder="Bölge ya da otel arayın: Bodrum, Kapadokya…" value="${E(v||'')}" aria-label="Bölge ya da otel ara"><button class="btn">Ara</button></form>`;
+  const YD=[['Gülten Can Romano','elci-gulten-can-romano.html','Yurt dışı, kültür ve şehir, butik oteller'],['Ali Mataracı','elci-ali-mataraci.html','Yurt dışı, kültür ve gastronomi']];
+  function noMatch(s){const yd=/yurt ?d[ıi]ş[ıi]|abroad|avrupa|dünya/i.test(s),b=encodeURIComponent(yd?'Yurt dışı':s);
+    return `<div style="margin-top:28px;background:var(--pan);border-radius:20px;padding:28px">
+      <h2 style="margin-top:0">${yd?'Yurt dışı seyahatinizi':E(s)+' seyahatinizi'} birlikte tasarlayalım</h2>
+      <p class="lead" style="max-width:none">Sitede gördüğünüz oteller Türkiye seçkimiz. Seyahat tasarımcılarımız yurt dışında da dünyanın her yerinde rota, otel ve deneyim ayarlıyor. Talebinizi bırakın, size uygun tasarımcı 24 saat içinde sizi arasın.</p>
+      <div class="cta"><a class="btn" href="seyahat-talebi.html?bolge=${b}">Seyahatimi tasarla</a></div>
+      <p class="kicker" style="margin-top:26px">Yurt dışı seyahatlerinde uzman tasarımcılarımız</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px">${YD.map(([n,u,t])=>`<div style="background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px"><b style="font-size:18px">${n}</b><p style="margin:6px 0 12px;color:var(--soft)">${t}</p><a class="btn ghost" href="seyahat-talebi.html?bolge=${b}&elci=${encodeURIComponent(n)}">${n.split(' ')[0]} ile planla</a> <a href="${u}" style="margin-left:8px">Profil →</a></div>`).join('')}</div>
+    </div>`}
   const b=B.find(x=>x.id===q.get('b')),s=q.get('q');
   if(b){
     document.title=b.ad+' — Guidy seyahat tasarımcıları';
@@ -59,7 +68,7 @@
     app.innerHTML=`<section class="band"><div class="wrap"><p class="kicker">Arama</p><h1 style="font-size:clamp(30px,4vw,44px)">"${E(s)}" için sonuçlar</h1>${searchBox(s)}
     ${r.regions.length?`<h2 style="margin-top:36px">Destinasyonlar</h2><div class="dtiles">${r.regions.map(GK.regionTile).join('')}</div>`:''}
     ${r.hotels.length?`<h2 style="margin-top:36px">Oteller</h2><div class="hcards">${r.hotels.map(GK.card).join('')}</div>`:''}
-    ${!r.regions.length&&!r.hotels.length?`<p class="lead">Bu aramayla eşleşen bir otel ya da bölge bulamadık. Seyahat tasarımcınız aradığınızı bulur: <a href="seyahat-talebi.html?bolge=${encodeURIComponent(s)}">talebinizi bırakın</a>.</p>`:''}
+    ${!r.regions.length&&!r.hotels.length?noMatch(s):''}
     </div></section>`;
   } else {
     app.innerHTML=`<section class="band"><div class="wrap"><p class="kicker">Destinasyonlar</p><h1 style="font-size:clamp(32px,4.5vw,52px)">Türkiye'de nereye gitmek istersiniz?</h1>${searchBox('')}<div class="dtiles">${B.map(GK.regionTile).join('')}</div></div></section>
