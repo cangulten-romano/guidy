@@ -345,16 +345,16 @@
   "id": "bod-maxx",
   "ad": "Maxx Royal Bodrum",
   "sehir": "Bodrum",
-  "semt": "",
-  "tip": "Resort",
+  "semt": "Göltürkbükü (Cennet Koyu)",
+  "tip": "Resort ve spa, özel koy",
   "vlist": true
  },
  {
   "id": "ant-bayou",
   "ad": "Bayou Villas",
   "sehir": "Antalya",
-  "semt": "",
-  "tip": "Villa resort",
+  "semt": "Lara",
+  "tip": "Villa resort, özel havuzlu villalar",
   "vlist": true
  }
 ]
