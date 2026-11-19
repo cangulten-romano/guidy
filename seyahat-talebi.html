@@ -65,7 +65,7 @@
       </div>
       <div class="row">
         <label for="eposta">E-posta<input id="eposta" name="email" type="email" autocomplete="email" required></label>
-        <label for="tel">Telefon<input id="tel" name="tel" type="tel" autocomplete="tel" required></label>
+        <label for="tel">Telefon<span class="telw"><select id="tel_ulke" name="tel_ulke" aria-label="Ülke kodu"><option value="+90" selected>+90 Türkiye</option><option value="+49">+49 Almanya</option><option value="+44">+44 Birleşik Krallık</option><option value="+1">+1 ABD / Kanada</option><option value="+31">+31 Hollanda</option><option value="+33">+33 Fransa</option><option value="+41">+41 İsviçre</option><option value="+43">+43 Avusturya</option><option value="+32">+32 Belçika</option><option value="+46">+46 İsveç</option><option value="+45">+45 Danimarka</option><option value="+47">+47 Norveç</option><option value="+39">+39 İtalya</option><option value="+34">+34 İspanya</option><option value="+30">+30 Yunanistan</option><option value="+357">+357 Kıbrıs</option><option value="+971">+971 BAE</option><option value="+966">+966 Suudi Arabistan</option><option value="+974">+974 Katar</option><option value="+994">+994 Azerbaycan</option><option value="+7">+7 Rusya / Kazakistan</option><option value="+972">+972 İsrail</option><option value="+61">+61 Avustralya</option><option value="Diğer">Diğer</option></select><input id="tel" name="tel" type="tel" autocomplete="tel-national" placeholder="5xx xxx xx xx" required></span></label>
       </div>
       <fieldset><legend>Size nasıl ulaşalım?</legend>
         <div class="chips">
@@ -79,7 +79,7 @@
 
     <div class="grp">
       <h2>2. Seyahat</h2>
-      <label for="nereye">Nereye gitmek istiyorsunuz?<input id="nereye" name="nereye" placeholder="ör. İtalya'da Toskana ve Amalfi, Kapadokya, henüz karar vermedim"></label>
+      <div class="row"><label for="nereye">Nereye gitmek istiyorsunuz?<input id="nereye" name="nereye" placeholder="ör. İtalya'da Toskana ve Amalfi, Kapadokya, henüz karar vermedim"></label><label for="kalkis">Nereden yola çıkacaksınız?<select id="kalkis" name="kalkis"><option value="">Seçin</option><option>İstanbul</option><option>Ankara</option><option>İzmir</option><option>Antalya</option><option>Bursa</option><option>Adana</option><option>Muğla (Bodrum / Dalaman)</option><option>Trabzon</option><option>Gaziantep</option><option>Kayseri</option><option>Diyarbakır</option><option>Samsun</option><option>Eskişehir</option><option>Konya</option><option>Yurt dışından katılacağım</option><option>Fark etmez</option></select></label></div>
       <div class="row">
         <label for="ne_zaman">Ne zaman?<input id="ne_zaman" name="ne_zaman" placeholder="ör. 10–17 Mayıs 2027 ya da Mayıs 2027"></label>
         <label for="gece">Kaç gece?<input id="gece" name="gece_sayisi" inputmode="numeric" placeholder="ör. 7"></label>
@@ -91,9 +91,9 @@
           <label><input type="radio" name="tarih_esnekligi" value="Tamamen esnek"><span>Tamamen esnek</span></label>
         </div>
       </fieldset>
-      <div class="row">
-        <label for="yetiskin">Yetişkin<input id="yetiskin" name="yetiskin" inputmode="numeric" value="2"></label>
-        <label for="cocuk">Çocuk ve yaşları<input id="cocuk" name="cocuk" placeholder="ör. 2 çocuk: 6 ve 11 yaş"></label>
+      <div class="row row3">
+        <label for="yetiskin">Yetişkin<select id="yetiskin" name="yetiskin"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>10+</option></select></label>
+        <label for="cocuk_sayi">Çocuk<select id="cocuk_sayi" name="cocuk_sayisi"><option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select></label><label for="cocuk">Çocukların yaşları<input id="cocuk" name="cocuk_yaslari" placeholder="ör. 6 ve 11"></label>
       </div>
       <fieldset><legend>Seyahatin nedeni</legend>
         <div class="chips">

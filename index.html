@@ -165,7 +165,7 @@
         </div>
         <div class="row">
           <label for="eposta">E-posta<input id="eposta" name="email" type="email" autocomplete="email" required></label>
-          <label for="tel">Telefon<input id="tel" name="tel" type="tel" autocomplete="tel" required></label>
+          <label for="tel">Telefon<span class="telw"><select id="tel_ulke" name="tel_ulke" aria-label="Ülke kodu"><option value="+90" selected>+90 Türkiye</option><option value="+49">+49 Almanya</option><option value="+44">+44 Birleşik Krallık</option><option value="+1">+1 ABD / Kanada</option><option value="+31">+31 Hollanda</option><option value="+33">+33 Fransa</option><option value="+41">+41 İsviçre</option><option value="+43">+43 Avusturya</option><option value="+32">+32 Belçika</option><option value="+46">+46 İsveç</option><option value="+45">+45 Danimarka</option><option value="+47">+47 Norveç</option><option value="+39">+39 İtalya</option><option value="+34">+34 İspanya</option><option value="+30">+30 Yunanistan</option><option value="+357">+357 Kıbrıs</option><option value="+971">+971 BAE</option><option value="+966">+966 Suudi Arabistan</option><option value="+974">+974 Katar</option><option value="+994">+994 Azerbaycan</option><option value="+7">+7 Rusya / Kazakistan</option><option value="+972">+972 İsrail</option><option value="+61">+61 Avustralya</option><option value="Diğer">Diğer</option></select><input id="tel" name="tel" type="tel" autocomplete="tel-national" placeholder="5xx xxx xx xx" required></span></label>
         </div>
         <div id="g-alan">
           <div class="row">
@@ -173,9 +173,10 @@
             <label for="ne_zaman">Ne zaman?<input id="ne_zaman" name="ne_zaman" placeholder="ör. Mayıs 2027, 7 gece"></label>
           </div>
           <div class="row" style="margin-top:16px">
-            <label for="kisi">Kaç kişi?<input id="kisi" name="kisi" inputmode="numeric" placeholder="ör. 2 yetişkin, 1 çocuk"></label>
+            <div class="row" style="gap:12px"><label for="yetiskin">Yetişkin<select id="yetiskin" name="yetiskin"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>10+</option></select></label><label for="cocuk_sayi">Çocuk<select id="cocuk_sayi" name="cocuk_sayisi"><option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select></label></div>
             <label for="butce">Kişi başı bütçe<select id="butce" name="butce"><option>Belirtmek istemiyorum</option><option>50.000 TL altı</option><option>50.000–100.000 TL</option><option>100.000–200.000 TL</option><option>200.000 TL üzeri</option></select></label>
           </div>
+          <div class="row" style="margin-top:16px"><label for="kalkis">Nereden yola çıkacaksınız?<select id="kalkis" name="kalkis"><option value="">Seçin</option><option>İstanbul</option><option>Ankara</option><option>İzmir</option><option>Antalya</option><option>Bursa</option><option>Adana</option><option>Muğla (Bodrum / Dalaman)</option><option>Trabzon</option><option>Gaziantep</option><option>Kayseri</option><option>Diyarbakır</option><option>Samsun</option><option>Eskişehir</option><option>Konya</option><option>Yurt dışından katılacağım</option><option>Fark etmez</option></select></label><span></span></div>
         </div>
         <div id="e-alan" hidden>
           <label for="deneyim">Seyahat ve satış deneyiminiz
@@ -229,14 +230,14 @@
 {
   const U=id=>`https://images.unsplash.com/${id}?auto=format&fit=crop&w=900&q=70`;
   const routes=[
-    {t:"Kapadokya'da 4 gün",s:"Balon, vadiler, mağara otel",d:"4 gün",k:"Aile, ilk kez gidenler",img:"photo-1604156789095-3348604c0f43",alt:"Kapadokya üzerinde sıcak hava balonları"},
+    {t:"Kapadokya'da 4 gün",u:"gulten-can-romano-kapadokya-ilk-kez.html",s:"Balon, vadiler, mağara otel",d:"4 gün",k:"Aile, ilk kez gidenler",img:"photo-1604156789095-3348604c0f43",alt:"Kapadokya üzerinde sıcak hava balonları"},
     {t:"Ege'de 7 gün",s:"Alaçatı, Bozcaada, Assos",d:"7 gün",k:"Çiftler, gurmeler",img:"photo-1732371502404-ee875805abc6",alt:"Alaçatı'da taş ev önünde mavi bisiklet"},
     {t:"İtalya: Amalfi kıyıları",s:"Positano, Capri, Napoli",d:"6 gün",k:"Balayı, romantik kaçamak",img:"photo-1612698093158-e07ac200d44e",alt:"Amalfi kıyısında yamaca kurulmuş renkli evler"},
-    {t:"Lapland'da kuzey ışıkları",s:"Kızak, kar, aurora gecesi",d:"4 gün",k:"Aileler, macera sevenler",img:"photo-1505281906411-28d444dd417e",alt:"Gökyüzünde yeşil kuzey ışıkları"},
+    {t:"Lapland'da kuzey ışıkları",u:"gulten-can-romano-lapland-kuzey-isiklari.html",s:"Kızak, kar, aurora gecesi",d:"4 gün",k:"Aileler, macera sevenler",img:"photo-1505281906411-28d444dd417e",alt:"Gökyüzünde yeşil kuzey ışıkları"},
     {t:"Japonya: Tokyo ve Kyoto",s:"Tapınaklar, sakura, mutfak",d:"9 gün",k:"Kültür meraklıları",img:"photo-1545569341-9eb8b30979d9",alt:"Kyoto'da ağaçlarla çevrili pagoda"},
     {t:"İstanbul'da 3 gün",s:"Boğaz, saraylar, lezzet turu",d:"3 gün",k:"Şehir ve kültür",img:"photo-1763965368246-5e89755e4455",alt:"Gün batımında Boğaz kıyısında cami ve köprü"}
   ];
-  document.getElementById('routes').innerHTML=routes.map(r=>`<article class="route"><img src="${U(r.img)}" alt="${r.alt}" loading="lazy"><div><h3>${r.t}</h3><p style="color:#eef2fa;margin-top:4px">${r.s}</p><p class="meta"><span>${r.d}</span><span>·</span><span>${r.k}</span></p></div></article>`).join('');
+  document.getElementById('routes').innerHTML=routes.map(r=>`<a class="route" href="${r.u||'seyahat-talebi.html?tur='+encodeURIComponent(r.t)}"><img src="${U(r.img)}" alt="${r.alt}" loading="lazy"><div><h3>${r.t}</h3><p style="color:#eef2fa;margin-top:4px">${r.s}</p><p class="meta"><span>${r.d}</span><span>·</span><span>${r.k}</span></p><span class="rgo">${r.u?'Rotayı incele':'Bu rotayı tasarla'} →</span></div></a>`).join('');
 
   const $=id=>document.getElementById(id);
   const f=$('f'),ok=$('ok'),err=$('err');
@@ -266,7 +267,7 @@
     err.textContent='';
     const btn=$('gonder'),label=btn.textContent;btn.disabled=true;btn.textContent='Gönderiliyor…';
     const fd=new FormData(f);
-    (($('g-alan').hidden)?['nereye','ne_zaman','kisi','butce']:['deneyim']).forEach(k=>fd.delete(k));
+    (($('g-alan').hidden)?['nereye','ne_zaman','yetiskin','cocuk_sayisi','butce','kalkis']:['deneyim']).forEach(k=>fd.delete(k));
     fetch(f.action,{method:'POST',body:fd,headers:{Accept:'application/json'}})
       .then(async r=>{if(!r.ok){let m='';try{const j=await r.json();m=(j.errors||[]).map(x=>x.message).join(' ')}catch(_){}throw new Error(m)}
         const el=$('g-alan').hidden;
