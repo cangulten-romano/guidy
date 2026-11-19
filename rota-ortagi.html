@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rota Ortağı başvurusu — Guidy</title>
+<meta name="description" content="Seyahat içerik üreticileri için Guidy Rota Ortaklığı: adınızla bir imza rotası hazırlayalım, takipçileriniz talep bıraksın, her satıştan pay alın.">
+<link rel="canonical" href="https://www.guidy.tr/rota-ortagi.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css?v=8">
+<style>
+.tform{max-width:860px;margin:0 auto}
+.tform h2{font-size:clamp(20px,2.2vw,24px);margin-top:8px}
+.tform fieldset{border:0;padding:0;margin:0}
+.tform legend{font-size:14px;font-weight:600;margin-bottom:8px}
+.grp{display:grid;gap:16px;padding-top:22px;border-top:1px solid var(--line)}
+.grp:first-of-type{border-top:0;padding-top:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips label{display:block;cursor:pointer;font-weight:500}
+.chips input{position:absolute;opacity:0;pointer-events:none}
+.chips span{display:inline-block;padding:9px 14px;border:1px solid var(--line);border-radius:999px;font-size:14px}
+.chips input:checked+span{border-color:var(--cob);background:var(--pan);color:var(--cob)}
+.chips input:focus-visible+span{outline:3px solid var(--tq);outline-offset:2px}
+.hint{font-size:13px;color:var(--soft);font-weight:400}
+#err{color:#b3261e;font-size:14px;min-height:1em}
+#ok{display:none;background:#fff;border:1px solid var(--line);border-radius:20px;padding:28px}
+#ok.show{display:block}
+.konu{background:var(--pan);color:var(--cob);border-radius:12px;padding:10px 14px;font-size:14px}
+</style>
+</head>
+<body class="sub">
+<nav>
+  <a class="logo" href="index.html" aria-label="Guidy ana sayfa">Guidy</a><a class="homeback" href="index.html">← Ana sayfa</a>
+  <ul>
+    <li><a href="index.html#gezgin">Gezginler için</a></li>
+    <li><a href="turlar.html">Turlar</a></li>
+    <li><a href="index.html#elcilerimiz">Seyahat Tasarımcıları</a></li>
+    <li><a href="index.html#elci">Seyahat tasarımcısı olun</a></li>
+    <li><a href="index.html#sss">Sorular</a></li>
+  </ul>
+  <a class="btn light" href="seyahat-talebi.html">Seyahatimi tasarla</a>
+</nav>
+
+<main class="band">
+<div class="tform">
+  <p class="kicker">İçerik üreticileri için</p>
+  <h1 style="font-family:Marcellus,serif">Guidy Rota Ortağı başvurusu</h1>
+  <p class="lead">Kitleniz size seyahat soruyorsa, birlikte sizin adınızla bir imza rotası hazırlayalım. Takipçileriniz size özel guidy.tr sayfasından talep bırakır; planlamayı ve rezervasyonu bir Guidy seyahat tasarımcısı üstlenir, siz her satıştan pay alırsınız.</p>
+  <ol class="steps" style="margin-top:18px">
+    <li><span><b>Başvuru:</b> bu form, 3 dakika.</span></li>
+    <li><span><b>Tanışma görüşmesi:</b> 30 dakika, online. Pay oranlarını ve çalışma şeklini anlatırız.</span></li>
+    <li><span><b>İmza rotanız:</b> birlikte tasarlarız, size özel sayfa ve link hazırlarız.</span></li>
+    <li><span><b>Yayın:</b> paylaşırsınız, gelen talepleri tasarımcımız karşılar, satıştan payınız hesabınıza geçer.</span></li>
+  </ol>
+
+  <form id="f" action="https://formspree.io/f/mrpqpazq" method="POST" novalidate style="margin-top:28px">
+    <input type="hidden" name="_subject" value="Yeni Guidy Rota Ortağı başvurusu">
+    <input type="hidden" name="tip" value="Rota Ortağı başvurusu">
+
+    <div class="grp">
+      <h2>1. Siz</h2>
+      <div class="row">
+        <label for="ad">Ad soyad<input id="ad" name="ad" autocomplete="name" required></label>
+        <label for="sehir">Yaşadığınız şehir<input id="sehir" name="sehir" autocomplete="address-level2" required></label>
+      </div>
+      <div class="row">
+        <label for="eposta">E-posta<input id="eposta" name="email" type="email" autocomplete="email" required></label>
+        <label for="tel">Telefon<span class="telw"><select id="tel_ulke" name="tel_ulke" aria-label="Ülke kodu"><option value="+90" selected>+90 Türkiye</option><option value="+49">+49 Almanya</option><option value="+44">+44 Birleşik Krallık</option><option value="+1">+1 ABD / Kanada</option><option value="+31">+31 Hollanda</option><option value="+33">+33 Fransa</option><option value="+41">+41 İsviçre</option><option value="+43">+43 Avusturya</option><option value="+32">+32 Belçika</option><option value="+46">+46 İsveç</option><option value="+45">+45 Danimarka</option><option value="+47">+47 Norveç</option><option value="+39">+39 İtalya</option><option value="+34">+34 İspanya</option><option value="+30">+30 Yunanistan</option><option value="+357">+357 Kıbrıs</option><option value="+971">+971 BAE</option><option value="+966">+966 Suudi Arabistan</option><option value="+974">+974 Katar</option><option value="+994">+994 Azerbaycan</option><option value="+7">+7 Rusya / Kazakistan</option><option value="+972">+972 İsrail</option><option value="+61">+61 Avustralya</option><option value="Diğer">Diğer</option></select><input id="tel" name="tel" type="tel" autocomplete="tel-national" placeholder="5xx xxx xx xx" required></span></label>
+      </div>
+    </div>
+
+    <div class="grp">
+      <h2>2. Kanalınız</h2>
+      <fieldset><legend>Ana platformunuz</legend>
+        <div class="chips">
+          <label><input type="radio" name="platform" value="Instagram" checked><span>Instagram</span></label>
+          <label><input type="radio" name="platform" value="YouTube"><span>YouTube</span></label>
+          <label><input type="radio" name="platform" value="TikTok"><span>TikTok</span></label>
+          <label><input type="radio" name="platform" value="Blog / web sitesi"><span>Blog / web sitesi</span></label>
+          <label><input type="radio" name="platform" value="Podcast"><span>Podcast</span></label>
+          <label><input type="radio" name="platform" value="Bülten / e-posta"><span>Bülten / e-posta</span></label>
+        </div>
+      </fieldset>
+      <div class="row">
+        <label for="hesap">Profil linki ya da kullanıcı adı<input id="hesap" name="profil" placeholder="ör. instagram.com/kullaniciadi" required></label>
+        <label for="takipci">Takipçi sayısı<select id="takipci" name="takipci"><option value="">Seçin</option><option>10–25 bin</option><option>25–50 bin</option><option>50–100 bin</option><option>100–500 bin</option><option>500 bin üzeri</option></select></label>
+      </div>
+      <label for="diger">Diğer kanallarınız <span class="hint">İsteğe bağlı.</span><input id="diger" name="diger_kanallar" placeholder="ör. YouTube: …, blog: …"></label>
+      <fieldset><legend>Kitlenizin çoğu nerede yaşıyor?</legend>
+        <div class="chips">
+          <label><input type="checkbox" name="kitle" value="Türkiye"><span>Türkiye</span></label>
+          <label><input type="checkbox" name="kitle" value="Avrupa"><span>Avrupa</span></label>
+          <label><input type="checkbox" name="kitle" value="ABD / Kanada"><span>ABD / Kanada</span></label>
+          <label><input type="checkbox" name="kitle" value="Körfez"><span>Körfez</span></label>
+          <label><input type="checkbox" name="kitle" value="Diğer"><span>Diğer</span></label>
+        </div>
+      </fieldset>
+      <fieldset><legend>İçerik alanınız</legend>
+        <div class="chips">
+          <label><input type="checkbox" name="alan" value="Lüks seyahat"><span>Lüks seyahat</span></label>
+          <label><input type="checkbox" name="alan" value="Butik oteller"><span>Butik oteller</span></label>
+          <label><input type="checkbox" name="alan" value="Gastronomi"><span>Gastronomi</span></label>
+          <label><input type="checkbox" name="alan" value="Aile"><span>Aile</span></label>
+          <label><input type="checkbox" name="alan" value="Balayı ve düğün"><span>Balayı ve düğün</span></label>
+          <label><input type="checkbox" name="alan" value="Macera ve doğa"><span>Macera ve doğa</span></label>
+          <label><input type="checkbox" name="alan" value="Kültür ve tarih"><span>Kültür ve tarih</span></label>
+          <label><input type="checkbox" name="alan" value="Yaşam tarzı"><span>Yaşam tarzı</span></label>
+        </div>
+      </fieldset>
+    </div>
+
+    <div class="grp">
+      <h2>3. İmza rotanız</h2>
+      <label for="rota">Takipçilerinize hangi rotayı önermek isterdiniz?<textarea id="rota" name="imza_rota_fikri" placeholder="ör. Kapadokya'da 4 gün: mağara otel, gün doğumunda balon, yerel şarap evleri"></textarea></label>
+      <label for="soru">Takipçileriniz size en çok hangi seyahat sorularını soruyor? <span class="hint">İsteğe bağlı.</span><textarea id="soru" name="takipci_sorulari" placeholder="ör. Bodrum'da hangi otel, balayı için nereye, çocukla Kapadokya…"></textarea></label>
+      <label for="ref">Daha önce bir marka ya da otelle iş birliği yaptınız mı? <span class="hint">İsteğe bağlı.</span><input id="ref" name="onceki_isbirlikleri" placeholder="ör. X Otel, Y Havayolu"></label>
+    </div>
+
+    <div class="grp">
+      <label class="chk" for="kvkk"><input id="kvkk" name="kvkk_onay" value="evet" type="checkbox" required><span>Kişisel verilerimin başvurumun değerlendirilmesi ve benimle iletişime geçilmesi amacıyla işlenmesini kabul ediyorum.</span></label>
+      <p id="err" role="alert"></p>
+      <button class="btn" type="submit" id="gonder">Başvurumu gönder</button>
+    </div>
+  </form>
+
+  <div id="ok" role="status" style="margin-top:28px"><h2 style="margin-top:0">Başvurunuz alındı</h2><p id="okmsg"></p><p style="margin-top:12px"><a href="index.html">Ana sayfaya dön →</a></p></div>
+</div>
+</main>
+
+<footer class="band">
+  <div class="wrap">
+    <div><b style="font-family:Marcellus,serif;font-size:26px">Guidy</b><p style="margin-top:6px">Türkiye'nin seyahat tasarımcıları ağı.</p></div>
+    <div><p><a href="turlar.html">Turlar</a> · <a href="index.html#elcilerimiz">Seyahat Tasarımcıları</a> · <a href="index.html#elci">Seyahat tasarımcısı olun</a></p></div>
+    <div><p>Satışlar belgeli bir seyahat acentesi çatısı altında yapılır.</p><p>© 2026 Guidy</p></div>
+  </div>
+</footer>
+<script>
+(function(){
+  const $=id=>document.getElementById(id),f=$('f'),err=$('err');
+  f.addEventListener('submit',async e=>{
+    e.preventDefault();err.textContent='';
+    const need=['ad','sehir','eposta','tel','hesap'].filter(id=>!$(id).value.trim());
+    if(need.length){err.textContent='Lütfen ad, şehir, e-posta, telefon ve profil linki alanlarını doldurun.';$(need[0]).focus();return}
+    if(!/^\S+@\S+\.\S+$/.test($('eposta').value.trim())){err.textContent='E-posta adresini kontrol edin.';$('eposta').focus();return}
+    if(!$('kvkk').checked){err.textContent='Devam etmek için kişisel veri onayını işaretleyin.';return}
+    const fd=new FormData(f);
+    ['kitle','alan'].forEach(k=>{const v=fd.getAll(k);fd.delete(k);if(v.length)fd.set(k,v.join(', '))});
+    const b=$('gonder'),l=b.textContent;b.disabled=true;b.textContent='Gönderiliyor…';
+    try{
+      const r=await fetch(f.action,{method:'POST',body:fd,headers:{Accept:'application/json'}});
+      if(!r.ok)throw 0;
+      f.style.display='none';
+      $('okmsg').textContent=$('ad').value.trim()+', başvurunuz bize ulaştı. Profilinize göz atıp birkaç gün içinde tanışma görüşmesi için size dönüyoruz.';
+      $('ok').classList.add('show');window.scrollTo({top:0,behavior:'smooth'});
+    }catch(_){err.textContent='Gönderilemedi. Lütfen biraz sonra tekrar deneyin.';b.disabled=false;b.textContent=l}
+  });
+})();
+</script>
+<a class="wa" href="https://wa.me/905353751195?text=Merhaba%20Guidy%2C%20seyahatim%20i%C3%A7in%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener" aria-label="WhatsApp'tan yazın"><svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.2-.2-.4-.3z"/></svg><span>WhatsApp'tan yazın</span></a>
+</body>
+</html>
