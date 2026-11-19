@@ -58,6 +58,11 @@ textarea{min-height:80px}
     <label>Kâr payı (varsayılan %)<input id="kar" type="number" value="12" min="0" step="1"></label>
     <label>Rota tasarım ücreti (TL)<input id="ucret" type="number" value="7500" min="0" step="500"></label>
   </div>
+  <div class="g g3">
+    <label>1 $ = TL <span class="priv">gizli</span><input id="usd" type="number" min="0" step="0.01"></label>
+    <label>1 € = TL <span class="priv">gizli</span><input id="eur" type="number" min="0" step="0.01"></label>
+    <p class="note" id="kurnot" style="align-self:end;margin:0 0 10px">Kur açılışta güncel piyasa kurundan gelir; ödeme günü kuruna göre değiştirebilirsiniz.</p>
+  </div>
   <p class="note" style="margin-top:8px">Rota tasarım ücreti seyahat başına 5.000–10.000 TL'dir; tamamı tasarımcıya kalır. Seyahat iptal olursa müşteriye iade edilir.</p>
 </div>
 
@@ -118,9 +123,12 @@ textarea{min-height:80px}
   const opt=(arr,sel)=>arr.map(a=>Array.isArray(a)?`<option value="${a[0]}"${a[0]===sel?' selected':''}>${a[1]}</option>`:`<option${a===sel?' selected':''}>${a}</option>`).join('');
   function addItem(d={}){const el=document.createElement('div');el.className='item';el.innerHTML=`<button class="x" type="button" title="Sil">×</button>
     <div class="g g4"><label>Tür<select data-k="tip">${opt(TYPES,d.tip||'otel')}</select></label><label style="grid-column:span 2">Ad<input data-k="ad" placeholder="ör. Museum Hotel, Uçhisar" value="${(d.ad||'').replace(/"/g,'&quot;')}"></label><label>Kaynak <span class="priv">gizli</span><select data-k="kay">${opt(SRC,d.kay||'RateHawk')}</select></label></div>
-    <div class="g g4" style="margin-top:10px"><label style="grid-column:span 2">Detay (oda tipi, gece, pansiyon, ayrıcalıklar)<input data-k="det" placeholder="ör. Deluxe oda, 3 gece, kahvaltı dahil, geç çıkış" value="${(d.det||'').replace(/"/g,'&quot;')}"></label><label>Net fiyat (TL) <span class="priv">gizli</span><input data-k="net" type="number" min="0" value="${d.net||''}"></label><label>Satış fiyatı (TL)<input data-k="sat" type="number" min="0" value="${d.sat||''}"></label></div>`;
+    <div class="g g4" style="margin-top:10px"><label style="grid-column:span 4">Detay (oda tipi, gece, pansiyon, ayrıcalıklar)<input data-k="det" placeholder="ör. Deluxe oda, 3 gece, kahvaltı dahil, geç çıkış" value="${(d.det||'').replace(/"/g,'&quot;')}"></label></div><div class="g g4" style="margin-top:10px"><label style="grid-column:span 2">Net fiyat (döviz) <span class="priv">gizli</span><span style="display:flex;gap:6px"><input data-k="fx" type="number" min="0" step="0.01" placeholder="ör. 1498" value="${d.fx||''}" style="flex:1;min-width:0"><select data-k="cur" style="width:74px">${opt([['USD','$'],['EUR','€'],['TL','TL']],d.cur||'USD')}</select></span></label><label>Net fiyat (TL) <span class="priv">gizli</span><input data-k="net" type="number" min="0" value="${d.net||''}"></label><label>Satış fiyatı (TL)<input data-k="sat" type="number" min="0" value="${d.sat||''}"></label></div>`;
     el.querySelector('.x').onclick=()=>{el.remove();calc()};
     const net=el.querySelector('[data-k=net]'),sat=el.querySelector('[data-k=sat]');
+    const fx=el.querySelector('[data-k=fx]'),cur=el.querySelector('[data-k=cur]');
+    const conv=()=>{const r=cur.value==='TL'?1:(+$(cur.value==='USD'?'usd':'eur').value||0);if(fx.value&&r){net.value=Math.round(+fx.value*r);net.dispatchEvent(new Event('input'))}};
+    el._conv=conv;fx.addEventListener('input',conv);cur.addEventListener('change',conv);
     net.addEventListener('input',()=>{if(!sat.dataset.manual){sat.value=net.value?Math.round(+net.value*(1+(+$('kar').value||0)/100)):''}calc()});
     sat.addEventListener('input',()=>{sat.dataset.manual=sat.value?'1':'';calc()});
     if(d.manual)sat.dataset.manual='1';
@@ -129,6 +137,9 @@ textarea{min-height:80px}
   const rows=(id)=>[...$(id).children].map(el=>{const o={};el.querySelectorAll('[data-k]').forEach(i=>o[i.dataset.k]=i.value.trim());if(el.querySelector('[data-k=sat]')?.dataset.manual)o.manual=1;return o});
   function calc(){const it=rows('items');const sat=it.reduce((s,i)=>s+(+i.sat||0),0),net=it.reduce((s,i)=>s+(+i.net||0),0),u=+$('ucret').value||0;
     $('sTop').textContent=fmt(sat+u);$('sUcr').textContent=fmt(u);$('sNet').textContent=fmt(net);$('sKar').textContent=fmt(sat-net);return {sat,net,u}}
+  const reconv=()=>document.querySelectorAll('#items .item').forEach(el=>el._conv&&el._conv());
+  $('usd').addEventListener('input',reconv);$('eur').addEventListener('input',reconv);
+  (async()=>{try{const j=await (await fetch('https://open.er-api.com/v6/latest/USD')).json();const t=j.rates.TRY,e=j.rates.EUR;if(!$('usd').value)$('usd').value=t.toFixed(2);if(!$('eur').value)$('eur').value=(t/e).toFixed(2);$('kurnot').textContent='Güncel kur ('+new Date(j.time_last_update_unix*1000).toLocaleDateString('tr-TR')+'). Ödeme günü kuruna göre değiştirebilirsiniz.';reconv()}catch(_){$('kurnot').textContent='Güncel kur alınamadı; kuru elle girin.'}})();
   $('kar').addEventListener('input',()=>{document.querySelectorAll('#items .item').forEach(el=>{const n=el.querySelector('[data-k=net]'),s=el.querySelector('[data-k=sat]');if(n.value&&!s.dataset.manual)s.value=Math.round(+n.value*(1+(+$('kar').value||0)/100))});calc()});
   $('ucret').addEventListener('input',calc);
   $('addItem').onclick=()=>addItem();$('addDay').onclick=()=>addDay();
@@ -151,7 +162,7 @@ textarea{min-height:80px}
     try{localStorage.setItem('guidy_teklif_taslak',JSON.stringify(s))}catch(e){}
     const fd=new FormData();fd.append('_subject','Yeni teklif oluşturuldu: '+s.bas+' ('+s.tas+')');fd.append('tip','Teklif oluşturuldu');fd.append('teklif_no',id);fd.append('tasarimci',s.tas);fd.append('musteri',s.mus);fd.append('baslik',s.bas);fd.append('tarihler',s.tar);fd.append('kisi',s.kis);fd.append('dil',s.dil.toUpperCase());
     fd.append('musteri_toplami_TL',Math.round(t.sat+t.u));fd.append('rota_tasarim_ucreti_TL',t.u);fd.append('net_maliyet_TL',Math.round(t.net));fd.append('brut_kar_TL',Math.round(t.sat-t.net));
-    fd.append('kalemler',s.items.filter(i=>i.ad).map(i=>`${i.tip} | ${i.ad} | ${i.det} | kaynak: ${i.kay} | net ${i.net} | satış ${i.sat}`).join('\n'));fd.append('link',url);
+    fd.append('kalemler',s.items.filter(i=>i.ad).map(i=>`${i.tip} | ${i.ad} | ${i.det} | kaynak: ${i.kay} | net ${i.fx&&i.cur!=='TL'?i.fx+' '+i.cur+' = ':''}${i.net} TL | satış ${i.sat}`).join('\n'));fd.append('kur',`1$=${$('usd').value} TL, 1€=${$('eur').value} TL`);fd.append('link',url);
     try{const r=await fetch('https://formspree.io/f/mrpqpazq',{method:'POST',body:fd,headers:{Accept:'application/json'}});$('rec').textContent=r.ok?'Teklif ('+id+') Guidy kaydına düştü.':'Link hazır; Guidy kaydına gönderilemedi, linki gulten@guidy.tr adresine iletin.'}catch(e){$('rec').textContent='Link hazır; Guidy kaydına gönderilemedi, linki gulten@guidy.tr adresine iletin.'}
   };
   $('copy').onclick=async()=>{try{await navigator.clipboard.writeText($('link').value);$('copy').textContent='Kopyalandı ✓'}catch(e){$('link').select();document.execCommand('copy');$('copy').textContent='Kopyalandı ✓'}setTimeout(()=>$('copy').textContent='Linki kopyala',2000)};
