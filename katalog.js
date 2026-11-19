@@ -6,15 +6,15 @@ const GK=(function(){
   const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
   const low=s=>String(s||'').toLocaleLowerCase('tr-TR');
   let H=null,B=null;
-  const load=async()=>{if(!H){[H,B]=await Promise.all([fetch('data/oteller.json').then(r=>r.json()),fetch('data/bolgeler.json').then(r=>r.json())])}return {H,B}};
+  const V='3';const load=async()=>{if(!H){[H,B]=await Promise.all([fetch('data/oteller.json?v='+V).then(r=>r.json()),fetch('data/bolgeler.json?v='+V).then(r=>r.json())])}return {H,B}};
   const tags=h=>{const t=low(h.tip+' '+h.semt+' '+h.ad),o=[];
     if(/mağara|cave/.test(t))o.push('Mağara');if(/resort|beach|koy|bay/.test(t))o.push('Deniz');if(/butik|boutique|house|suites|ev/.test(t))o.push('Butik');
     if(/spa|termal|wellness|six senses/.test(t))o.push('Spa');if(/saray|palace|palas/.test(t))o.push('Tarihi');if(/her şey dahil/.test(t))o.push('Her şey dahil');
     if(h.sehir==='İstanbul'&&!o.length)o.push('Şehir');if(/aile/.test(t))o.push('Aile');return o.slice(0,3)};
   const regionOf=h=>B.find(b=>b.sehir.includes(h.sehir));
-  const pic=(h,r)=>{const g=(r.galeri&&r.galeri.length)?r.galeri:[r.img];let n=0;for(const c of h.id)n=(n*31+c.charCodeAt(0))>>>0;return g[n%g.length]};
-  function card(h){const pk=h.fora||h.virtuoso||(h.vlist?'1':''),r=regionOf(h);
-    return `<article class="hcard">${r?`<a class="hcard-img" href="destinasyon.html?b=${r.id}" style="background-image:url('${IMG(pic(h,r),700)}')" aria-label="${esc(r.ad)}"></a>`:''}
+  const pic=(h,r,i)=>{const g=(r.galeri&&r.galeri.length)?r.galeri:[r.img];if(typeof i==='number')return g[i%g.length];let n=0;for(const c of h.id)n=(n*31+c.charCodeAt(0))>>>0;return g[n%g.length]};
+  function card(h,i){const pk=h.fora||h.virtuoso||(h.vlist?'1':''),r=regionOf(h);
+    return `<article class="hcard">${r?`<a class="hcard-img" href="destinasyon.html?b=${r.id}" style="background-image:url('${IMG(pic(h,r,i),700)}')" aria-label="${esc(r.ad)}"></a>`:''}
     <div class="hcard-body"><p class="hcard-loc">${esc(h.sehir)}${h.semt?' · '+esc(h.semt):''}</p><h3>${esc(h.ad)}</h3>
     <div class="chips">${tags(h).map(t=>`<span class="chip sm">${t}</span>`).join('')}${pk?'<span class="chip sm perk">Ayrıcalıklı</span>':''}</div>
     ${pk?`<p class="hcard-perk">${SHOW_PERKS?esc(pk):'Seyahat tasarımcınızla rezervasyonda otele özel ayrıcalıklar: oda yükseltme, kahvaltı ya da otel kredisi gibi.'}</p>`:''}
