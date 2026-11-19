@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Seyahatinizi planlayalım — Guidy</title>
-<meta name="description" content="Hayalinizdeki seyahati anlatın; size uygun Guidy elçisi rotanızı tasarlasın, otelleri ve deneyimleri ayarlasın.">
+<meta name="description" content="Hayalinizdeki seyahati anlatın; size uygun Guidy seyahat tasarımcısı rotanızı tasarlasın, otelleri ve deneyimleri ayarlasın.">
 <link rel="canonical" href="https://www.guidy.tr/seyahat-talebi.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -35,8 +35,8 @@
   <ul>
     <li><a href="index.html#gezgin">Gezginler için</a></li>
     <li><a href="turlar.html">Turlar</a></li>
-    <li><a href="index.html#elcilerimiz">Elçilerimiz</a></li>
-    <li><a href="index.html#elci">Elçi olun</a></li>
+    <li><a href="index.html#elcilerimiz">Tasarımcılarımız</a></li>
+    <li><a href="index.html#elci">Tasarımcı olun</a></li>
     <li><a href="index.html#sss">Sorular</a></li>
   </ul>
   <a class="btn light" href="seyahat-talebi.html">Seyahatimi planlat</a>
@@ -46,7 +46,7 @@
 <div class="tform">
   <p class="kicker">Seyahat talebi</p>
   <h1 style="font-family:Marcellus,serif">Seyahatinizi birlikte planlayalım</h1>
-  <p class="lead">Bu form yaklaşık 5 dakika sürer. Ne kadar çok anlatırsanız, elçiniz ilk teklifte size o kadar yaklaşır. Elçi hizmeti için ayrıca ücret ödemezsiniz.</p>
+  <p class="lead">Bu form yaklaşık 5 dakika sürer. Ne kadar çok anlatırsanız, tasarımcınız ilk teklifte size o kadar yaklaşır. Tasarımcı hizmeti için ayrıca ücret ödemezsiniz.</p>
 
   <form id="f" action="https://formspree.io/f/mrpqpazq" method="POST" novalidate style="margin-top:28px">
     <input type="hidden" name="_subject" value="Yeni Guidy seyahat talebi (detaylı form)">
@@ -130,7 +130,7 @@
           <label><input type="radio" name="konaklama" value="5 yıldız"><span>5 yıldız</span></label>
           <label><input type="radio" name="konaklama" value="Ultra lüks"><span>Ultra lüks</span></label>
           <label><input type="radio" name="konaklama" value="Villa / ev"><span>Villa / ev</span></label>
-          <label><input type="radio" name="konaklama" value="Elçim önersin" checked><span>Elçim önersin</span></label>
+          <label><input type="radio" name="konaklama" value="Tasarımcım önersin" checked><span>Tasarımcım önersin</span></label>
         </div>
       </fieldset>
       <fieldset><legend>Tempo</legend>
@@ -140,7 +140,7 @@
           <label><input type="radio" name="tempo" value="Yoğun, çok şey görmek"><span>Yoğun, çok şey görmek</span></label>
         </div>
       </fieldset>
-      <label for="sevdigi">Çok sevdiğiniz bir seyahatinizi anlatır mısınız? <span class="hint">Elçiniz sizi böyle daha iyi tanır.</span><textarea id="sevdigi" name="sevdigi_seyahat" placeholder="Nereye gittiniz, ne güzeldi, neyi bir daha istemezsiniz?"></textarea></label>
+      <label for="sevdigi">Çok sevdiğiniz bir seyahatinizi anlatır mısınız? <span class="hint">Tasarımcınız sizi böyle daha iyi tanır.</span><textarea id="sevdigi" name="sevdigi_seyahat" placeholder="Nereye gittiniz, ne güzeldi, neyi bir daha istemezsiniz?"></textarea></label>
     </div>
 
     <div class="grp">
@@ -184,8 +184,8 @@
 
 <footer class="band">
   <div class="wrap">
-    <div><b style="font-family:Marcellus,serif;font-size:26px">Guidy</b><p style="margin-top:6px">Türkiye'nin seyahat elçileri ağı.</p></div>
-    <div><p><a href="turlar.html">Turlar</a> · <a href="index.html#elcilerimiz">Elçilerimiz</a> · <a href="index.html#elci">Elçi olun</a></p></div>
+    <div><b style="font-family:Marcellus,serif;font-size:26px">Guidy</b><p style="margin-top:6px">Türkiye'nin seyahat tasarımcıları ağı.</p></div>
+    <div><p><a href="turlar.html">Turlar</a> · <a href="index.html#elcilerimiz">Tasarımcılarımız</a> · <a href="index.html#elci">Tasarımcı olun</a></p></div>
     <div><p>Satışlar belgeli bir seyahat acentesi çatısı altında yapılır.</p><p>© 2026 Guidy</p></div>
   </div>
 </footer>
@@ -196,7 +196,7 @@
   const esc=s=>s.replace(/[<>&]/g,c=>({'<':'&lt;','>':'&gt;','&':'&amp;'}[c]));
   const tur=q.get('tur'),elci=q.get('elci'),ref=q.get('ref');
   if(tur){$('f_tur').value=tur;parts.push('Tur: <b>'+esc(tur)+'</b>');if(!$('nereye').value)$('nereye').value=tur}
-  if(elci){$('f_elci').value=elci;parts.push('Elçi: <b>'+esc(elci)+'</b>')}
+  if(elci){$('f_elci').value=elci;parts.push('Tasarımcı: <b>'+esc(elci)+'</b>')}
   if(ref){$('f_ref').value=ref;$('f_kaynak').value='Rota Ortağı';try{localStorage.setItem('guidy_ref',ref)}catch(_){}}
   else{try{const r=localStorage.getItem('guidy_ref');if(r){$('f_ref').value=r;$('f_kaynak').value='Rota Ortağı'}}catch(_){}}
   if(parts.length){$('konu').innerHTML=parts.join(' · ');$('konu').hidden=false}
@@ -213,7 +213,7 @@
       const r=await fetch(f.action,{method:'POST',body:fd,headers:{Accept:'application/json'}});
       if(!r.ok)throw 0;
       f.style.display='none';
-      $('okmsg').textContent=$('ad').value.trim()+', talebiniz bize ulaştı. Size uygun Guidy elçisi en geç 24 saat içinde sizinle iletişime geçecek.';
+      $('okmsg').textContent=$('ad').value.trim()+', talebiniz bize ulaştı. Size uygun Guidy seyahat tasarımcısı en geç 24 saat içinde sizinle iletişime geçecek.';
       $('ok').classList.add('show');window.scrollTo({top:0,behavior:'smooth'});
     }catch(_){err.textContent='Gönderilemedi. Lütfen biraz sonra tekrar deneyin.';b.disabled=false;b.textContent=l}
   });
