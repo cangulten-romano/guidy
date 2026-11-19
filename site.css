@@ -30,7 +30,15 @@ nav ul a:hover{opacity:1}
 
 .hero{position:relative;min-height:min(92vh,820px);display:grid;align-items:end;color:#fff;padding:140px max(5vw,16px) clamp(48px,7vw,88px);background:#14306f url("https://images.unsplash.com/photo-1641128324972-af3212f0f6bd?auto=format&fit=crop&w=2000&q=70") center/cover}
 .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,22,52,.55) 0%,rgba(10,22,52,.15) 35%,rgba(10,22,52,.72) 100%)}
-.hero .wrap{position:relative;width:100%}
+.hero .wrap{position:relative;width:100%;z-index:2}
+.hero::before{z-index:1}
+.hero-slides{position:absolute;inset:0;z-index:0;overflow:hidden}
+.hero-slides div{position:absolute;inset:0;background:center/cover no-repeat;opacity:0;transition:opacity 1.6s ease;transform:scale(1.04)}
+.hero-slides div.on{opacity:1;animation:kenburns 9s ease-out forwards}
+@keyframes kenburns{from{transform:scale(1.04)}to{transform:scale(1.12)}}
+.hero-cap{position:absolute;right:max(5vw,16px);bottom:18px;z-index:2;font-size:13px;letter-spacing:.04em;color:#dfe7f5;opacity:.85}
+@media(max-width:700px){.hero-cap{display:none}}
+@media(prefers-reduced-motion:reduce){.hero-slides div,.hero-slides div.on{transition:none;animation:none}}
 .hero p{font-size:clamp(17px,1.6vw,20px);max-width:34em;margin-top:18px;color:#eef2fa}
 .hero .kicker{color:#9fe3e1}
 .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
