@@ -202,6 +202,9 @@
   const esc=s=>s.replace(/[<>&]/g,c=>({'<':'&lt;','>':'&gt;','&':'&amp;'}[c]));
   const tur=q.get('tur'),elci=q.get('elci'),ref=q.get('ref');
   if(tur){$('f_tur').value=tur;parts.push('Tur: <b>'+esc(tur)+'</b>');if(!$('nereye').value)$('nereye').value=tur}
+  const otel=q.get('otel'),bolge=q.get('bolge');
+  if(otel){parts.push('Otel: <b>'+esc(otel)+'</b>');if(!$('ozel').value)$('ozel').value='Konaklamak istediğim otel: '+otel}
+  if(bolge){parts.push('Destinasyon: <b>'+esc(bolge)+'</b>');if(!$('nereye').value)$('nereye').value=bolge}
   if(elci){$('f_elci').value=elci;parts.push('Seyahat tasarımcısı: <b>'+esc(elci)+'</b>')}
   if(ref){$('f_ref').value=ref;$('f_kaynak').value='Rota Ortağı';try{localStorage.setItem('guidy_ref',ref)}catch(_){}}
   else{try{const r=localStorage.getItem('guidy_ref');if(r){$('f_ref').value=r;$('f_kaynak').value='Rota Ortağı'}}catch(_){}}
