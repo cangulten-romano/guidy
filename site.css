@@ -175,3 +175,7 @@ body.sub nav{position:sticky;top:0;background:var(--cobd)}
 .row3{grid-template-columns:110px 110px minmax(0,1fr)}
 @media(max-width:600px){.row3{grid-template-columns:1fr 1fr}.row3>label:last-child{grid-column:1/-1}}
 a.route{display:block;text-decoration:none}.route .rgo{display:inline-block;margin-top:12px;font-weight:600;font-size:15px;color:#9fe3e1}.route:hover .rgo{color:#fff}
+
+.wa{position:fixed;right:18px;bottom:18px;z-index:50;display:flex;align-items:center;gap:8px;background:#25d366;color:#fff;text-decoration:none;font-weight:600;font-size:15px;padding:12px 18px 12px 14px;border-radius:999px;box-shadow:0 10px 24px -10px rgba(0,0,0,.45)}
+.wa:hover{background:#1ebe5b}
+@media(max-width:600px){.wa span{display:none}.wa{padding:14px}}
