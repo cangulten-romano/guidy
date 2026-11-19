@@ -1,0 +1,205 @@
+[
+{
+"id": "ist-ciragan",
+"ad": "Çırağan Palace Kempinski",
+"sehir": "İstanbul",
+"semt": "Beşiktaş",
+"tip": "Saray otel"
+},
+{
+"id": "ist-fs-bosphorus",
+"ad": "Four Seasons Hotel Istanbul at the Bosphorus",
+"sehir": "İstanbul",
+"semt": "Beşiktaş",
+"tip": "Lüks otel"
+},
+{
+"id": "ist-fs-sultanahmet",
+"ad": "Four Seasons Hotel Istanbul at Sultanahmet",
+"sehir": "İstanbul",
+"semt": "Sultanahmet",
+"tip": "Butik lüks"
+},
+{
+"id": "ist-peninsula",
+"ad": "The Peninsula Istanbul",
+"sehir": "İstanbul",
+"semt": "Karaköy",
+"tip": "Lüks otel"
+},
+{
+"id": "ist-raffles",
+"ad": "Raffles Istanbul",
+"sehir": "İstanbul",
+"semt": "Zorlu Center",
+"tip": "Lüks otel"
+},
+{
+"id": "ist-mo",
+"ad": "Mandarin Oriental Bosphorus, Istanbul",
+"sehir": "İstanbul",
+"semt": "Kuruçeşme",
+"tip": "Lüks otel"
+},
+{
+"id": "ist-sixsenses",
+"ad": "Six Senses Kocataş Mansions",
+"sehir": "İstanbul",
+"semt": "Sarıyer",
+"tip": "Lüks otel ve spa"
+},
+{
+"id": "ist-shangrila",
+"ad": "Shangri-La Bosphorus, Istanbul",
+"sehir": "İstanbul",
+"semt": "Beşiktaş",
+"tip": "Lüks otel"
+},
+{
+"id": "ist-ritz",
+"ad": "The Ritz-Carlton, Istanbul",
+"sehir": "İstanbul",
+"semt": "Şişli",
+"tip": "Lüks otel"
+},
+{
+"id": "ist-soho",
+"ad": "Soho House Istanbul",
+"sehir": "İstanbul",
+"semt": "Beyoğlu",
+"tip": "Butik / üyelik kulübü"
+},
+{
+"id": "kap-museum",
+"ad": "Museum Hotel",
+"sehir": "Kapadokya",
+"semt": "Uçhisar",
+"tip": "Mağara otel"
+},
+{
+"id": "kap-argos",
+"ad": "Argos in Cappadocia",
+"sehir": "Kapadokya",
+"semt": "Uçhisar",
+"tip": "Mağara otel"
+},
+{
+"id": "kap-kayakapi",
+"ad": "Kayakapı Premium Caves",
+"sehir": "Kapadokya",
+"semt": "Ürgüp",
+"tip": "Mağara otel"
+},
+{
+"id": "kap-sacred",
+"ad": "Sacred House",
+"sehir": "Kapadokya",
+"semt": "Ürgüp",
+"tip": "Butik otel"
+},
+{
+"id": "bod-mo",
+"ad": "Mandarin Oriental, Bodrum",
+"sehir": "Bodrum",
+"semt": "Göltürkbükü",
+"tip": "Resort"
+},
+{
+"id": "bod-edition",
+"ad": "The Bodrum EDITION",
+"sehir": "Bodrum",
+"semt": "Yalıkavak",
+"tip": "Resort"
+},
+{
+"id": "bod-caresse",
+"ad": "Caresse, a Luxury Collection Resort & Spa",
+"sehir": "Bodrum",
+"semt": "Bitez",
+"tip": "Resort"
+},
+{
+"id": "bod-amanruya",
+"ad": "Amanruya",
+"sehir": "Bodrum",
+"semt": "Göltürkbükü",
+"tip": "Butik resort"
+},
+{
+"id": "bod-macakizi",
+"ad": "Maçakızı",
+"sehir": "Bodrum",
+"semt": "Göltürkbükü",
+"tip": "Butik otel"
+},
+{
+"id": "mil-kaplankaya",
+"ad": "Six Senses Kaplankaya",
+"sehir": "Bodrum / Milas",
+"semt": "Kaplankaya",
+"tip": "Resort ve spa"
+},
+{
+"id": "ant-maxx-belek",
+"ad": "Maxx Royal Belek Golf Resort",
+"sehir": "Antalya",
+"semt": "Belek",
+"tip": "Her şey dahil resort"
+},
+{
+"id": "ant-maxx-kemer",
+"ad": "Maxx Royal Kemer Resort",
+"sehir": "Antalya",
+"semt": "Kemer",
+"tip": "Her şey dahil resort"
+},
+{
+"id": "ant-regnum",
+"ad": "Regnum Carya",
+"sehir": "Antalya",
+"semt": "Belek",
+"tip": "Her şey dahil resort"
+},
+{
+"id": "ant-rixos",
+"ad": "Rixos Premium Belek",
+"sehir": "Antalya",
+"semt": "Belek",
+"tip": "Her şey dahil resort"
+},
+{
+"id": "dat-dmaris",
+"ad": "D Maris Bay",
+"sehir": "Marmaris / Datça",
+"semt": "Hisarönü",
+"tip": "Resort"
+},
+{
+"id": "fet-hillside",
+"ad": "Hillside Beach Club",
+"sehir": "Fethiye",
+"semt": "Kalemya Koyu",
+"tip": "Aile resortu"
+},
+{
+"id": "goc-dresort",
+"ad": "D-Resort Göcek",
+"sehir": "Göcek",
+"semt": "Göcek",
+"tip": "Butik resort"
+},
+{
+"id": "ces-alavya",
+"ad": "Alavya",
+"sehir": "Çeşme",
+"semt": "Alaçatı",
+"tip": "Butik otel"
+},
+{
+"id": "ces-ilica",
+"ad": "Ilıca Hotel Spa & Wellness",
+"sehir": "Çeşme",
+"semt": "Ilıca",
+"tip": "Termal / spa"
+}
+]

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rezervasyon — Guidy seyahat tasarımcıları</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css?v=6">
+<style>
+.tb{max-width:1040px;margin:0 auto}
+.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:clamp(18px,2.6vw,28px);margin-top:20px}
+.card h2{font-size:clamp(20px,2.2vw,24px)}.card .sub{color:var(--soft);font-size:14px;margin-top:4px}
+.g{display:grid;gap:14px;margin-top:14px}.g2{grid-template-columns:repeat(2,minmax(0,1fr))}.g3{grid-template-columns:repeat(3,minmax(0,1fr))}.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.tabs{display:flex;gap:8px;margin-top:14px}.tabs button{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:8px 18px;font:600 14px Inter,sans-serif;cursor:pointer}
+.tabs button.on{background:var(--cob);border-color:var(--cob);color:#fff}
+.res{display:grid;gap:8px;margin-top:14px;max-height:420px;overflow:auto}
+.r{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.r b{display:block}.r small{color:var(--soft)}
+.item{border:1px solid var(--line);border-radius:14px;padding:14px;margin-top:12px;background:var(--sand);position:relative}
+.item h3{font-size:16px;padding-right:30px}
+.x{position:absolute;top:8px;right:10px;border:0;background:none;font-size:20px;cursor:pointer;color:var(--soft)}
+.src{font-size:13px;background:var(--pan);border-radius:10px;padding:10px 12px;margin-top:12px}
+.sum{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:14px}
+.sum div{background:var(--pan);border-radius:14px;padding:14px}.sum b{display:block;font-family:Marcellus,serif;font-size:24px;color:var(--cob);margin-top:4px}
+.ok2{display:none;border:1px solid var(--tq);border-radius:14px;padding:16px;margin-top:14px}
+.mini{font-size:13px;padding:6px 12px;min-height:0}
+textarea{min-height:80px}
+@media(max-width:760px){.g2,.g3,.g4,.sum{grid-template-columns:minmax(0,1fr)}}
+</style>
+</head>
+<body class="sub">
+<nav>
+  <a class="logo" href="index.html" aria-label="Guidy ana sayfa">Guidy</a><a class="homeback" href="index.html">← Ana sayfa</a>
+  <ul><li><a href="teklif-olustur.html">Teklif Oluşturucu</a></li><li><a href="rezervasyonlar.html">Rezervasyonlarım</a></li><li><a href="tasarimci-bilgi.html">Tasarımcı bilgi</a></li></ul>
+</nav>
+<main class="band"><div class="tb">
+<p class="kicker">Seyahat tasarımcıları için</p>
+<h1 style="font-size:clamp(30px,4vw,44px)" id="h1">Yeni rezervasyon</h1>
+<p class="lead">Otel ve turları seçin, tedarikçide yerinizi tutun, misafir bilgilerini girin. Rezervasyon Guidy kaydına düşer ve "Rezervasyonlarım" listesinden takip edilir.</p>
+
+<div class="card">
+  <h2>1. Müşteri ve seyahat</h2>
+  <div class="g g3">
+    <label>Seyahat tasarımcısı<select id="tasarimci"><option>Gülten Can Romano</option><option>Melisa Tamses</option><option>Ali Mataracı</option><option>Cansu Keskin</option></select></label>
+    <label>Müşteri adı soyadı<input id="musteri"></label>
+    <label>Teklif no (varsa)<input id="teklif" placeholder="ör. GMWNVV4UB"></label>
+  </div>
+  <div class="g g4">
+    <label>Telefon<input id="tel" type="tel"></label>
+    <label>E-posta<input id="email" type="email"></label>
+    <label>Giriş<input id="giris" type="date"></label>
+    <label>Çıkış<input id="cikis" type="date"></label>
+  </div>
+  <div class="g g2">
+    <label>Kişi sayısı<input id="kisi" placeholder="ör. 2 yetişkin, 1 çocuk (8)"></label>
+    <label>Onaylanan teklif linki (kalemleri otomatik alır)<div style="display:flex;gap:8px;margin-top:6px"><input id="tlink" placeholder="https://www.guidy.tr/teklif.html#…" style="margin-top:0"><button class="btn ghost mini" type="button" id="imp">Al</button></div></label>
+  </div>
+</div>
+
+<div class="card">
+  <h2>2. Otel ve tur seç</h2>
+  <div class="tabs"><button type="button" class="on" data-t="otel">Oteller</button><button type="button" data-t="tur">Turlar</button></div>
+  <div class="g g3">
+    <label style="grid-column:span 2">Ara<input id="q" placeholder="otel adı, semt ya da tur adı"></label>
+    <label id="sehirW">Şehir<select id="sehir"><option value="">Hepsi</option></select></label>
+  </div>
+  <div class="src" id="srcinfo"></div>
+  <div class="res" id="res"></div>
+  <button class="btn ghost" type="button" id="manual" style="margin-top:12px">+ Listede olmayan hizmeti elle ekle</button>
+</div>
+
+<div class="card">
+  <h2>3. Sepet ve tedarikçi bilgileri</h2>
+  <p class="sub">Her kalem için tedarikçi portalında yer tutun, rezervasyon numarasını ve opsiyon son tarihini buraya yazın. Net fiyat müşteriye gösterilmez.</p>
+  <div id="cart"><p class="note" id="empty">Henüz kalem yok. Yukarıdan otel ya da tur ekleyin.</p></div>
+</div>
+
+<div class="card">
+  <h2>4. Misafirler</h2>
+  <div class="g g2">
+    <label>Misafir adları (pasaporttaki gibi, her satıra bir kişi)<textarea id="misafirler"></textarea></label>
+    <label>Özel istekler (oda, diyet, kutlama, transfer saati…)<textarea id="istek"></textarea></label>
+  </div>
+</div>
+
+<div class="card">
+  <h2>5. Özet ve gönder</h2>
+  <div class="sum"><div>Müşteri toplamı<b id="sSat">0 TL</b></div><div>Net maliyet<b id="sNet">0 TL</b></div><div>Brüt kâr<b id="sKar">0 TL</b></div></div>
+  <label class="chk" style="margin-top:14px"><input type="checkbox" id="kv"><span>Müşteriden kişisel verilerin rezervasyon amacıyla işlenmesi için onay aldım.</span></label>
+  <p class="err" id="err"></p>
+  <div class="cta"><button class="btn" type="button" id="send">Rezervasyonu kaydet</button><a class="btn ghost" href="rezervasyonlar.html">Rezervasyonlarım</a></div>
+  <div class="ok2" id="ok"></div>
+</div>
+</div></main>
+<footer class="band" style="padding-block:28px"><div class="wrap"><p class="note">Guidy · Rezervasyonlar belgeli seyahat acentesi üzerinden kesinleşir.</p></div></footer>
+<script src="rez.js?v=1"></script>
+<script>
+(function(){
+const $=id=>document.getElementById(id),E=GR.esc;let tip='otel',rec=null;
+const TYPES=[['otel','Otel'],['tur','Tur'],['transfer','Transfer'],['ucus','Uçuş'],['deneyim','Deneyim'],['sigorta','Sigorta'],['diger','Diğer']];
+const SUPS=Object.keys(GR.PORTAL);
+const opt=(a,s)=>a.map(x=>Array.isArray(x)?`<option value="${x[0]}"${x[0]===s?' selected':''}>${x[1]}</option>`:`<option${x===s?' selected':''}>${x}</option>`).join('');
+const src=GR.SOURCES;$('srcinfo').innerHTML='Kaynak: <b>'+Object.values(src).map(s=>s.ad).join(', ')+'</b>. Fiyat ve müsaitliği tedarikçi portalından kontrol edin. RateHawk, Bedsonline ve Expedia TAAP bağlantıları (API) açılınca canlı fiyat burada listelenecek.';
+fetch('data/oteller.json').then(r=>r.json()).then(L=>{[...new Set(L.map(h=>h.sehir))].forEach(s=>$('sehir').insertAdjacentHTML('beforeend',`<option>${E(s)}</option>`))});
+let timer;async function search(){const p={tip,q:$('q').value.trim(),sehir:tip==='otel'?$('sehir').value:''};let out=[];for(const s of Object.values(src)){try{out=out.concat(await s.search(p))}catch(e){}}
+  $('res').innerHTML=out.length?out.map((r,i)=>`<div class="r"><div><b>${E(r.ad)}</b><small>${E(r.yer)} · ${E(r.alt)}${r.satis?' · katalog fiyatı '+GR.tl(r.satis)+' /kişi':''}</small></div><button class="btn mini" type="button" data-i="${i}">Ekle</button></div>`).join(''):'<p class="note">Sonuç yok. Elle ekleyebilirsiniz.</p>';
+  $('res').querySelectorAll('[data-i]').forEach(b=>b.onclick=()=>{const r=out[+b.dataset.i];addItem({tip:r.tip,ad:r.ad,det:r.tip==='tur'?r.alt:'',kaynak:r.kaynak,sat:r.satis||'',giris:$('giris').value,cikis:r.tip==='otel'?$('cikis').value:''});b.textContent='Eklendi ✓'})}
+document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tabs button').forEach(x=>x.classList.toggle('on',x===b));tip=b.dataset.t;$('sehirW').style.visibility=tip==='otel'?'visible':'hidden';search()});
+$('q').addEventListener('input',()=>{clearTimeout(timer);timer=setTimeout(search,250)});$('sehir').onchange=search;
+function addItem(d={}){$('empty').style.display='none';const el=document.createElement('div');el.className='item';
+  el.innerHTML=`<button class="x" type="button" title="Sil">×</button><h3>${E(d.ad||'Yeni kalem')}</h3>
+  <div class="g g4"><label>Tür<select data-k="tip">${opt(TYPES,d.tip||'otel')}</select></label><label style="grid-column:span 2">Ad<input data-k="ad" value="${E(d.ad)}"></label><label>Tedarikçi<select data-k="kaynak">${opt(SUPS,d.kaynak||'RateHawk')}</select></label></div>
+  <div class="g g4"><label style="grid-column:span 2">Detay (oda, pansiyon, saat)<input data-k="det" value="${E(d.det)}" placeholder="ör. Deluxe oda, kahvaltı dahil"></label><label>Başlangıç<input type="date" data-k="giris" value="${E(d.giris)}"></label><label>Bitiş<input type="date" data-k="cikis" value="${E(d.cikis)}"></label></div>
+  <div class="g g4"><label>Tedarikçi rez. no<input data-k="konf" value="${E(d.konf)}"></label><label>Opsiyon son tarihi<input type="date" data-k="ops" value="${E(d.ops)}"></label><label>Net fiyat (TL)<input type="number" min="0" data-k="net" value="${E(d.net)}"></label><label>Satış fiyatı (TL)<input type="number" min="0" data-k="sat" value="${E(d.sat)}"></label></div>
+  <label style="margin-top:10px">İptal koşulu<input data-k="iptal" value="${E(d.iptal)}" placeholder="ör. 14 gün öncesine kadar ücretsiz"></label>
+  <div class="cta" style="margin-top:10px"><a class="btn ghost mini" target="_blank" rel="noopener" data-portal>Tedarikçi portalını aç</a></div>`;
+  el.querySelector('.x').onclick=()=>{el.remove();calc();if(!$('cart').querySelector('.item'))$('empty').style.display=''};
+  const ks=el.querySelector('[data-k=kaynak]'),pl=el.querySelector('[data-portal]'),setP=()=>{const u=GR.PORTAL[ks.value];pl.style.display=u?'':'none';pl.href=u||'#'};ks.onchange=setP;setP();
+  el.querySelector('[data-k=ad]').oninput=e=>el.querySelector('h3').textContent=e.target.value||'Yeni kalem';
+  el.querySelectorAll('input').forEach(i=>i.addEventListener('input',calc));$('cart').appendChild(el);calc()}
+const items=()=>[...$('cart').querySelectorAll('.item')].map(el=>{const o={};el.querySelectorAll('[data-k]').forEach(i=>o[i.dataset.k]=i.value.trim());return o});
+function calc(){const t=GR.totals({items:items()});$('sSat').textContent=GR.tl(t.sat);$('sNet').textContent=GR.tl(t.net);$('sKar').textContent=GR.tl(t.kar)}
+$('manual').onclick=()=>addItem({tip:'diger',giris:$('giris').value});
+$('imp').onclick=async()=>{try{const d=await GR.unpackTeklif($('tlink').value.trim());if(!$('musteri').value)$('musteri').value=d.mus||'';$('teklif').value=d.id||'';if(d.kis)$('kisi').value=d.kis;if(d.tas)$('tasarimci').value=d.tas;
+  (d.items||[]).forEach(i=>addItem({tip:i.t,ad:i.a,det:i.d,sat:i.p,giris:$('giris').value}));if(+d.ucret)addItem({tip:'diger',ad:'Rota tasarım ücreti',kaynak:'Diğer',sat:d.ucret,net:0});$('err').textContent=''}catch(e){$('err').textContent='Teklif linki okunamadı. Linkin tamamını yapıştırın.'}};
+const F=['tasarimci','musteri','teklif','tel','email','giris','cikis','kisi','misafirler','istek'];
+$('send').onclick=async()=>{const r=rec?{...rec}:{no:GR.newNo(),durum:'Talep alındı',olusturma:new Date().toISOString(),gecmis:[]};F.forEach(f=>r[f]=$(f).value.trim());r.items=items();
+  if(!r.musteri||!r.tel){$('err').textContent='Müşteri adı ve telefonu girin.';return}if(!r.items.length){$('err').textContent='En az bir kalem ekleyin.';return}if(!$('kv').checked){$('err').textContent='KVKK onay kutusunu işaretleyin.';return}
+  $('err').textContent='';r.gecmis=(r.gecmis||[]).concat([{t:new Date().toISOString(),o:rec?'Güncellendi':'Oluşturuldu'}]);const saved=GR.upsert(r);$('send').disabled=true;const ok=await GR.log(r,rec?'Güncellendi':'Yeni');$('send').disabled=false;rec=r;
+  $('ok').style.display='block';$('ok').innerHTML=`<b>Rezervasyon ${E(r.no)} kaydedildi.</b> ${ok?'Guidy kaydına düştü.':'Guidy kaydına gönderilemedi; tekrar kaydedin.'} ${saved?'':'Bu tarayıcı yerel kayda izin vermiyor.'}<div class="cta" style="margin-top:10px"><a class="btn mini" href="rezervasyonlar.html">Rezervasyonlarım</a></div>`;$('h1').textContent='Rezervasyon '+r.no};
+const id=new URLSearchParams(location.search).get('no');if(id){rec=GR.load().find(x=>x.no===id);if(rec){F.forEach(f=>$(f).value=rec[f]||'');(rec.items||[]).forEach(addItem);$('h1').textContent='Rezervasyon '+rec.no;$('kv').checked=true}}
+search();
+})();
+</script>
+</body>
+</html>

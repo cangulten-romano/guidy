@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rezervasyonlarım — Guidy seyahat tasarımcıları</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css?v=6">
+<style>
+.tb{max-width:1040px;margin:0 auto}
+.bar{display:flex;flex-wrap:wrap;gap:10px;align-items:end;margin-top:24px}
+.bar label{min-width:180px}
+.kpi{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:20px}
+.kpi div{background:var(--pan);border-radius:14px;padding:14px}.kpi b{display:block;font-family:Marcellus,serif;font-size:26px;color:var(--cob);margin-top:4px}
+.rz{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px 18px;margin-top:12px;display:grid;grid-template-columns:minmax(0,1fr) 200px;gap:10px 20px}
+.rz h3{font-size:18px}.rz .m{color:var(--soft);font-size:14px;margin-top:4px}
+.rz ul{margin:8px 0 0;padding-left:18px;font-size:14px}
+.warn{color:var(--red);font-weight:600}
+.pill{display:inline-block;font-size:12px;font-weight:700;border-radius:999px;padding:3px 10px;background:var(--pan);color:var(--cob)}
+.mini{font-size:13px;padding:6px 12px;min-height:0}
+@media(max-width:760px){.rz,.kpi{grid-template-columns:minmax(0,1fr)}}
+</style>
+</head>
+<body class="sub">
+<nav>
+  <a class="logo" href="index.html" aria-label="Guidy ana sayfa">Guidy</a><a class="homeback" href="index.html">← Ana sayfa</a>
+  <ul><li><a href="teklif-olustur.html">Teklif Oluşturucu</a></li><li><a href="rezervasyon.html">Yeni rezervasyon</a></li></ul>
+</nav>
+<main class="band"><div class="tb">
+<p class="kicker">Seyahat tasarımcıları için</p>
+<h1 style="font-size:clamp(30px,4vw,44px)">Rezervasyonlarım</h1>
+<p class="lead">Durumu buradan güncelleyin; her değişiklik Guidy kaydına düşer. Opsiyon süresi 2 gün içinde dolanlar kırmızı görünür.</p>
+<p class="note">Bu liste bu cihazda tutulur. Ortak tasarımcı portalı açıldığında tüm kayıtlar tek yerde toplanacak.</p>
+<div class="kpi"><div>Aktif rezervasyon<b id="kA">0</b></div><div>Opsiyonu yaklaşan<b id="kO">0</b></div><div>Toplam satış<b id="kS">0 TL</b></div><div>Toplam brüt kâr<b id="kK">0 TL</b></div></div>
+<div class="bar">
+  <label>Durum<select id="fd"><option value="">Hepsi</option></select></label>
+  <label>Ara<input id="fq" placeholder="müşteri, otel, rez. no"></label>
+  <a class="btn" href="rezervasyon.html">+ Yeni rezervasyon</a>
+  <button class="btn ghost" type="button" id="csv">Excel'e aktar (CSV)</button>
+</div>
+<div id="list"></div>
+</div></main>
+<footer class="band" style="padding-block:28px"><div class="wrap"><p class="note">Guidy · Rezervasyonlar belgeli seyahat acentesi üzerinden kesinleşir.</p></div></footer>
+<script src="rez.js?v=1"></script>
+<script>
+(function(){
+const $=id=>document.getElementById(id),E=GR.esc;
+GR.STATUS.forEach(s=>$('fd').insertAdjacentHTML('beforeend',`<option>${s}</option>`));
+const days=d=>d?Math.ceil((new Date(d+'T23:59')-new Date())/864e5):null;
+const opsMin=r=>(r.items||[]).map(i=>i.ops).filter(Boolean).sort()[0];
+function render(){const all=GR.load(),fd=$('fd').value,q=$('fq').value.toLocaleLowerCase('tr-TR');
+  const act=all.filter(r=>!['Tamamlandı','İptal'].includes(r.durum));
+  $('kA').textContent=act.length;$('kO').textContent=act.filter(r=>{const d=days(opsMin(r));return d!=null&&d<=2&&['Talep alındı','Opsiyonlu'].includes(r.durum)}).length;
+  const live=all.filter(r=>r.durum!=='İptal'),tot=live.reduce((a,r)=>{const t=GR.totals(r);a.s+=t.sat;a.k+=t.kar;return a},{s:0,k:0});$('kS').textContent=GR.tl(tot.s);$('kK').textContent=GR.tl(tot.k);
+  const L=all.filter(r=>(!fd||r.durum===fd)&&(!q||JSON.stringify(r).toLocaleLowerCase('tr-TR').includes(q)));
+  $('list').innerHTML=L.length?L.map(r=>{const t=GR.totals(r),o=opsMin(r),d=days(o),w=d!=null&&d<=2&&['Talep alındı','Opsiyonlu'].includes(r.durum);
+    return `<div class="rz"><div><span class="pill">${E(r.no)}</span> <span class="pill">${E(r.durum)}</span><h3 style="margin-top:8px">${E(r.musteri)} · ${E(r.kisi||'')}</h3>
+    <p class="m">${E(r.giris||'')} → ${E(r.cikis||'')} · ${E(r.tasarimci)}${r.teklif?' · teklif '+E(r.teklif):''}</p>
+    <ul>${(r.items||[]).map(i=>`<li>${E(i.ad)} <span class="note">(${E(i.kaynak)}${i.konf?' #'+E(i.konf):', rez. no yok'}${i.ops?' · opsiyon '+E(i.ops):''})</span></li>`).join('')}</ul>
+    ${w?`<p class="warn" style="margin-top:8px">Opsiyon ${d<0?'süresi geçti':d===0?'bugün doluyor':d+' gün içinde doluyor'} (${E(o)})</p>`:''}</div>
+    <div><p class="m">Satış <b>${GR.tl(t.sat)}</b><br>Kâr <b>${GR.tl(t.kar)}</b></p>
+    <label style="margin-top:8px">Durum<select data-no="${E(r.no)}">${GR.STATUS.map(s=>`<option${s===r.durum?' selected':''}>${s}</option>`).join('')}</select></label>
+    <a class="btn ghost mini" style="margin-top:8px" href="rezervasyon.html?no=${encodeURIComponent(r.no)}">Aç / düzenle</a></div></div>`}).join(''):'<p class="note" style="margin-top:20px">Henüz rezervasyon yok.</p>';
+  $('list').querySelectorAll('select[data-no]').forEach(s=>s.onchange=async()=>{const l=GR.load(),r=l.find(x=>x.no===s.dataset.no);if(!r)return;const eski=r.durum;r.durum=s.value;
+    if(s.value==='İptal'&&!confirm('Rezervasyon iptal olarak işaretlensin mi? Rota tasarım ücreti müşteriye iade edilir ve tasarımcı dosyasına kaydedilir.')){s.value=eski;return}
+    r.gecmis=(r.gecmis||[]).concat([{t:new Date().toISOString(),o:eski+' → '+s.value}]);GR.save(l);render();await GR.log(r,'Durum: '+eski+' → '+s.value)})}
+$('fd').onchange=render;$('fq').oninput=render;
+$('csv').onclick=()=>{const rows=[['Rez. no','Durum','Tasarımcı','Müşteri','Telefon','E-posta','Giriş','Çıkış','Kişi','Teklif no','Kalem','Tedarikçi','Tedarikçi rez. no','Opsiyon','Net TL','Satış TL']];
+  GR.load().forEach(r=>(r.items||[]).forEach(i=>rows.push([r.no,r.durum,r.tasarimci,r.musteri,r.tel,r.email,r.giris,r.cikis,r.kisi,r.teklif,i.ad,i.kaynak,i.konf,i.ops,i.net,i.sat])));
+  const csv='﻿'+rows.map(x=>x.map(v=>'"'+String(v??'').replace(/"/g,'""')+'"').join(';')).join('\n');const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));a.download='guidy-rezervasyonlar.csv';a.click()};
+render();
+})();
+</script>
+</body>
+</html>
