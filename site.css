@@ -236,3 +236,8 @@ a.route{display:block;text-decoration:none}.route .rgo{display:inline-block;marg
 .navlogin{display:inline-flex;align-items:center;padding:9px 14px;border:1px solid rgba(255,255,255,.45);border-radius:999px;color:#fff;font-size:14px;font-weight:600;text-decoration:none;white-space:nowrap}
 .navlogin:hover{background:rgba(255,255,255,.12)}
 body.sub nav .navlogin{color:#fff}
+
+input[type=radio],input[type=checkbox]{width:auto}
+.chips input,.seg input[type=radio]{width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.dstory{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:40px}
+@media(max-width:760px){.dstory{grid-template-columns:1fr;gap:24px}}

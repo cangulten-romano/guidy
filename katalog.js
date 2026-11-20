@@ -18,7 +18,7 @@ const GK=(function(){
     <div class="hcard-body"><p class="hcard-loc">${esc(h.sehir)}${h.semt?' · '+esc(h.semt):''}</p><h3>${esc(h.ad)}</h3>
     <div class="chips">${tags(h).map(t=>`<span class="chip sm">${t}</span>`).join('')}${pk?'<span class="chip sm perk">Ayrıcalıklı</span>':''}</div>
     ${pk?`<p class="hcard-perk">${SHOW_PERKS?esc(pk):'Seyahat tasarımcınızla rezervasyonda otele özel ayrıcalıklar: oda yükseltme, kahvaltı ya da otel kredisi gibi.'}</p>`:''}
-    <a class="hcard-go" href="seyahat-talebi.html?otel=${encodeURIComponent(h.ad)}">Bu otelle seyahatimi tasarla →</a></div></article>`}
+    <a class="hcard-go" href="seyahat-talebi.html?otel=${encodeURIComponent(h.ad)}${r?`&bolge=${encodeURIComponent(r.ad)}`:''}">Bu otelle seyahatimi tasarla →</a></div></article>`}
   function regionTile(b){return `<a class="dtile" href="destinasyon.html?b=${b.id}" style="background-image:linear-gradient(180deg,rgba(10,22,52,0) 40%,rgba(10,22,52,.75)),url('${IMG(b.img,800)}')"><span class="dt-name">${esc(b.ad)}</span><span class="dt-sub">${esc(b.kisa)}</span></a>`}
   function search(q){const s=low(q);return {regions:B.filter(b=>low(b.ad+' '+b.sehir.join(' ')+' '+b.kisa).includes(s)),hotels:H.filter(h=>low(h.ad+' '+h.sehir+' '+h.semt+' '+h.tip).includes(s))}}
   function wireSearch(form){const inp=form.querySelector('input'),dl=document.createElement('datalist');dl.id='gk-dl';

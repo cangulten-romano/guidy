@@ -8,7 +8,7 @@
 <link rel="canonical" href="https://www.guidy.tr/seyahat-talebi.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="site.css?v=9">
+<link rel="stylesheet" href="site.css?v=10">
 <style>
 .tform{max-width:860px;margin:0 auto}
 .tform h2{font-size:clamp(20px,2.2vw,24px);margin-top:8px}
@@ -39,7 +39,7 @@
 <nav>
   <a class="logo" href="index.html" aria-label="Guidy ana sayfa">Guidy</a><a class="homeback" href="index.html">← Ana sayfa</a><div class="langsw" aria-label="Language"><a class="on" href="seyahat-talebi.html" hreflang="tr" lang="tr">TR</a><a href="en/seyahat-talebi.html" hreflang="en" lang="en">EN</a><a href="es/seyahat-talebi.html" hreflang="es" lang="es">ES</a><a href="de/seyahat-talebi.html" hreflang="de" lang="de">DE</a><a href="ru/seyahat-talebi.html" hreflang="ru" lang="ru">RU</a></div>
   <ul>
-    <li><a href="index.html#gezgin">Gezginler için</a></li>
+    <li><a href="destinasyon.html">Destinasyonlar</a></li>
     <li><a href="turlar.html">Turlar</a></li>
     <li><a href="index.html#elcilerimiz">Seyahat Tasarımcıları</a></li>
     <li><a href="index.html#elci">Seyahat tasarımcısı olun</a></li>
@@ -219,7 +219,7 @@
     if(!/^\S+@\S+\.\S+$/.test($('eposta').value.trim())){err.textContent='E-posta adresini kontrol edin.';$('eposta').focus();return}
     if(!$('kvkk').checked){err.textContent='Devam etmek için kişisel veri onayını işaretleyin.';return}
     const fd=new FormData(f);
-    {const n=$('nereye').value.trim()||'Henüz karar vermedi',e=$('f_elci').value;fd.set('_subject','Seyahat talebi: '+n+' · '+$('ad').value.trim()+(e?' → '+e:' → tasarımcı atanacak'))}
+    {const n=$('nereye').value.trim()||'Henüz karar vermedi',e=$('f_elci').value;fd.set('_subject','Seyahat talebi: '+n+(q.get('otel')?' ('+q.get('otel')+')':'')+' · '+$('ad').value.trim()+(e?' → '+e:' → tasarımcı atanacak'))}
     ['neden','tarz','hizmet'].forEach(k=>{const v=fd.getAll(k);fd.delete(k);if(v.length)fd.set(k,v.join(', '))});
     const b=$('gonder'),l=b.textContent;b.disabled=true;b.textContent='Gönderiliyor…';
     try{
