@@ -26,9 +26,9 @@ const GK=(function(){
     form.addEventListener('submit',e=>{e.preventDefault();const v=inp.value.trim();if(!v)return;const b=B&&B.find(x=>low(x.ad)===low(v));location.href=b?`destinasyon.html?b=${b.id}`:`destinasyon.html?q=${encodeURIComponent(v)}`})}
   function gallery(b){const g=b.galeri||[];if(!g.length)return '';return `<div class="dgal n${Math.min(g.length,5)}">${g.slice(0,5).map((id,i)=>`<a href="${IMG(id,1800)}" target="_blank" rel="noopener" style="background-image:url('${IMG(id,i?700:1300)}')" aria-label="${esc(b.ad)} fotoğraf ${i+1}"></a>`).join('')}</div><p class="dgal-cr">Fotoğraflar: Unsplash</p>`}
   const TAS={'Gülten Can Romano':['elci-gulten-can-romano.html','gulten-can-romano.jpg','Kurucu seyahat tasarımcısı · İstanbul, kültür rotaları, butik ve lüks seyahat'],
-   'Ali Mataracı':['elci-ali-mataraci.html','photo-1612698093158-e07ac200d44e','Kültür ve şehir, İtalya, gastronomi'],
-   'Cansu Keskin':['elci-cansu-keskin.html','photo-1641128324972-af3212f0f6bd','Kapadokya, aile tatilleri, balayı'],
-   'Melisa Tamses':['elci-melisa-tamses.html','photo-1665470298557-e05d996d0022','Ege ve Akdeniz kıyıları, mavi yolculuk, butik oteller']};
+   'Ali Mataracı':['elci-ali-mataraci.html','assets/ali-mataraci.jpg','Kültür ve şehir, İtalya, gastronomi'],
+   'Cansu Keskin':['elci-cansu-keskin.html','assets/cansu-keskin.jpg','Kapadokya, aile tatilleri, balayı'],
+   'Melisa Tamses':['elci-melisa-tamses.html','assets/melisa-tamses.jpg','Ege ve Akdeniz kıyıları, mavi yolculuk, butik oteller']};
   function designers(b){const L=b.tas||[];if(!L.length)return '';return `<div class="dtas"><p class="kicker">${L.length>1?'Bu bölgenin seyahat tasarımcıları':'Bu bölgenin seyahat tasarımcısı'}</p><div class="dtas-list">${L.map(n=>{const t=TAS[n]||['#','',''];const img=t[1].startsWith('photo-')?IMG(t[1],200):t[1];return `<div class="dtas-c"><img src="${img}" alt="${esc(n)}" loading="lazy"><div><b>${esc(n)}</b><p>${esc(t[2])}</p><a class="btn" href="seyahat-talebi.html?bolge=${encodeURIComponent(b.ad)}&elci=${encodeURIComponent(n)}">${esc(n.split(' ')[0])} ile planla</a> <a href="${t[0]}" class="dtas-p">Profil →</a></div></div>`}).join('')}</div></div>`}
   return {load,card,gallery,designers,regionTile,search,wireSearch,IMG,esc,regionOf};
 })();
