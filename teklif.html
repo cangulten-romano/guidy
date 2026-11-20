@@ -7,7 +7,7 @@
 <meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="site.css?v=10">
+<link rel="stylesheet" href="site.css?v=11">
 <style>
 .pr{max-width:860px;margin:0 auto}
 .phead{background:var(--cobd);color:#fff;border-radius:22px;padding:clamp(24px,4vw,40px)}
@@ -55,7 +55,10 @@ async function unpack(h){const z=h[0];let b=h.slice(1).replace(/-/g,'+').replace
   const money=n=>Math.round(n).toLocaleString(lc)+' TL';
   const sum=(d.items||[]).reduce((s,i)=>s+(+i.p||0),0)+(+d.ucret||0);
   let gec='';if(d.gec){try{gec=new Date(d.gec+'T12:00').toLocaleDateString(lc,{day:'numeric',month:'long',year:'numeric'})}catch(e){gec=d.gec}}
-  root.innerHTML=`<header class="phead"><p class="kicker">${T.k}</p><h1>${esc(d.bas)}</h1><div class="meta2"><span>${T.for} ${esc(d.mus)}</span>${d.tar?`<span>${T.dates}: ${esc(d.tar)}</span>`:''}${d.kis?`<span>${T.ppl}: ${esc(d.kis)}</span>`:''}<span>${T.by}: ${esc(d.tas)}</span></div></header>
+  let back='';try{const r=document.referrer&&new URL(document.referrer);if(r&&r.origin===location.origin&&r.pathname.startsWith('/t/'))back=r.pathname}catch(_){}
+  if(!back&&d.geri&&/^\/t\/[\w-]+\.html$/.test(d.geri))back=d.geri;
+  const BK={tr:'← Tüm seçenekler',en:'← All options',es:'← Todas las opciones',de:'← Alle Optionen',ru:'← Все варианты'}[d.dil]||'← Tüm seçenekler';
+  root.innerHTML=`${back?`<p class="noprint" style="margin:0 0 14px"><a href="${back}" style="font-weight:600">${BK}</a></p>`:''}<header class="phead"><p class="kicker">${T.k}</p><h1>${esc(d.bas)}</h1><div class="meta2"><span>${T.for} ${esc(d.mus)}</span>${d.tar?`<span>${T.dates}: ${esc(d.tar)}</span>`:''}${d.kis?`<span>${T.ppl}: ${esc(d.kis)}</span>`:''}<span>${T.by}: ${esc(d.tas)}</span></div></header>
   ${d.not?`<section class="sec"><h2>${T.note}</h2><div class="boxp"><p>${esc(d.not)}</p></div></section>`:''}
   <section class="sec"><h2>${T.items}</h2>${(d.items||[]).map(i=>`<div class="li"><span class="t">${esc(T.types[i.t]||T.types.diger)}</span><div><b>${esc(i.a)}</b>${i.d?`<div class="d">${esc(i.d)}</div>`:''}</div><span class="p">${money(i.p)}</span></div>`).join('')}
   ${+d.ucret?`<div class="li"><span class="t">Guidy</span><div><b>${T.fee}</b><div class="d">${T.feeD}</div></div><span class="p">${money(d.ucret)}</span></div>`:''}
