@@ -12,7 +12,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://images.unsplash.com">
 <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="site.css?v=12">
+<link rel="stylesheet" href="site.css?v=13">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TravelAgency", "name": "Guidy", "url": "https://www.guidy.tr/", "description": "Türkiye'nin seyahat tasarımcıları ağı.", "areaServed": "TR"}</script>
 <link rel="alternate" hreflang="tr" href="https://www.guidy.tr/">
 <link rel="alternate" hreflang="en" href="https://www.guidy.tr/en/">
@@ -49,12 +49,35 @@
 </header>
 <div class="tile" aria-hidden="true"></div>
 
+<section class="xvb" aria-label="Öne çıkan yolculuk">
+<style>
+.xvb{position:relative;min-height:460px;display:flex;align-items:center;color:#fff;background:#0b2a3c url("https://images.unsplash.com/photo-1529592936026-7846d2a89e8b?auto=format&fit=crop&w=2000&q=70") center/cover no-repeat}
+.xvb::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,24,38,.82) 0%,rgba(6,24,38,.55) 45%,rgba(6,24,38,0) 75%)}
+.xvb .wrap{position:relative;padding:64px 24px}
+.xvb .xvb-box{max-width:520px}
+.xvb .kicker{color:#cfe6ee}
+.xvb h2{color:#fff;font-size:clamp(30px,3.6vw,46px);line-height:1.12;margin-top:8px}
+.xvb p.xvb-meta{margin-top:14px;font-size:16px;color:#e6f0f4}
+.xvb .xvb-price{font-family:Marcellus,serif;font-size:24px;margin-top:16px}
+.xvb .xvb-price small{font-family:Inter,sans-serif;font-size:14px;color:#cfe6ee;margin-left:6px}
+.xvb .cta{margin-top:20px}
+@media(max-width:700px){.xvb{min-height:520px;align-items:flex-end}.xvb::before{background:linear-gradient(0deg,rgba(6,24,38,.88) 0%,rgba(6,24,38,.6) 55%,rgba(6,24,38,.1) 100%)}}
+</style>
+  <div class="wrap"><div class="xvb-box">
+    <p class="kicker">Öne çıkan · Kruvaziyer</p>
+    <h2>İstanbul'dan Roma'ya,<br>yepyeni EXPLORA V ile</h2>
+    <p class="xvb-meta">12–19 Aralık 2027 · 7 gece · Galataport'tan akşam kalkış · Çanakkale, Efes, Girit, Sicilya, Napoli</p>
+    <p class="xvb-price">Kişi başı yaklaşık 5.200 €'dan<small>Roma uzatmasıyla</small></p>
+    <div class="cta"><a class="btn light" href="explora-v-istanbul-roma.html">Yolculuğu incele</a></div>
+  </div></div>
+</section>
+
 <section id="oteller" class="band" style="background:var(--sand)">
   <div class="wrap">
     <p class="kicker">Ayrıcalıklı oteller</p>
     <h2>Seyahat tasarımcınızla daha fazlası</h2>
     <p class="lead">Seyahat tasarımcınızla yapılan rezervasyonlarda otele özel ayrıcalıklar. Ayrıcalıklar rezervasyonda teyit edilir.</p>
-    <div class="hcards" id="hcards"></div>
+    <div class="hcards hc3" id="hcards"></div>
     <div class="cta"><a class="btn ghost" href="destinasyon.html">Tüm oteller</a></div>
   </div>
 </section>
@@ -86,12 +109,6 @@
     <p class="kicker">İlham için</p>
     <h2>Seyahat tasarımcılarının planlayabileceği rotalar</h2>
     <p class="lead">Yurt içinden dünyanın öbür ucuna, size göre uyarlanan örnek rotalar.</p>
-    <a class="perk" href="explora-v-istanbul-roma.html" style="display:block;margin:22px 0 6px;border:2px solid var(--cob);text-decoration:none;color:inherit">
-      <p class="kicker" style="margin-bottom:6px">Öne çıkan · Kruvaziyer</p>
-      <h3>İstanbul'dan Roma'ya, yepyeni EXPLORA V ile</h3>
-      <p>12–19 Aralık 2027 · 7 gece · Galataport'tan kalkış · Roma uzatmasıyla. Kişi başı yaklaşık 5.200 €'dan.</p>
-      <span style="color:var(--cob);font-weight:600">Yolculuğu incele →</span>
-    </a>
     <div class="routes" id="routes"></div>
     <p class="note">Örnek rotalardır; süre ve içerik talebe göre belirlenir, fiyat teklif aşamasında verilir.</p>
     <div class="cta"><a class="btn" href="turlar.html">Tüm yurt dışı turları gör</a></div>
